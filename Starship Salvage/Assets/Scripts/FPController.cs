@@ -31,7 +31,10 @@ public class FPController : MonoBehaviour
 
     [Header("Inventory")]
     public Hotbar hotbarSelector;
-  
+
+    [Header("Pause Menu")]
+    public GameObject PauseMenu;
+    public bool isPaused = false;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -85,6 +88,7 @@ public class FPController : MonoBehaviour
     }
     public void HandleLook()
     {
+        if (isPaused) return; // Don't rotate camera when paused
         float mouseX = lookInput.x * lookSensitivity;
         float mouseY = lookInput.y * lookSensitivity;
         verticalRotation -= mouseY;
@@ -209,6 +213,29 @@ public class FPController : MonoBehaviour
         heldObject.Drop();
         Destroy(heldObject.gameObject);
         heldObject = null;
+    }
+
+    
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            PauseMenu.SetActive(true);
+            Time.timeScale = 0f; 
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            PauseMenu.SetActive(false);
+            Time.timeScale = 1f; 
+        }
     }
 
 }
