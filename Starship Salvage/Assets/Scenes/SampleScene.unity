@@ -2411,13 +2411,13 @@ MonoBehaviour:
     m_ActionName: 'New action map/Look[/Mouse/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1339711967}
+        m_TargetAssemblyTypeName: InteractionDetector, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2582,10 +2582,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 0}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  dialoguePanel: {fileID: 1324334471}
+  dialogueText: {fileID: 1170882780}
+  nameText: {fileID: 320676294}
 --- !u!1 &1692870913
 GameObject:
   m_ObjectHideFlags: 0
