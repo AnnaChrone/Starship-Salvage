@@ -108,6 +108,51 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""82a3e061-355d-4e49-ba94-a1554ff336d8"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4cea54b-99de-4187-b805-c7dc1c0c461d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""4185fb32-b665-41e1-a0d1-446b4b4e820f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""1111ce9d-830e-4c68-b81d-ac0024e7ef05"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""54f7c4ba-a8b2-4cf3-8ec9-3e114e47cb28"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,7 +173,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -139,7 +184,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -150,7 +195,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -161,7 +206,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -183,7 +228,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -194,7 +239,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -205,7 +250,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -216,7 +261,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -238,7 +283,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -249,7 +294,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -260,7 +305,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -271,7 +316,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -282,7 +327,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -293,20 +338,152 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8621c4c-ee0c-4be7-b248-988a8f6f3044"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93fdbee4-6849-471a-af2b-b47822057471"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1cfd438-261b-4f73-9e96-fd14869babb2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4072fd9-af4d-4557-a51f-6ca3a84a7c75"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9f3e9b4-3e00-4004-9f31-dd05782a6e07"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1de0f06c-9df2-4dd5-a275-111d2906ca86"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4282ef93-dfe8-46a3-92c3-eac8b52c7b7c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f13d3790-2319-4fb4-8541-eac12ca5a4d1"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58ba8aa0-01d3-4e02-b982-df8d8c4cb83e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // New action map
         m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
         m_Newactionmap_Movement = m_Newactionmap.FindAction("Movement", throwIfNotFound: true);
         m_Newactionmap_Look = m_Newactionmap.FindAction("Look", throwIfNotFound: true);
+        m_Newactionmap_Scroll = m_Newactionmap.FindAction("Scroll", throwIfNotFound: true);
+        m_Newactionmap_Pickup = m_Newactionmap.FindAction("Pickup", throwIfNotFound: true);
+        m_Newactionmap_Drop = m_Newactionmap.FindAction("Drop", throwIfNotFound: true);
+        m_Newactionmap_Jump = m_Newactionmap.FindAction("Jump", throwIfNotFound: true);
+        m_Newactionmap_Crouch = m_Newactionmap.FindAction("Crouch", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -389,6 +566,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<INewactionmapActions> m_NewactionmapActionsCallbackInterfaces = new List<INewactionmapActions>();
     private readonly InputAction m_Newactionmap_Movement;
     private readonly InputAction m_Newactionmap_Look;
+    private readonly InputAction m_Newactionmap_Scroll;
+    private readonly InputAction m_Newactionmap_Pickup;
+    private readonly InputAction m_Newactionmap_Drop;
+    private readonly InputAction m_Newactionmap_Jump;
+    private readonly InputAction m_Newactionmap_Crouch;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -408,6 +590,26 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Newactionmap/Look".
         /// </summary>
         public InputAction @Look => m_Wrapper.m_Newactionmap_Look;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Scroll".
+        /// </summary>
+        public InputAction @Scroll => m_Wrapper.m_Newactionmap_Scroll;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Pickup".
+        /// </summary>
+        public InputAction @Pickup => m_Wrapper.m_Newactionmap_Pickup;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Drop".
+        /// </summary>
+        public InputAction @Drop => m_Wrapper.m_Newactionmap_Drop;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m_Newactionmap_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Crouch".
+        /// </summary>
+        public InputAction @Crouch => m_Wrapper.m_Newactionmap_Crouch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -440,6 +642,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Scroll.started += instance.OnScroll;
+            @Scroll.performed += instance.OnScroll;
+            @Scroll.canceled += instance.OnScroll;
+            @Pickup.started += instance.OnPickup;
+            @Pickup.performed += instance.OnPickup;
+            @Pickup.canceled += instance.OnPickup;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
         }
 
         /// <summary>
@@ -457,6 +674,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Scroll.started -= instance.OnScroll;
+            @Scroll.performed -= instance.OnScroll;
+            @Scroll.canceled -= instance.OnScroll;
+            @Pickup.started -= instance.OnPickup;
+            @Pickup.performed -= instance.OnPickup;
+            @Pickup.canceled -= instance.OnPickup;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
         }
 
         /// <summary>
@@ -490,6 +722,32 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="NewactionmapActions" /> instance referencing this action map.
     /// </summary>
     public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
+    private int m_KeyboardSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_GamepadSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "New action map" which allows adding and removing callbacks.
     /// </summary>
@@ -511,5 +769,40 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLook(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Scroll" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnScroll(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pickup" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPickup(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Drop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDrop(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }
