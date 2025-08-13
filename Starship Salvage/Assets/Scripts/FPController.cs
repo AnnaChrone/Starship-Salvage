@@ -44,6 +44,7 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+
         originalMoveSpeed = moveSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -60,6 +61,7 @@ public class FPController : MonoBehaviour
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
     }
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();

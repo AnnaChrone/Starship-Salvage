@@ -29,11 +29,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void MainMenu()
-    {
-
-    }
-
     public void OpenControls()
     {
         Controls.SetActive(true);
