@@ -159,8 +159,7 @@ public class Hotbar : MonoBehaviour
             heldItemInstances[slotIndex] = instance;
             instance.transform.SetParent(holdPoint);
             instance.transform.localPosition = Vector3.zero;
-            instance.transform.localRotation = Quaternion.identity;
-            instance.transform.localScale = Vector3.one;
+       
 
             // Update selection so that if this is current index, it becomes active
             if (slotIndex == index)

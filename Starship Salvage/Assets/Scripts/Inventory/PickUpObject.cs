@@ -3,8 +3,8 @@ using UnityEngine;
 public class PickUpObject : MonoBehaviour
 {
     [Header("Item Data")]
-    public GameObject itemPrefab; // Assign prefab (usually self) in inspector
-    public Sprite icon;           // Assign icon sprite in inspector
+    public GameObject itemPrefab; 
+    public Sprite icon;           
 
     private Rigidbody rb;
     private bool isHeld = false;
@@ -18,13 +18,13 @@ public class PickUpObject : MonoBehaviour
     {
         isHeld = true;
         rb.useGravity = false;
+        rb.isKinematic = true; 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
         transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-        transform.localScale = Vector3.one;
+        transform.localScale = transform.localScale; // keeps current scale
     }
 
     public void Drop()
