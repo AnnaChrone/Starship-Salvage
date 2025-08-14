@@ -7,6 +7,7 @@ public class PickUpObject : MonoBehaviour
     public Sprite icon;           // Assign icon sprite in inspector
 
     private Rigidbody rb;
+    private bool isHeld = false;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class PickUpObject : MonoBehaviour
 
     public void PickUp(Transform holdPoint)
     {
+        isHeld = true;
         rb.useGravity = false;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -27,12 +29,17 @@ public class PickUpObject : MonoBehaviour
 
     public void Drop()
     {
+        isHeld = false;
+        transform.SetParent(null, true);
         rb.useGravity = true;
-        transform.SetParent(null);
+        rb.isKinematic = false;
     }
 
     public void MoveToHoldPoint(Vector3 targetPosition)
     {
-        rb.MovePosition(targetPosition);
+        if (isHeld)
+        {
+            rb.MovePosition(targetPosition);
+        }
     }
 }

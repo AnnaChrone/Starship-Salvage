@@ -171,4 +171,31 @@ public class Hotbar : MonoBehaviour
     }
 
 
+    public void DropCurrentItem()
+    {
+        int slotIndex = index;
+        GameObject heldItem = heldItemInstances[slotIndex];
+
+        if (heldItem == null) return;
+
+        PickUpObject pickUpScript = heldItem.GetComponent<PickUpObject>();
+        if (pickUpScript != null)
+            pickUpScript.Drop();
+
+        // Remove from hotbar
+        heldItemInstances[slotIndex] = null;
+        storedItemPrefabs[slotIndex] = null;
+
+        // Clear UI
+        if (slotIcons[slotIndex] != null)
+        {
+            slotIcons[slotIndex].sprite = null;
+            slotIcons[slotIndex].enabled = false;
+        }
+
+        UpdateSelection();
+    }
+
+
+
 }

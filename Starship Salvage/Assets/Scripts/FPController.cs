@@ -169,32 +169,25 @@ public class FPController : MonoBehaviour
                     return;
                 }
 
-                // Instantiate the item prefab as inactive child of holdPoint
-                GameObject newInstance = Instantiate(pickUp.itemPrefab, hotbarSelector.holdPoint);
-                newInstance.transform.localPosition = Vector3.zero;
-                newInstance.transform.localRotation = Quaternion.identity;
-                newInstance.transform.localScale = Vector3.one;
-                newInstance.SetActive(false);  // Important: start disabled
+                // Use the actual object from the scene
+                GameObject item = pickUp.gameObject;
 
-                // Store the instance inside the hotbar
-                hotbarSelector.SetHeldItemInstance(freeSlot, newInstance);
+                // Tell it to follow the hold point
+                pickUp.PickUp(hotbarSelector.holdPoint);
 
-                // Store the prefab in hotbar to update the icon
+                // Store the object instance in the hotbar
+                hotbarSelector.SetHeldItemInstance(freeSlot, item);
+
+                // Store prefab reference (optional, for icon)
                 hotbarSelector.StoreItemInSlot(freeSlot, pickUp.itemPrefab);
 
-                // Set hotbar current index to the new slot and update UI
+                // Update hotbar selection
                 hotbarSelector.CurrentIndex = freeSlot;
                 hotbarSelector.UpdateSelection();
-
-                // Update heldObject to point to newly active held item
-                heldObject = newInstance.GetComponent<PickUpObject>();
-                heldObject.PickUp(hotbarSelector.holdPoint); // parent & reset transform (optional if you want)
-
-                // Destroy the original pickup object in the world
-                Destroy(pickUp.gameObject);
             }
         }
     }
+
 
 
 
@@ -212,9 +205,8 @@ public class FPController : MonoBehaviour
 
     public void OnDrop(InputAction.CallbackContext context)
     {
-        heldObject.Drop();
-        Destroy(heldObject.gameObject);
-        heldObject = null;
+        if (!context.performed) return;
+        hotbarSelector.DropCurrentItem();
     }
 
     
