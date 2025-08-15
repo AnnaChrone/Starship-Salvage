@@ -3124,6 +3124,7 @@ MonoBehaviour:
   moveSpeed: 5
   gravity: -9.81
   jumpHeight: 1.5
+  Dialogue: {fileID: 1487406193}
   cameraTransform: {fileID: 330585546}
   lookSensitivity: 0.3
   verticalLookLimit: 90
@@ -3584,6 +3585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  isFrozen: 0
 --- !u!1001 &1536171271
 PrefabInstance:
   m_ObjectHideFlags: 0

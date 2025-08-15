@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
+    public bool isFrozen = false;
 
     public void Start()
     {
@@ -38,6 +39,8 @@ public class NPC : MonoBehaviour, IInteractable
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        isFrozen = true;
+        
 
         Debug.Log("StartDialogue");
         isDialogueActive = true;
@@ -143,6 +146,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;;
+        Cursor.visible = false;
+        isFrozen = false;
     }
 }

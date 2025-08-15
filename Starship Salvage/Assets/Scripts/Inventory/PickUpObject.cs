@@ -24,7 +24,7 @@ public class PickUpObject : MonoBehaviour
 
         transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
-        transform.localScale = transform.localScale; // keeps current scale
+
     }
 
     public void Drop()

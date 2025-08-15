@@ -8,6 +8,7 @@ public class FPController : MonoBehaviour
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
+    public NPC Dialogue;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -64,11 +65,18 @@ public class FPController : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        if (!Dialogue.isFrozen)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
+        else return;
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        lookInput = context.ReadValue<Vector2>();
+        if (!Dialogue.isFrozen)
+        {
+            lookInput = context.ReadValue<Vector2>();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -230,6 +238,13 @@ public class FPController : MonoBehaviour
             PauseMenu.SetActive(false);
             Time.timeScale = 1f; 
         }
+    }
+
+    public void OnUseItem(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+
     }
 
 }
