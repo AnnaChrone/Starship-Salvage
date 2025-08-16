@@ -5,9 +5,9 @@ using System;
 [CreateAssetMenu( menuName = "Quest")]
 public class Quests : ScriptableObject
 {
-    public string QuestID;
+    public string QuestID; //special identifier for quests
     public string QuestName;
-    public string Description;
+    public string Description; // description 
     public List<QuestObjective> objectives;
 
 }
@@ -24,7 +24,7 @@ public class Quests : ScriptableObject
         public bool isCompleted => Incomplete >= Complete; //=>. is a lambda expression. isCompleted should return the value based on the expression
     }
 
-    public enum ObjectiveType { Fetch }
+    public enum ObjectiveType { Fetch } //This enum will grow and will contain different categories of quests
 
     [System.Serializable]
     public class QuestProgress
@@ -50,7 +50,9 @@ public class Quests : ScriptableObject
                 });
             }
         }
+
+        //The quest and objective information will be linked to UI so that the player can keep track of progress
         public bool isCompleted => objectives.TrueForAll(o => o.isCompleted);
-        public string questID => quest.QuestID;
+        public string questID => quest.QuestID; //Gets quest ID
 
     }

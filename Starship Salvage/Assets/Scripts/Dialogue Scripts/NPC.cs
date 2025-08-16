@@ -4,29 +4,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour, IInteractable
+public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 {
-    public NPCDialogue dialogueData;
-    private DialogueController dialogueControl;
+    public NPCDialogue dialogueData; //Calls from NPCDialogue class
+    private DialogueController dialogueControl; //Calls from DialogueControoler class
 
-    private int dialogueIndex;
+    private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-    private enum QuestState {NotStarted, InProgress, Completed}
-    private QuestState questState = QuestState.NotStarted;
-    public bool isFrozen = false;
+    private enum QuestState {NotStarted, InProgress, Completed} //States of quests
+    private QuestState questState = QuestState.NotStarted; //Initial QuestState
+    public bool isFrozen = false; //Pauses game
 
     public void Start()
     {
-        dialogueControl = DialogueController.Instance;
+        dialogueControl = DialogueController.Instance; //Create an instance
     }
     public bool CanInteract()
     {
-        return !isDialogueActive;
+        return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
     }
 
     public void Interact()
     {
-        Debug.Log("Interact called");
         if (isDialogueActive)
         {
             NextLine();   
@@ -41,9 +40,9 @@ public class NPC : MonoBehaviour, IInteractable
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        isFrozen = true;
+        isFrozen = true; //Pauses game so that player does not run away from NPC
         
-        SyncQuestState();
+        SyncQuestState(); //Sync dialogue depending on state of quest
 
         //Set dialogue line based on quest state
         if (questState == QuestState.NotStarted)
@@ -52,17 +51,15 @@ public class NPC : MonoBehaviour, IInteractable
         }
         else if (questState == QuestState.InProgress)
         {
-            dialogueIndex = dialogueData.questInProgressIndex;
+            dialogueIndex = dialogueData.questInProgressIndex; //There is a specific index for what dialogue to display
         }
         else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
         }
 
-        Debug.Log("StartDialogue");
         isDialogueActive = true;
 
-        Debug.Log("Panel is active");
         dialogueControl.SetNPCInfo(dialogueData.npcName);
         dialogueControl.ShowDialoguePanel(true);
         DisplayCurrentLine();
@@ -76,7 +73,7 @@ public class NPC : MonoBehaviour, IInteractable
             return;
         }
 
-        string questID = dialogueData.quests.QuestID;
+        string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
 
         //Future update add completing quest and handing in
         if (QuestController.Instance.IsQuestActive(questID))
@@ -91,11 +88,10 @@ public class NPC : MonoBehaviour, IInteractable
 
     void NextLine()
     {
-        Debug.Log("Next Line");
         if (isTyping)
         {
             StopAllCoroutines();
-            dialogueControl.SetDialogue(dialogueData.Lines[dialogueIndex]);
+            dialogueControl.SetDialogue(dialogueData.Lines[dialogueIndex]); //Type out all the lines
             isTyping = false;
         }
 
@@ -136,7 +132,7 @@ public class NPC : MonoBehaviour, IInteractable
         isTyping = true;
         dialogueControl.SetDialogue("");
 
-        foreach (char letter in dialogueData.Lines[dialogueIndex])
+        foreach (char letter in dialogueData.Lines[dialogueIndex]) //Types out line one char at a time
         {
             dialogueControl.SetDialogue(dialogueControl.dialogueText.text += letter);
             yield return new WaitForSeconds(dialogueData.typingSpeed);
@@ -147,12 +143,12 @@ public class NPC : MonoBehaviour, IInteractable
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
-            NextLine();
+            NextLine(); //If the line is done typing then it will pause and continue with the next line
         }
 
     }
 
-     void DisplayChoices(DialogueChoice choice)
+     void DisplayChoices(DialogueChoice choice)//Displays the choice buttons
     {
         for (int i = 0; i < choice.Choices.Length; i++)
         {
@@ -164,13 +160,13 @@ public class NPC : MonoBehaviour, IInteractable
 
     void ChooseOption(int nextIndex, bool givesQuest)
     {
-        if (givesQuest)
+        if (givesQuest) //If the index is a quest, save whether the player accepts it or not
         {
             QuestController.Instance.AcceptQuest(dialogueData.quests);
             questState = QuestState.InProgress;
         }
         
-        dialogueIndex = nextIndex;
+        dialogueIndex = nextIndex;//Next line
         dialogueControl.ClearChoices();
         DisplayCurrentLine();
     }
