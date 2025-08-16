@@ -3,35 +3,28 @@ using UnityEngine.InputSystem;
 
 public class InteractionDetector : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
     private IInteractable interactableInRange = null;
 
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            interactableInRange?.Interact();
-            print("I work");
+            interactableInRange?.Interact(); //Calls Interaction from new input system
         }
     }
     private void OnTriggerEnter(Collider collide)
     {
         if ( collide.TryGetComponent(out IInteractable interactable))
         {
-            interactableInRange = interactable;
-            Debug.Log("State interactable");
+            interactableInRange = interactable; //Checks if object is interactable
         }
-        Debug.Log("Player triggered");
     }
 
     private void OnTriggerExit(Collider collide)
     {
         if (collide.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
         {
-            interactableInRange = null;
+            interactableInRange = null; //Ensures that player does not interact with anything
         }
     } 
 
