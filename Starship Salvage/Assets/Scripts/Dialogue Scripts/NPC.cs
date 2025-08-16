@@ -11,7 +11,6 @@ public class NPC : MonoBehaviour, IInteractable
 
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
-    
     private enum QuestState {NotStarted, InProgress, Completed}
     private QuestState questState = QuestState.NotStarted;
     public bool isFrozen = false;
@@ -44,7 +43,9 @@ public class NPC : MonoBehaviour, IInteractable
         Cursor.visible = true;
         isFrozen = true;
         
-         //Set dialogue line based on quest state
+        SyncQuestState();
+
+        //Set dialogue line based on quest state
         if (questState == QuestState.NotStarted)
         {
             dialogueIndex = 0;
@@ -61,7 +62,6 @@ public class NPC : MonoBehaviour, IInteractable
         Debug.Log("StartDialogue");
         isDialogueActive = true;
 
-      
         Debug.Log("Panel is active");
         dialogueControl.SetNPCInfo(dialogueData.npcName);
         dialogueControl.ShowDialoguePanel(true);
@@ -69,7 +69,7 @@ public class NPC : MonoBehaviour, IInteractable
         
     }
 
- private void SyncQuestState()
+     private void SyncQuestState()
     {
         if (dialogueData.quests == null)
         {
@@ -88,6 +88,7 @@ public class NPC : MonoBehaviour, IInteractable
             questState = QuestState.NotStarted;
         }
     }
+
     void NextLine()
     {
         Debug.Log("Next Line");
@@ -163,12 +164,12 @@ public class NPC : MonoBehaviour, IInteractable
 
     void ChooseOption(int nextIndex, bool givesQuest)
     {
-         if (givesQuest)
+        if (givesQuest)
         {
             QuestController.Instance.AcceptQuest(dialogueData.quests);
             questState = QuestState.InProgress;
         }
-
+        
         dialogueIndex = nextIndex;
         dialogueControl.ClearChoices();
         DisplayCurrentLine();
