@@ -15,13 +15,13 @@ public class Quests : ScriptableObject
 
     public class QuestObjective
     {
-        public GameObject ObjectiveID;//Match with item ID we fetched,delivered... this will be updated when all quests are finalized
+        public int ObjectiveID;//Match with item ID we fetched,delivered... this will be updated when all quests are finalized
         public string Description;
         public ObjectiveType type;
         public int Incomplete; //This value will be a 0 for our fetch quest. 
-        public int Complete;// This value will be 1
+        public int Complete;// This value will be 1, to indicate an itme is found
 
-        public bool isCompleted => Incomplete >= Complete; //=. is a lambda expression. isCompleted should return the value based on the expression
+        public bool isCompleted => Incomplete >= Complete; //=>. is a lambda expression. isCompleted should return the value based on the expression
     }
 
     public enum ObjectiveType { Fetch }

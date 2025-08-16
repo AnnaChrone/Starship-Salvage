@@ -22,8 +22,11 @@ MonoBehaviour:
   - Can you help me find it?
   - Okay I will be waiting
   - Awesome
-  autoProgressLines: 0101010101010101
-  endLines: 0000000000000101
+  - Have you found it yet?
+  - Thank you so much!
+  - Here, have this...
+  autoProgressLines: 0101010101010101010101
+  endLines: 0000000000000101010001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
@@ -32,3 +35,7 @@ MonoBehaviour:
     - Of course!
     - Hmm.. maybe later.
     nextDialogueIndexes: 0700000006000000
+    givesQuest: 0100
+  questInProgressIndex: 8
+  questCompletedIndex: 9
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
