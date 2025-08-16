@@ -8,12 +8,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 {
     public NPCDialogue dialogueData; //Calls from NPCDialogue class
     private DialogueController dialogueControl; //Calls from DialogueControoler class
+    public Item item; //Calls from Item class
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
     private enum QuestState {NotStarted, InProgress, Completed} //States of quests
     private QuestState questState = QuestState.NotStarted; //Initial QuestState
     public bool isFrozen = false; //Pauses game
+    public Hotbar hotbar; //Calls the hotbar
 
     public void Start()
     {
@@ -66,7 +68,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         
     }
 
-     private void SyncQuestState()
+    private void SyncQuestState()
     {
         if (dialogueData.quests == null)
         {
@@ -75,15 +77,23 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
         string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
 
-        //Future update add completing quest and handing in
         if (QuestController.Instance.IsQuestActive(questID))
+    {
+        if (hotbar.hasItem(questID)) //if the item in the hot basr is the same in the quest id, it is complete
         {
-            questState = QuestState.InProgress;
+            questState = QuestState.Completed;
+            QuestController.Instance.CompleteQuest(questID);
         }
         else
         {
-            questState = QuestState.NotStarted;
+            questState = QuestState.InProgress;
         }
+    }
+    else
+    {
+        questState = QuestState.NotStarted;
+    }
+
     }
 
     void NextLine()

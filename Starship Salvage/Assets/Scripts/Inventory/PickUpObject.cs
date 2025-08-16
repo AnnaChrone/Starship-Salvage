@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickUpObject : MonoBehaviour
 {
     [Header("Item Data")]
+    public string itemID; //unique value that coincides with questID
     public GameObject itemPrefab; 
     public Sprite icon;           
 

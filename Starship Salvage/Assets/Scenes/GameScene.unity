@@ -1486,6 +1486,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6274745553418604549, guid: d9a440402a363584abc50184881273d7, type: 3}
+      propertyPath: itemID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2115,7 +2119,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1292721829374849161, guid: 2591131524f97d147bfefba7057bc529, type: 3}
       propertyPath: m_Name
-      value: Item 1
+      value: Blanky
       objectReference: {fileID: 0}
     - target: {fileID: 4895115019472492858, guid: 2591131524f97d147bfefba7057bc529, type: 3}
       propertyPath: m_LocalScale.x
@@ -2173,32 +2177,15 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6550250609161213230, guid: 2591131524f97d147bfefba7057bc529, type: 3}
+      propertyPath: itemID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1292721829374849161, guid: 2591131524f97d147bfefba7057bc529, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 834198233}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2591131524f97d147bfefba7057bc529, type: 3}
---- !u!1 &834198232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1292721829374849161, guid: 2591131524f97d147bfefba7057bc529, type: 3}
-  m_PrefabInstance: {fileID: 834198231}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &834198233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834198232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79fe0bd5f606ca8499d011d48a8379f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 1
 --- !u!1 &974540415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3159,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6e316f96-e995-4b11-830a-f5cfbcf68fba
     m_ActionName: 'New action map/Pause[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c13a8fa-0567-4876-af91-a2b3912cb3b7
+    m_ActionName: 'New action map/UseItem[/Keyboard/b]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -3653,7 +3644,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  item: {fileID: 0}
   isFrozen: 0
+  hotbar: {fileID: 790370926}
 --- !u!1001 &1536171271
 PrefabInstance:
   m_ObjectHideFlags: 0

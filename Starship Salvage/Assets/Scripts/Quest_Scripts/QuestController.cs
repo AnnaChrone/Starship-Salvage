@@ -17,9 +17,20 @@ public class QuestController : MonoBehaviour
         {
             return;
         }
-        
+
         activeQuests.Add(new QuestProgress(quest)); //Otherwise it will be added to the QuestProgress list
     }
 
+    public void CompleteQuest(string questID) //Checks if the quest is complete
+    {
+        QuestProgress quest = activeQuests.Find(q => q.questID == questID);
+        if (quest != null)
+        {
+            activeQuests.Remove(quest);
+        }
+    }
+
+
     public bool IsQuestActive(string questID) => activeQuests.Exists(q => q.questID == questID); //This will return true if the input quest ID matches the ID in a list
+    
 }

@@ -10,6 +10,7 @@ public class Hotbar : MonoBehaviour
     private GameObject[] heldItemInstances = new GameObject[7]; // one per slot
 
 
+
     private int previousIndex = -1;
 
 
@@ -76,6 +77,23 @@ public class Hotbar : MonoBehaviour
                 return child;
         }
         return null;
+    }
+
+    public bool hasItem(string questID) //This checks if the item in the hot bar shares the same id as the quesy
+    {
+        for (int i = 0; i < heldItemInstances.Length; i++)
+        {
+            GameObject heldItem = heldItemInstances[i];
+            if (heldItem != null)
+            {
+                PickUpObject item = heldItem.GetComponent<PickUpObject>();
+                if (item != null && item.itemID == questID)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void HandleScroll(float scrollValue)
@@ -159,7 +177,7 @@ public class Hotbar : MonoBehaviour
             heldItemInstances[slotIndex] = instance;
             instance.transform.SetParent(holdPoint);
             instance.transform.localPosition = Vector3.zero;
-       
+
 
             // Update selection so that if this is current index, it becomes active
             if (slotIndex == index)
@@ -195,6 +213,6 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
-
+   
 
 }
