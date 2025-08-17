@@ -717,6 +717,9 @@ MeshRenderer:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205853983
 >>>>>>> Akiria
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,8 +727,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 205853981}
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   m_GameObject: {fileID: 157334344}
 >>>>>>> Stashed changes
@@ -1225,6 +1231,9 @@ MonoBehaviour:
   dialogueText: {fileID: 1170882780}
   nameText: {fileID: 320676294}
 >>>>>>> Akiria
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &285285428
 GameObject:
