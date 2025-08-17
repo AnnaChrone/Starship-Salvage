@@ -10,6 +10,8 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
+    private bool dialogueFinished = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,14 +20,19 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     public bool CanInteractAI()
     {
-        return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
+        return !isDialogueActive && !dialogueFinished; //If we can interact with NPC, return that dialogye is not active
     }
 
     public void InteractAI()
     {
+        if (dialogueFinished)
+        {
+            return;
+        }
+        
         if (isDialogueActive)
         {
-            NextLine();   
+            NextLine();
         }
         else
         {
@@ -38,6 +45,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
         isDialogueActive = true;
 
         shipDialogueControl.ShowDialoguePanel(true);
+        shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
         DisplayCurrentLine();
     }
 
@@ -99,5 +107,6 @@ public class Spaceship : MonoBehaviour, AIInteractable
         isDialogueActive = false;
         shipDialogueControl.SetDialogue("");
         shipDialogueControl.ShowDialoguePanel(false);
+        dialogueFinished = true;
     }
 }

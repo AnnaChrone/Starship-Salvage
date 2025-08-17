@@ -2,6 +2,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewSpaceshipDialogue", menuName = "Spaceship Dialogue")]
 public class SpaceshipDialogue : ScriptableObject
 {
+    public string shipName;
     public string[] Lines; //Actual Spaceship dialogue
     public bool[] autoProgressLines; // Moves on to the Next line
     public bool[] endLines; //Dialogue ends

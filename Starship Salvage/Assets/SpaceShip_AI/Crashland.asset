@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8b132294133043ad49620f7d27cf9, type: 3}
   m_Name: Crashland
   m_EditorClassIdentifier: 
+  shipName: SpaceShip
   Lines:
   - We seem to have crashed on a foreign planet.
   - I will perform a scan on a the local area.
   - SCANNING....SCANNING
-  - There are sign of life nearby.
-  autoProgressLines: 01010100
+  - There are signs of life nearby.
+  autoProgressLines: 01010101
   endLines: 00000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05

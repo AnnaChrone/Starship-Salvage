@@ -22,9 +22,9 @@ public class SpaceshipAIController : MonoBehaviour
         dialoguePanel.SetActive(show); //Toggle panel visibility
     }
 
-    public void SetShipInfo()
+    public void SetShipInfo(string shipName)
     {
-        nameText.text = "Spaceship";
+        nameText.text = shipName;
     }
 
     public void SetDialogue(string text)
