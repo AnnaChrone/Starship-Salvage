@@ -15,16 +15,16 @@ MonoBehaviour:
   npcName: Zorb
   Lines:
   - Hey you...
-  - Look at this weird metal thing I found...
-  - You want this? It might be useful for that busted ship you have there...
-  - Well, you got to help me first.
-  - I lost my special yellow blanky :(
+  - Look at this werid metal thing I found...
+  - You want this?
+  - Well you got to help me first.
+  - I lost my special blanky.
   - Can you help me find it?
   - Okay I will be waiting
-  - Awesome! I last had it in the town over there
+  - Awesome
   - Have you found it yet?
   - Thank you so much!
-  - As promised, here, have this...
+  - Here, have this...
   autoProgressLines: 0101010101010101010101
   endLines: 0000000000000101010001
   autoProgressDelay: 1.5

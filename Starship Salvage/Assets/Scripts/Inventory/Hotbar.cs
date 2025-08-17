@@ -149,6 +149,8 @@ public class Hotbar : MonoBehaviour
         UpdateHeldItemPosition();
     }
 
+
+    // Optional helper: call this to initialize or refresh selection
     public void UpdateSelection()
     {
         UpdateHighlightsItems();
@@ -168,6 +170,7 @@ public class Hotbar : MonoBehaviour
     {
         if (slotIndex >= 0 && slotIndex < heldItemInstances.Length)
         {
+            // Clean up any previous instance in that slot
             if (heldItemInstances[slotIndex] != null)
                 Destroy(heldItemInstances[slotIndex]);
 
