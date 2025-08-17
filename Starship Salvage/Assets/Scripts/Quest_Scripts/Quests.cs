@@ -56,3 +56,16 @@ public class Quests : ScriptableObject
         public string questID => quest.QuestID; //Gets quest ID
 
     }
+
+    
+/*Title: Create a Quest System with Scriptable Objects - Top Down Unity 2D #25
+Author: Game Code Library
+Date Accessed: 15/08/2025
+Availability: 
+*/
+
+/*Title: Quest Items and Saving Quest Progress - Top Down Unity 2D #27
+Author: Game Code Library
+Date Accessed: 16/08/2025
+Availability: https://youtu.be/AdPu5r2pP5E?si=mgy3ZlrIAGjl0DsY
+*/

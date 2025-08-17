@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-    private enum QuestState {NotStarted, InProgress, Completed} //States of quests
+    private enum QuestState { NotStarted, InProgress, Completed } //States of quests
     private QuestState questState = QuestState.NotStarted; //Initial QuestState
     public bool isFrozen = false; //Pauses game
     public Hotbar hotbar; //Calls the hotbar
@@ -30,7 +30,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         if (isDialogueActive)
         {
-            NextLine();   
+            NextLine();
         }
         else
         {
@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isFrozen = true; //Pauses game so that player does not run away from NPC
-        
+
         SyncQuestState(); //Sync dialogue depending on state of quest
 
         //Set dialogue line based on quest state
@@ -65,7 +65,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         dialogueControl.SetNPCInfo(dialogueData.npcName);
         dialogueControl.ShowDialoguePanel(true);
         DisplayCurrentLine();
-        
+
     }
 
     private void SyncQuestState()
@@ -78,21 +78,21 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
 
         if (QuestController.Instance.IsQuestActive(questID))
-    {
-        if (hotbar.hasItem(questID)) //if the item in the hot basr is the same in the quest id, it is complete
         {
-            questState = QuestState.Completed;
-            QuestController.Instance.CompleteQuest(questID);
+            if (hotbar.hasItem(questID)) //if the item in the hot basr is the same in the quest id, it is complete
+            {
+                questState = QuestState.Completed;
+                QuestController.Instance.CompleteQuest(questID);
+            }
+            else
+            {
+                questState = QuestState.InProgress;
+            }
         }
         else
         {
-            questState = QuestState.InProgress;
+            questState = QuestState.NotStarted;
         }
-    }
-    else
-    {
-        questState = QuestState.NotStarted;
-    }
 
     }
 
@@ -158,7 +158,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     }
 
-     void DisplayChoices(DialogueChoice choice)//Displays the choice buttons
+    void DisplayChoices(DialogueChoice choice)//Displays the choice buttons
     {
         for (int i = 0; i < choice.Choices.Length; i++)
         {
@@ -175,7 +175,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             QuestController.Instance.AcceptQuest(dialogueData.quests);
             questState = QuestState.InProgress;
         }
-        
+
         dialogueIndex = nextIndex;//Next line
         dialogueControl.ClearChoices();
         DisplayCurrentLine();
@@ -198,3 +198,21 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         isFrozen = false;
     }
 }
+
+/*Title: Add NPC and Dialogue System to your Game - Top Down Unity 2D #19
+Author: Game Code Library
+Date Accessed: 12/08/2025
+Availability: https://youtu.be/eSH9mzcMRqw?si=TCWqqffeueBr5F4s
+*/
+
+/*Title: Create a Dialogue System with Branching Choices - Top Down Unity 2D #22
+Author: Game Code Library
+Date Accessed: 13/08/2025
+Availability: https://youtu.be/zbYuLu_8spI?si=Os6JTDX-wZ3uSI-m
+*/
+
+/*Title: NPC Quest Giver with Changing Dialogue Lines! - Top Down Unity 2D #26
+Author: Game Code Library
+Date Accessed: 16/08/2025
+Availability: https://youtu.be/_hA3y45P4Ow?si=mJRbK7tHm-ee6x9d
+*/
