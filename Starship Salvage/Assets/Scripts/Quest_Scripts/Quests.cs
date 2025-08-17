@@ -56,21 +56,3 @@ public class Quests : ScriptableObject
         public string questID => quest.QuestID; //Gets quest ID
 
     }
-    /*Title: Create a Quest System with Scriptable Objects - Top Down Unity 2D #25
-    Author: Game Code Library
-    Date: 15/08/2025
-    Availability: https://youtu.be/_hA3y45P4Ow?si=_A4Pw1Uc3i6xzMS0
-    
-    
-   Title: NPC Quest Giver with Changing Dialogue Lines! - Top Down Unity 2D #26
-    Author: Game Code Library
-    Date: 16/08/2025
-    Availability: https://youtu.be/83k3Ay53GPI?si=q1ymduNf8eTq4LYC
-    
-    
-    Title: Quest Items and Saving Quest Progress - Top Down Unity 2D #27
-    Author: Game Code Library
-    Date: 16/08/2025
-    Availability: https://youtu.be/AdPu5r2pP5E?si=dKgvgHLh2DI8028X
-    */
-    

@@ -198,16 +198,3 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         isFrozen = false;
     }
 }
-
-/*Title: Add NPC and Dialogue System to your Game - Top Down Unity 2D #19
-Author: Game Code Library
-Date: 12/08/2025
-Availability: https://youtu.be/eSH9mzcMRqw?si=gMumkRRAOvKJvtWL
-*/
-
-/*Title: Create a Dialogue System with Branching Choices - Top Down Unity 2D #22
-Author: Game Code Library
-Date: 13/08/2025
-Availability: https://youtu.be/zbYuLu_8spI?si=YQqM4PjA3XG07fVg
-*/
-
