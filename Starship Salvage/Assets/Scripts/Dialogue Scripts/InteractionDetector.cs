@@ -30,3 +30,9 @@ public class InteractionDetector : MonoBehaviour
 
 
 }
+
+/*Title: Add an Interaction System to your Game- Top Down Unity #16
+Author: Game Code Library
+Date: 12/08/2025
+Availability: https://youtu.be/MPP9GLp44Pc?si=I9y-UMrxzywSl3G6
+*/
