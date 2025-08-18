@@ -301,7 +301,10 @@ public class FPController : MonoBehaviour
 
     public void OnControllerCursor(InputAction.CallbackContext context)
     {
+        if (isPaused)
+        {
         cursorInput = context.ReadValue<Vector2>();
+        }
     }
 
     private void UpdateCursorPosition()
