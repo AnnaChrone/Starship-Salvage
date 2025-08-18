@@ -253,4 +253,29 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
+
+    public bool RemoveItemByID(string itemID)
+    {
+        int slot = FindItemSlot(itemID);
+        if (slot != -1)
+        {
+            // Remove the item from the slot
+            if (heldItemInstances[slot] != null)
+                Destroy(heldItemInstances[slot]);
+            heldItemInstances[slot] = null;
+            storedItemPrefabs[slot] = null;
+
+            if (slotIcons[slot] != null)
+            {
+                slotIcons[slot].sprite = null;
+                slotIcons[slot].enabled = false;
+            }
+
+            UpdateSelection();
+            return true; // successfully removed
+        }
+        return false; // item not found
+    }
+
+
 }

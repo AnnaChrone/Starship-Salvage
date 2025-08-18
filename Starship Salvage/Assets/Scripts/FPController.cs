@@ -42,6 +42,8 @@ public class FPController : MonoBehaviour
     private Vector2 lookInput;
     private Vector3 velocity;
     private float verticalRotation = 0f;
+
+    private SpaceshipFixing spaceship;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -244,7 +246,28 @@ public class FPController : MonoBehaviour
     {
         if (!context.performed) return;
 
-
+        if (spaceship != null) // only call if we’re in range
+        {
+            spaceship.TryUseItem();
+        }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out SpaceshipFixing ship))
+        {
+            spaceship = ship;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Spaceship ship))
+        {
+            if (spaceship == ship)
+                spaceship = null;
+        }
+    }
+
 
 }
