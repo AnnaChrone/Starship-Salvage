@@ -213,6 +213,18 @@ public class FPController : MonoBehaviour
         }
     }
 
+    public void OnHotbarNext(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        hotbarSelector.HandleScroll(1f); // same as scrolling forward
+    }
+
+    public void OnHotbarPrev(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        hotbarSelector.HandleScroll(-1f); // same as scrolling backward
+    }
+
     public void OnDrop(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
