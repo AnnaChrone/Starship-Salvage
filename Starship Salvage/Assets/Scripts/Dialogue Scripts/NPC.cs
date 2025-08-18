@@ -17,9 +17,34 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool isFrozen = false; //Pauses game
     public Hotbar hotbar; //Calls the hotbar
 
+    private Renderer rend; //highlighting
+    private Color originalColor;
+
     public void Start()
     {
         dialogueControl = DialogueController.Instance; //Create an instance
+
+        // Save reference for highlighting
+        rend = GetComponent<Renderer>();
+        if (rend != null)
+        {
+            originalColor = rend.material.color;
+        }
+    }
+
+    public void Highlight()
+    {
+        if (rend != null)
+        {
+            rend.material.color = Color.yellow; 
+        }
+    }
+    public void Unhighlight()
+    {
+        if (rend != null)
+        {
+            rend.material.color = originalColor;
+        }
     }
     public bool CanInteract()
     {
@@ -196,6 +221,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isFrozen = false;
+    
     }
 }
 

@@ -17,6 +17,7 @@ public class InteractionDetector : MonoBehaviour
         if (collide.TryGetComponent(out IInteractable interactable))
         {
             interactableInRange = interactable; //Checks if object is interactable
+            interactable.Highlight(); // highlights NPC
         }
     }
 
@@ -24,6 +25,7 @@ public class InteractionDetector : MonoBehaviour
     {
         if (collide.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
         {
+            interactable.Unhighlight(); // removes NPC highliight
             interactableInRange = null; //Ensures that player does not interact with anything
         }
     }
