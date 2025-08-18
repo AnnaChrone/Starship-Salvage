@@ -2772,6 +2772,7 @@ GameObject:
   - component: {fileID: 609414196}
   - component: {fileID: 609414198}
   - component: {fileID: 609414197}
+  - component: {fileID: 609414199}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -2836,6 +2837,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609414195}
   m_CullTransparentMesh: 1
+--- !u!114 &609414199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609414195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876e11f5537dd79468fa6f54521d5b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointer: {fileID: 609414196}
+  speed: 1000
 --- !u!1 &610323322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,7 +3165,7 @@ GameObject:
   - component: {fileID: 719116319}
   - component: {fileID: 719116318}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ControllerPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3163,7 +3178,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719116316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5524,7 +5539,8 @@ MonoBehaviour:
   hotbarSelector: {fileID: 790370926}
   PauseMenu: {fileID: 1666157366}
   isPaused: 0
-  cursorSpeed: 1000
+  controllerPointer: {fileID: 0}
+  pointerSpeed: 1000
 --- !u!114 &1339711967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,10 +5899,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 719116317}
   - {fileID: 790370923}
   - {fileID: 609414196}
   - {fileID: 1483023290}
-  - {fileID: 719116317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
