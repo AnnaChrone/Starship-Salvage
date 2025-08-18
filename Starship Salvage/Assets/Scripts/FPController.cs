@@ -64,11 +64,6 @@ public class FPController : MonoBehaviour
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
-
-        if (isPaused)
-        {
-            UpdateCursorPosition();
-        }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -288,16 +283,11 @@ public class FPController : MonoBehaviour
     }
 
 
-    private Vector2 cursorInput;
     public float cursorSpeed = 1000f;
+    private Vector2 cursorInput;
     public void OnControllerCursor(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-
-        if (isPaused)
-        {
-            cursorInput = context.ReadValue<Vector2>();
-        }
+        cursorInput = context.ReadValue<Vector2>();
     }
 
     private void UpdateCursorPosition()
@@ -314,15 +304,15 @@ public class FPController : MonoBehaviour
         Mouse.current.WarpCursorPosition(newPosition);
     }
 
+    // Called by Input System (e.g., gamepad face button or trigger)
     public void OnControllerClick(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        // Get the currently hovered UI element
+        // Simulate UI click on the currently hovered element
         GameObject current = EventSystem.current.currentSelectedGameObject;
         if (current != null)
         {
-            // Simulate click
             ExecuteEvents.Execute(current, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
         }
     }
