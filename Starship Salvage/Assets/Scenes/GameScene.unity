@@ -5383,6 +5383,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 552b4da3-451a-4611-b6d3-57eb10df68cd
     m_ActionName: New action map/HotbarNext
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1339711966}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnControllerCursor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f4918999-3ffc-4212-b2cb-368da7c5b200
+    m_ActionName: New action map/ControllerCursor
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1339711966}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnControllerClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e3c5d798-f1f0-4393-82b3-72ac5497de7b
+    m_ActionName: New action map/ControllerClick
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -5417,6 +5449,7 @@ MonoBehaviour:
   hotbarSelector: {fileID: 790370926}
   PauseMenu: {fileID: 1666157366}
   isPaused: 0
+  cursorSpeed: 1000
 --- !u!114 &1339711967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10483,7 +10516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3487940200309989136, guid: 25e91bd63fd50024d91b03865cfa4be1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3487940200309989136, guid: 25e91bd63fd50024d91b03865cfa4be1, type: 3}
       propertyPath: m_TagString

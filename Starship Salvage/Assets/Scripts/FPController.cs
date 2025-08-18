@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
 public class FPController : MonoBehaviour
@@ -62,6 +63,11 @@ public class FPController : MonoBehaviour
         if (heldObject != null)
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
+        }
+
+        if (isPaused)
+        {
+            UpdateCursorPosition();
         }
     }
 
@@ -281,5 +287,44 @@ public class FPController : MonoBehaviour
         }
     }
 
+
+    private Vector2 cursorInput;
+    public float cursorSpeed = 1000f;
+    public void OnControllerCursor(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (isPaused)
+        {
+            cursorInput = context.ReadValue<Vector2>();
+        }
+    }
+
+    private void UpdateCursorPosition()
+    {
+        if (cursorInput.sqrMagnitude < 0.01f) return; // deadzone
+
+        Vector2 delta = cursorInput * cursorSpeed * Time.deltaTime;
+        Vector2 newPosition = Mouse.current.position.ReadValue() + delta;
+
+        // Clamp to screen
+        newPosition.x = Mathf.Clamp(newPosition.x, 0, Screen.width);
+        newPosition.y = Mathf.Clamp(newPosition.y, 0, Screen.height);
+
+        Mouse.current.WarpCursorPosition(newPosition);
+    }
+
+    public void OnControllerClick(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        // Get the currently hovered UI element
+        GameObject current = EventSystem.current.currentSelectedGameObject;
+        if (current != null)
+        {
+            // Simulate click
+            ExecuteEvents.Execute(current, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
+        }
+    }
 
 }

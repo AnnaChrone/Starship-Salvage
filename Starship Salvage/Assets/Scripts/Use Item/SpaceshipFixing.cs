@@ -38,7 +38,5 @@ public class SpaceshipFixing : MonoBehaviour
 
         if (successText != null)
             successText.SetActive(false);
-
-        Destroy(gameObject);
     }
 }
