@@ -11,10 +11,9 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Game is exiting...");
 
-        // This will quit the application (only works in builds, not in the Unity editor)
         Application.Quit();
 
-        // If you're in the editor and want to simulate exit:
+        // If you're in the editor this will run
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif

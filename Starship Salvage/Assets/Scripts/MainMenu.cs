@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log($"Loading scene: {Scenename}");
 
         yield return null; 
-        yield return Resources.UnloadUnusedAssets(); // free old assets
+        yield return Resources.UnloadUnusedAssets(); // frees old assets
 
         Time.timeScale = 1f; 
 

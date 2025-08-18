@@ -6,8 +6,8 @@ public class Hotbar : MonoBehaviour
     [Header("Slot assignment")]
     public GameObject[] slots = new GameObject[7];
     public Image[] slotIcons = new Image[7];
-    public Transform holdPoint;  // Assign this from FPController or scene
-    private GameObject[] heldItemInstances = new GameObject[7]; // one per slot
+    public Transform holdPoint;  
+    private GameObject[] heldItemInstances = new GameObject[7]; 
 
 
 
@@ -56,7 +56,6 @@ public class Hotbar : MonoBehaviour
             if (item != null)
             {
                 slotIcons[slotIndex].sprite = item.icon;
-                slotIcons[slotIndex].enabled = true;
             }
         }
         else if (slotIcons[slotIndex] != null)
@@ -65,10 +64,7 @@ public class Hotbar : MonoBehaviour
         }
     }
 
-
-
-
-    // Finds the first child with tag "Pickup" inside the slot GameObject
+    // Finds the first child with tag "Pickup" inside the slot 
     private Transform FindPickupInSlot(GameObject slot)
     {
         foreach (Transform child in slot.transform)
@@ -79,7 +75,7 @@ public class Hotbar : MonoBehaviour
         return null;
     }
 
-    public bool hasItem(string questID) //This checks if the item in the hot bar shares the same id as the quesy
+    public bool hasItem(string questID) //checks if the item in the hot bar shares the same id as the quesy
     {
         for (int i = 0; i < heldItemInstances.Length; i++)
         {
@@ -99,8 +95,8 @@ public class Hotbar : MonoBehaviour
     public void HandleScroll(float scrollValue)
     {
         float currentTime = Time.time;
-        if (currentTime - lastScrollTime < scrollDebounceTime)
-            return;  // Ignore too-close events
+        if (currentTime - lastScrollTime < scrollDebounceTime) //ignores too close together scrolls
+            return;
 
         scrollAccumulator += scrollValue;
 
@@ -132,10 +128,6 @@ public class Hotbar : MonoBehaviour
         }
         previousIndex = index;
     }
-
-
-
-
 
     private void UpdateHighlightsItems()
     {
@@ -184,7 +176,6 @@ public class Hotbar : MonoBehaviour
         }
     }
 
-
     public void DropCurrentItem()
     {
         int slotIndex = index;
@@ -204,7 +195,6 @@ public class Hotbar : MonoBehaviour
         if (slotIcons[slotIndex] != null)
         {
             slotIcons[slotIndex].sprite = null;
-            slotIcons[slotIndex].enabled = false;
         }
 
         UpdateSelection();
@@ -249,7 +239,6 @@ public class Hotbar : MonoBehaviour
             slotIcons[slotIndex].enabled = false;
         }
 
-        // Update selection in case we removed the current slot
         UpdateSelection();
     }
 
@@ -261,14 +250,13 @@ public class Hotbar : MonoBehaviour
         {
             // Remove the item from the slot
             if (heldItemInstances[slot] != null)
-                Destroy(heldItemInstances[slot]);
+                Destroy(heldItemInstances[slot]); //destroys the instance of the object in hand
             heldItemInstances[slot] = null;
             storedItemPrefabs[slot] = null;
 
             if (slotIcons[slot] != null)
             {
                 slotIcons[slot].sprite = null;
-                slotIcons[slot].enabled = false;
             }
 
             UpdateSelection();
