@@ -21,6 +21,6 @@ public class DialogueChoice
 {
     public int dialogueIndex; //Line where the choice appears
     public string[] Choices; //Player responses
-    public int[] nextDialogueIndexes; //Points to specid response to choice
+    public int[] nextDialogueIndexes; //Points to specific response to choice
     public bool[] givesQuest; //If the choice is a quest
 }

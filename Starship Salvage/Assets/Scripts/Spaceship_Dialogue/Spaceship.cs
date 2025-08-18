@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,11 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-    private bool dialogueFinished = false;
+    //private bool dialogueFinished = false;
+    private enum ShipState {NotCompleted, NotFound, Part1} //State of ships completion
+    private ShipState shipState = ShipState.NotCompleted;
+    public Hotbar hotbar; //Calls the hotbar
+    private SpaceshipFixing spaceshipFixing;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,15 +25,15 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     public bool CanInteractAI()
     {
-        return !isDialogueActive && !dialogueFinished; //If we can interact with NPC, return that dialogye is not active
+        return !isDialogueActive; //&& !dialogueFinished; //If we can interact with NPC, return that dialogye is not active
     }
 
     public void InteractAI()
     {
-        if (dialogueFinished)
+       /* if (dialogueFinished)
         {
             return;
-        }
+        }*/
         
         if (isDialogueActive)
         {
@@ -43,6 +48,21 @@ public class Spaceship : MonoBehaviour, AIInteractable
     void StartDialogue()
     {
         isDialogueActive = true;
+
+        SyncShipState();
+
+        if (shipState == ShipState.NotCompleted)
+        {
+            dialogueIndex = 0;
+        }
+        else if (shipState == ShipState.NotFound)
+        {
+            dialogueIndex = shipDialogueData.ShipPartNotFound;
+        }
+        else if (shipState == ShipState.Part1)
+        {
+            dialogueIndex = shipDialogueData.ShipPartIndex; 
+        }
 
         shipDialogueControl.ShowDialoguePanel(true);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
@@ -74,8 +94,17 @@ public class Spaceship : MonoBehaviour, AIInteractable
         {
             EndDialogue();
         }
-    } 
+    }
 
+    private void SyncShipState()
+    {
+        if (spaceshipFixing.TryUseItem())
+        {
+            shipState = ShipState.Part1;
+        }
+        else
+            shipState = ShipState.NotFound;
+    }
        IEnumerator TypeLine()
     {
         isTyping = true;
@@ -107,6 +136,6 @@ public class Spaceship : MonoBehaviour, AIInteractable
         isDialogueActive = false;
         shipDialogueControl.SetDialogue("");
         shipDialogueControl.ShowDialoguePanel(false);
-        dialogueFinished = true;
+       // dialogueFinished = true;
     }
 }
