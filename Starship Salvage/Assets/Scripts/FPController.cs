@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
+using System.Runtime.InteropServices;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -285,6 +286,9 @@ public class FPController : MonoBehaviour
 
     public float cursorSpeed = 1000f;
     private Vector2 cursorInput;
+
+    [DllImport("user32.dll")]
+    private static extern bool SetCursorPos(int X, int Y);
     public void OnControllerCursor(InputAction.CallbackContext context)
     {
         cursorInput = context.ReadValue<Vector2>();
@@ -295,21 +299,22 @@ public class FPController : MonoBehaviour
         if (cursorInput.sqrMagnitude < 0.01f) return; // deadzone
 
         Vector2 delta = cursorInput * cursorSpeed * Time.deltaTime;
-        Vector2 newPosition = Mouse.current.position.ReadValue() + delta;
+
+        Vector2 currentPos = new Vector2(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue());
+        Vector2 newPos = currentPos + delta;
 
         // Clamp to screen
-        newPosition.x = Mathf.Clamp(newPosition.x, 0, Screen.width);
-        newPosition.y = Mathf.Clamp(newPosition.y, 0, Screen.height);
+        newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width);
+        newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height);
 
-        Mouse.current.WarpCursorPosition(newPosition);
+        // Move OS cursor
+        SetCursorPos((int)newPos.x, (int)(Screen.height - newPos.y)); // Windows coordinates: Y inverted
     }
 
-    // Called by Input System (e.g., gamepad face button or trigger)
     public void OnControllerClick(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        // Simulate UI click on the currently hovered element
         GameObject current = EventSystem.current.currentSelectedGameObject;
         if (current != null)
         {
