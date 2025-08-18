@@ -236,7 +236,6 @@ public class Hotbar : MonoBehaviour
         if (slotIcons[slotIndex] != null)
         {
             slotIcons[slotIndex].sprite = null;
-            slotIcons[slotIndex].enabled = false;
         }
 
         UpdateSelection();

@@ -46,10 +46,7 @@ public class FPController : MonoBehaviour
     private float verticalRotation = 0f;
 
     private SpaceshipFixing spaceship;
-    [Header("Controller Pointer")]
-    public RectTransform controllerPointer; // assign the UI pointer image
-    public float pointerSpeed = 1000f;
-    private Vector2 pointerInput;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -69,9 +66,6 @@ public class FPController : MonoBehaviour
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
-
-        if (isPaused && controllerPointer != null)
-            UpdateControllerPointer();
     }
 
     
@@ -291,40 +285,5 @@ public class FPController : MonoBehaviour
         }
     }
 
-    public void OnControllerPointer(InputAction.CallbackContext context)
-    {
-        if (!isPaused) return;
-        pointerInput = context.ReadValue<Vector2>();
-    }
-
-    private void UpdateControllerPointer()
-    {
-        if (controllerPointer == null || pointerInput.sqrMagnitude < 0.01f) return;
-
-        Vector2 pos = controllerPointer.anchoredPosition;
-        pos += pointerInput * pointerSpeed * Time.unscaledDeltaTime;
-
-        Vector2 canvasSize = ((RectTransform)controllerPointer.parent).sizeDelta;
-        pos.x = Mathf.Clamp(pos.x, 0, canvasSize.x);
-        pos.y = Mathf.Clamp(pos.y, 0, canvasSize.y);
-
-        controllerPointer.anchoredPosition = pos;
-    }
-
-    public void OnControllerClick(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
-
-        PointerEventData pointerData = new PointerEventData(EventSystem.current)
-        {
-            position = controllerPointer.position
-        };
-
-        var results = new System.Collections.Generic.List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, results);
-
-        foreach (var r in results)
-            ExecuteEvents.Execute(r.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
-    }
 
 }

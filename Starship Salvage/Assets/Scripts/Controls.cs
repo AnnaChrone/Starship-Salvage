@@ -198,24 +198,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ControllerCursor"",
-                    ""type"": ""Value"",
-                    ""id"": ""f4918999-3ffc-4212-b2cb-368da7c5b200"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ControllerClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""e3c5d798-f1f0-4393-82b3-72ac5497de7b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -592,39 +574,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""HotbarNext"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""eb956c8e-1893-48ef-b7df-963909fc7b85"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""ControllerCursor"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1c3e9dff-07de-45ed-96f9-64d3cd7cd6af"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""ControllerClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cdb4c1ba-8542-4aa2-9e87-fa5eb2111af1"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ControllerClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -673,8 +622,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_UseItem = m_Newactionmap.FindAction("UseItem", throwIfNotFound: true);
         m_Newactionmap_HotbarPrev = m_Newactionmap.FindAction("HotbarPrev", throwIfNotFound: true);
         m_Newactionmap_HotbarNext = m_Newactionmap.FindAction("HotbarNext", throwIfNotFound: true);
-        m_Newactionmap_ControllerCursor = m_Newactionmap.FindAction("ControllerCursor", throwIfNotFound: true);
-        m_Newactionmap_ControllerClick = m_Newactionmap.FindAction("ControllerClick", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -767,8 +714,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_UseItem;
     private readonly InputAction m_Newactionmap_HotbarPrev;
     private readonly InputAction m_Newactionmap_HotbarNext;
-    private readonly InputAction m_Newactionmap_ControllerCursor;
-    private readonly InputAction m_Newactionmap_ControllerClick;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -828,14 +773,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Newactionmap/HotbarNext".
         /// </summary>
         public InputAction @HotbarNext => m_Wrapper.m_Newactionmap_HotbarNext;
-        /// <summary>
-        /// Provides access to the underlying input action "Newactionmap/ControllerCursor".
-        /// </summary>
-        public InputAction @ControllerCursor => m_Wrapper.m_Newactionmap_ControllerCursor;
-        /// <summary>
-        /// Provides access to the underlying input action "Newactionmap/ControllerClick".
-        /// </summary>
-        public InputAction @ControllerClick => m_Wrapper.m_Newactionmap_ControllerClick;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -898,12 +835,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotbarNext.started += instance.OnHotbarNext;
             @HotbarNext.performed += instance.OnHotbarNext;
             @HotbarNext.canceled += instance.OnHotbarNext;
-            @ControllerCursor.started += instance.OnControllerCursor;
-            @ControllerCursor.performed += instance.OnControllerCursor;
-            @ControllerCursor.canceled += instance.OnControllerCursor;
-            @ControllerClick.started += instance.OnControllerClick;
-            @ControllerClick.performed += instance.OnControllerClick;
-            @ControllerClick.canceled += instance.OnControllerClick;
         }
 
         /// <summary>
@@ -951,12 +882,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotbarNext.started -= instance.OnHotbarNext;
             @HotbarNext.performed -= instance.OnHotbarNext;
             @HotbarNext.canceled -= instance.OnHotbarNext;
-            @ControllerCursor.started -= instance.OnControllerCursor;
-            @ControllerCursor.performed -= instance.OnControllerCursor;
-            @ControllerCursor.canceled -= instance.OnControllerCursor;
-            @ControllerClick.started -= instance.OnControllerClick;
-            @ControllerClick.performed -= instance.OnControllerClick;
-            @ControllerClick.canceled -= instance.OnControllerClick;
         }
 
         /// <summary>
@@ -1107,19 +1032,5 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHotbarNext(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ControllerCursor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnControllerCursor(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ControllerClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnControllerClick(InputAction.CallbackContext context);
     }
 }
