@@ -210,6 +210,47 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
-   
+    public int FindItemSlot(string itemID)
+    {
+        for (int i = 0; i < heldItemInstances.Length; i++)
+        {
+            GameObject heldItem = heldItemInstances[i];
+            if (heldItem != null)
+            {
+                PickUpObject item = heldItem.GetComponent<PickUpObject>();
+                if (item != null && item.itemID == itemID)
+                {
+                    return i; // found it
+                }
+            }
+        }
+        return -1; // not found
+    }
+
+    public void RemoveItemAt(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= heldItemInstances.Length)
+            return;
+
+        GameObject heldItem = heldItemInstances[slotIndex];
+        if (heldItem == null) return;
+
+        // Destroy the item object in hand
+        Destroy(heldItem);
+
+        // Clear hotbar references
+        heldItemInstances[slotIndex] = null;
+        storedItemPrefabs[slotIndex] = null;
+
+        // Clear UI
+        if (slotIcons[slotIndex] != null)
+        {
+            slotIcons[slotIndex].sprite = null;
+            slotIcons[slotIndex].enabled = false;
+        }
+
+        // Update selection in case we removed the current slot
+        UpdateSelection();
+    }
 
 }

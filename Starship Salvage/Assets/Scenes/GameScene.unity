@@ -5330,7 +5330,7 @@ MonoBehaviour:
   jumpHeight: 1.5
   Dialogue: {fileID: 1487406193}
   cameraTransform: {fileID: 330585546}
-  lookSensitivity: 0.3
+  lookSensitivity: 0.2
   verticalLookLimit: 90
   bulletPrefab: {fileID: 0}
   gunPoint: {fileID: 0}

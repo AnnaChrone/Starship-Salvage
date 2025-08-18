@@ -83,6 +83,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
         else if (questState == QuestState.Completed)
         {
+            //take blanket HERE
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
 
@@ -107,8 +108,10 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
         if (QuestController.Instance.IsQuestActive(questID))
         {
-            if (hotbar.hasItem(questID)) //if the item in the hot basr is the same in the quest id, it is complete
+            int slotIndex = hotbar.FindItemSlot(questID);
+            if (slotIndex != -1) // quest item found
             {
+                hotbar.RemoveItemAt(slotIndex);   // removes quest item
                 questState = QuestState.Completed;
                 QuestController.Instance.CompleteQuest(questID);
             }
