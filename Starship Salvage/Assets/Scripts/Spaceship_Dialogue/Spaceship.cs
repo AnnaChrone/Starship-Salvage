@@ -21,6 +21,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
     void Start()
     {
         shipDialogueControl = SpaceshipAIController.Instance; //Create an instance
+        spaceshipFixing = FindAnyObjectByType<SpaceshipFixing>();
     }
 
     public bool CanInteractAI()
@@ -100,6 +101,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
     {
         if (spaceshipFixing.TryUseItem())
         {
+            Debug.Log("Ship state updated");
             shipState = ShipState.Part1;
         }
         else

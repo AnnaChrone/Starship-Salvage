@@ -11,7 +11,6 @@ public class SpaceshipFixing : MonoBehaviour
         if (hotbar.RemoveItemByID(requiredItemID))
         {
             Debug.Log("Correct item used on ship! Item removed from hotbar.");
-            // Add repair/quest logic here
             return true;
         }
         else
