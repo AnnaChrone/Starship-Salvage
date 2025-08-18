@@ -11,7 +11,6 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-    //private bool dialogueFinished = false;
     private enum ShipState {NotCompleted, NotFound, Part1} //State of ships completion
     private ShipState shipState = ShipState.NotCompleted;
     public Hotbar hotbar; //Calls the hotbar
@@ -26,15 +25,11 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     public bool CanInteractAI()
     {
-        return !isDialogueActive; //&& !dialogueFinished; //If we can interact with NPC, return that dialogye is not active
+        return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
     }
 
     public void InteractAI()
     {
-       /* if (dialogueFinished)
-        {
-            return;
-        }*/
         
         if (isDialogueActive)
         {
@@ -55,14 +50,17 @@ public class Spaceship : MonoBehaviour, AIInteractable
         if (shipState == ShipState.NotCompleted)
         {
             dialogueIndex = 0;
+            Debug.Log("Not completed");
         }
         else if (shipState == ShipState.NotFound)
         {
             dialogueIndex = shipDialogueData.ShipPartNotFound;
+            Debug.Log("Not found");
         }
         else if (shipState == ShipState.Part1)
         {
-            dialogueIndex = shipDialogueData.ShipPartIndex; 
+            dialogueIndex = shipDialogueData.ShipPartIndex;
+            Debug.Log("found");
         }
 
         shipDialogueControl.ShowDialoguePanel(true);
@@ -99,13 +97,25 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     private void SyncShipState()
     {
+         string questID = shipDialogueData.quests.QuestID;
+
+    if (QuestController.Instance.IsQuestCompleted(questID))
+    {
         if (spaceshipFixing.TryUseItem())
         {
-            Debug.Log("Ship state updated");
             shipState = ShipState.Part1;
         }
         else
+        {
             shipState = ShipState.NotFound;
+        }
+    }
+    else
+    {
+        shipState = ShipState.NotCompleted; // not accepted yet
+    }
+
+        
     }
        IEnumerator TypeLine()
     {
@@ -135,9 +145,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
     public void EndDialogue()
     {
         StopAllCoroutines();
-        isDialogueActive = false;
         shipDialogueControl.SetDialogue("");
         shipDialogueControl.ShowDialoguePanel(false);
-       // dialogueFinished = true;
     }
 }

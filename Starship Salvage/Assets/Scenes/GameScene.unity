@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f388562192e54b94fa25b868afcca95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipDialogueData: {fileID: 0}
-  hotbar: {fileID: 0}
+  shipDialogueData: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
+  hotbar: {fileID: 790370926}
 --- !u!43 &109398757
 Mesh:
   m_ObjectHideFlags: 0
@@ -3820,7 +3820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipDialogueData: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
-  hotbar: {fileID: 0}
+  hotbar: {fileID: 790370926}
 --- !u!135 &846583115
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4449,6 +4449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeQuests: []
+  completedQuests: []
 --- !u!1 &1170882778
 GameObject:
   m_ObjectHideFlags: 0

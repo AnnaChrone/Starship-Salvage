@@ -18,7 +18,13 @@ MonoBehaviour:
   - I will perform a scan of the local area.
   - SCANNING....SCANNING
   - There seems to be signs of life in the area, they may be able to help you
-  autoProgressLines: 01010101
-  endLines: 00000001
+  - You have the incorrect part.
+  - Success! You have repaired part of the ship.
+  - You still have more to go.
+  autoProgressLines: 01010101010101
+  endLines: 00000001010001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
+  ShipPartIndex: 5
+  ShipPartNotFound: 4
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public Hotbar hotbar; //Calls the hotbar
     public GameObject RewardItem;
 
+
     private Renderer rend; //highlighting
     private Color originalColor;
 
@@ -97,7 +98,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     }
 
-    private void SyncQuestState()
+    public void SyncQuestState()
     {
         if (dialogueData.quests == null)
         {
@@ -126,6 +127,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
 
     }
+
 
     void NextLine()
     {

@@ -5,6 +5,7 @@ public class QuestController : MonoBehaviour
 {
     public static QuestController Instance { get; private set; } //static class cannot be instantiated, works like a global variable
     public List<QuestProgress> activeQuests = new(); //List containg players quest progress
+    public List<string> completedQuests = new(); //List containing completed quests
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -32,5 +33,5 @@ public class QuestController : MonoBehaviour
 
 
     public bool IsQuestActive(string questID) => activeQuests.Exists(q => q.questID == questID); //This will return true if the input quest ID matches the ID in a list
-    
+    public bool IsQuestCompleted(string questID) => completedQuests.Contains(questID); //Will return the completed quest to the list
 }

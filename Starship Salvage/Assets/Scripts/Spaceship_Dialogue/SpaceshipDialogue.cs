@@ -10,5 +10,6 @@ public class SpaceshipDialogue : ScriptableObject
     public float typingSpeed; //Speed at which each char is displayed
     public int ShipPartIndex; //Dialogue for when a ship part is inserted
     public int ShipPartNotFound; //Dialogue if player does not have correct piece
+    public Quests quests; 
 }
 
