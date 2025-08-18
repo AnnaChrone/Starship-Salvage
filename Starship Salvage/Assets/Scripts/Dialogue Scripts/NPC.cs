@@ -16,6 +16,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     private QuestState questState = QuestState.NotStarted; //Initial QuestState
     public bool isFrozen = false; //Pauses game
     public Hotbar hotbar; //Calls the hotbar
+    public GameObject RewardItem;
 
     private Renderer rend; //highlighting
     private Color originalColor;
@@ -83,6 +84,8 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
+            RewardItem.SetActive(true); //drops reward item for player
+
         }
 
         isDialogueActive = true;
