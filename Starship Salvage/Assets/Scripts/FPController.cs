@@ -46,6 +46,13 @@ public class FPController : MonoBehaviour
     private float verticalRotation = 0f;
 
     private SpaceshipFixing spaceship;
+
+    [DllImport("user32.dll")]
+    private static extern bool SetCursorPos(int X, int Y);
+
+    public float cursorSpeed = 1000f;
+    private Vector2 cursorInput;
+    private Vector2 cursorPosition;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -65,6 +72,15 @@ public class FPController : MonoBehaviour
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
+
+        UpdateCursorPosition();
+    }
+
+    private void Start()
+    {
+        // Initialize cursorPosition with current OS cursor position
+        cursorPosition = new Vector2(Screen.width / 2, Screen.height / 2);
+        SetCursorPos((int)cursorPosition.x, (int)cursorPosition.y);
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -283,12 +299,6 @@ public class FPController : MonoBehaviour
         }
     }
 
-
-    public float cursorSpeed = 1000f;
-    private Vector2 cursorInput;
-
-    [DllImport("user32.dll")]
-    private static extern bool SetCursorPos(int X, int Y);
     public void OnControllerCursor(InputAction.CallbackContext context)
     {
         cursorInput = context.ReadValue<Vector2>();
@@ -298,28 +308,23 @@ public class FPController : MonoBehaviour
     {
         if (cursorInput.sqrMagnitude < 0.01f) return; // deadzone
 
-        Vector2 delta = cursorInput * cursorSpeed * Time.deltaTime;
-
-        Vector2 currentPos = new Vector2(Mouse.current.position.x.ReadValue(), Mouse.current.position.y.ReadValue());
-        Vector2 newPos = currentPos + delta;
+        cursorPosition += cursorInput * cursorSpeed * Time.deltaTime;
 
         // Clamp to screen
-        newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width);
-        newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height);
+        cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
+        cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
 
         // Move OS cursor
-        SetCursorPos((int)newPos.x, (int)(Screen.height - newPos.y)); // Windows coordinates: Y inverted
+        SetCursorPos((int)cursorPosition.x, (int)(Screen.height - cursorPosition.y));
     }
 
     public void OnControllerClick(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
-        GameObject current = EventSystem.current.currentSelectedGameObject;
-        if (current != null)
-        {
-            ExecuteEvents.Execute(current, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
-        }
+        // Simulate left mouse button click
+        ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject,
+            new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
     }
 
 }
