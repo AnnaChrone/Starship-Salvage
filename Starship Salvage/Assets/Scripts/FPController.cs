@@ -50,6 +50,12 @@ public class FPController : MonoBehaviour
     [DllImport("user32.dll")]
     private static extern bool SetCursorPos(int X, int Y);
 
+    [DllImport("user32.dll")]
+    private static extern bool GetCursorPos(out POINT lpPoint);
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct POINT { public int X; public int Y; }
+
     public float cursorSpeed = 1000f;
     private Vector2 cursorInput;
     private Vector2 cursorPosition;
@@ -78,9 +84,9 @@ public class FPController : MonoBehaviour
 
     private void Start()
     {
-        // Initialize cursorPosition with current OS cursor position
-        cursorPosition = new Vector2(Screen.width / 2, Screen.height / 2);
-        SetCursorPos((int)cursorPosition.x, (int)cursorPosition.y);
+        // Initialize from current OS cursor
+        if (GetCursorPos(out POINT p))
+            cursorPosition = new Vector2(p.X, p.Y);
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -317,7 +323,7 @@ public class FPController : MonoBehaviour
         cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
         cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
 
-        // Move OS cursor
+        // Windows expects Y starting from top, so invert Y
         SetCursorPos((int)cursorPosition.x, (int)(Screen.height - cursorPosition.y));
     }
 
