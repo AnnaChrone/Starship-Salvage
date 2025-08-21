@@ -11,9 +11,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-    private enum ShipState {NotCompleted, NotFound, Part1} //State of ships completion
-    private ShipState shipState = ShipState.NotCompleted;
-    public Hotbar hotbar; //Calls the hotbar
+  
     private SpaceshipFixing spaceshipFixing;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,23 +43,6 @@ public class Spaceship : MonoBehaviour, AIInteractable
     {
         isDialogueActive = true;
 
-        SyncShipState();
-
-        if (shipState == ShipState.NotCompleted)
-        {
-            dialogueIndex = 0;
-            Debug.Log("Not completed");
-        }
-        else if (shipState == ShipState.NotFound)
-        {
-            dialogueIndex = shipDialogueData.ShipPartNotFound;
-            Debug.Log("Not found");
-        }
-        else if (shipState == ShipState.Part1)
-        {
-            dialogueIndex = shipDialogueData.ShipPartIndex;
-            Debug.Log("found");
-        }
 
         shipDialogueControl.ShowDialoguePanel(true);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
@@ -95,28 +76,6 @@ public class Spaceship : MonoBehaviour, AIInteractable
         }
     }
 
-    private void SyncShipState()
-    {
-         string questID = shipDialogueData.quests.QuestID;
-
-    if (QuestController.Instance.IsQuestCompleted(questID))
-    {
-        if (spaceshipFixing.TryUseItem())
-        {
-            shipState = ShipState.Part1;
-        }
-        else
-        {
-            shipState = ShipState.NotFound;
-        }
-    }
-    else
-    {
-        shipState = ShipState.NotCompleted; // not accepted yet
-    }
-
-        
-    }
        IEnumerator TypeLine()
     {
         isTyping = true;
