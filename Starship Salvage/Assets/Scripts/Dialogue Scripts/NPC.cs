@@ -129,7 +129,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     }
 
 
-    void NextLine()
+   public void NextLine()
     {
         if (isTyping)
         {
