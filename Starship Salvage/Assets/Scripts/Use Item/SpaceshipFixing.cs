@@ -6,6 +6,7 @@ public class SpaceshipFixing : MonoBehaviour
 
     [SerializeField] private string requiredItemID;
     public GameObject successText;
+    
 
     public bool TryUseItem()
     {
