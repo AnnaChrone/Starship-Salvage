@@ -18,6 +18,7 @@ public class InteractionDetector : MonoBehaviour
         {
             interactableInRange = interactable; //Checks if object is interactable
             interactable.Highlight(); // highlights NPC
+            Debug.Log("Box Trigger");
         }
     }
 
@@ -27,6 +28,7 @@ public class InteractionDetector : MonoBehaviour
         {
             interactable.Unhighlight(); // removes NPC highliight
             interactableInRange = null; //Ensures that player does not interact with anything
+            Debug.Log("Box Untrigger");
         }
     }
 
