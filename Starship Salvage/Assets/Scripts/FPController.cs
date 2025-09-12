@@ -8,6 +8,7 @@ public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float runSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
     public NPC Dialogue;
@@ -102,6 +103,21 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+    public void OnRun(InputAction.CallbackContext context)
+{
+    if (!Dialogue.isFrozen)
+    {
+            if (context.performed)
+            {
+                moveSpeed = runSpeed;
+            }
+            else if (context.canceled)
+            {
+                moveSpeed = originalMoveSpeed;
+            }
+        }
+}
     public void HandleLook()
     {
         if (isPaused) return; // Don't rotate camera when paused

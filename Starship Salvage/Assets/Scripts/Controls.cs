@@ -198,6 +198,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Value"",
+                    ""id"": ""1dcc6bb5-3e6a-4e8c-821b-68e2af901724"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -402,7 +411,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d1cfd438-261b-4f73-9e96-fd14869babb2"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -490,7 +499,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dd855cc6-e2f1-4ab7-8787-16fc584ca33f"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -534,7 +543,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4d385fc7-3c44-46f8-8312-95c28463c4fc"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -572,6 +581,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""HotbarNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fabfee0-0bad-4f92-a1e8-9af3081ae572"",
+                    ""path"": ""<Keyboard>/capsLock"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -622,6 +642,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_UseItem = m_Newactionmap.FindAction("UseItem", throwIfNotFound: true);
         m_Newactionmap_HotbarPrev = m_Newactionmap.FindAction("HotbarPrev", throwIfNotFound: true);
         m_Newactionmap_HotbarNext = m_Newactionmap.FindAction("HotbarNext", throwIfNotFound: true);
+        m_Newactionmap_Run = m_Newactionmap.FindAction("Run", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -714,6 +735,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_UseItem;
     private readonly InputAction m_Newactionmap_HotbarPrev;
     private readonly InputAction m_Newactionmap_HotbarNext;
+    private readonly InputAction m_Newactionmap_Run;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -773,6 +795,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Newactionmap/HotbarNext".
         /// </summary>
         public InputAction @HotbarNext => m_Wrapper.m_Newactionmap_HotbarNext;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Run".
+        /// </summary>
+        public InputAction @Run => m_Wrapper.m_Newactionmap_Run;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -835,6 +861,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotbarNext.started += instance.OnHotbarNext;
             @HotbarNext.performed += instance.OnHotbarNext;
             @HotbarNext.canceled += instance.OnHotbarNext;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         /// <summary>
@@ -882,6 +911,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @HotbarNext.started -= instance.OnHotbarNext;
             @HotbarNext.performed -= instance.OnHotbarNext;
             @HotbarNext.canceled -= instance.OnHotbarNext;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         /// <summary>
@@ -1032,5 +1064,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHotbarNext(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Run" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRun(InputAction.CallbackContext context);
     }
 }

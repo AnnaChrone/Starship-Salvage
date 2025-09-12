@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Value",
+                    "id": "1dcc6bb5-3e6a-4e8c-821b-68e2af901724",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -316,7 +325,7 @@
                 {
                     "name": "",
                     "id": "d1cfd438-261b-4f73-9e96-fd14869babb2",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -404,7 +413,7 @@
                 {
                     "name": "",
                     "id": "dd855cc6-e2f1-4ab7-8787-16fc584ca33f",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -448,7 +457,7 @@
                 {
                     "name": "",
                     "id": "4d385fc7-3c44-46f8-8312-95c28463c4fc",
-                    "path": "<Keyboard>/b",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -486,6 +495,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "HotbarNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3fabfee0-0bad-4f92-a1e8-9af3081ae572",
+                    "path": "<Keyboard>/capsLock",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
