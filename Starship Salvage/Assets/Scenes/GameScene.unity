@@ -4608,6 +4608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeQuests: []
   completedQuests: []
+  hotbar: {fileID: 0}
 --- !u!1 &1170882778
 GameObject:
   m_ObjectHideFlags: 0

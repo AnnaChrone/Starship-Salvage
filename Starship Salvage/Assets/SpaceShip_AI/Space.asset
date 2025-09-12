@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Andromeda
   Lines:
-  - We crahed rip
+  - We crashed
   - Do this quest
   - Quest complete
   autoProgressLines: 010101
