@@ -3,9 +3,14 @@ using UnityEngine;
 public class PickUpObject : MonoBehaviour
 {
     [Header("Item Data")]
-    public string itemID; //unique value that coincides with questID
+    public string itemID; 
     public GameObject itemPrefab; 
-    public Sprite icon;           
+    public Sprite icon;
+
+    [Header("Consumable / Special")]
+    public bool consumable = false; 
+    public string unlockAbilityName; 
+
 
     private Rigidbody rb;
     private bool isHeld = false;
@@ -42,5 +47,27 @@ public class PickUpObject : MonoBehaviour
         {
             rb.MovePosition(targetPosition);
         }
+    }
+
+    public void Use(GameObject user)
+    {
+        if (consumable)
+        {
+            if (!string.IsNullOrEmpty(unlockAbilityName))
+            {
+                var abilities = user.GetComponent<PlayerAbilities>();
+                abilities.UnlockAbility(unlockAbilityName);
+            }
+
+            Destroy(gameObject);
+        }
+
+        var spaceship = FindFirstObjectByType<SpaceshipPartItem>();
+
+        if (spaceship != null && itemID == spaceship.ShipPartID)
+        {
+            spaceship.ShowText(itemID);
+        }
+            
     }
 }

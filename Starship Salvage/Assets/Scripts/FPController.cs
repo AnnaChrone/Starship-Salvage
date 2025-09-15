@@ -220,10 +220,6 @@ public class FPController : MonoBehaviour
 
 
 
-
-
-
-
     public void OnScroll(InputAction.CallbackContext context)
     {
         float scrollValue = context.ReadValue<float>();
@@ -276,11 +272,13 @@ public class FPController : MonoBehaviour
 
     public void OnUseItem(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-
-        if (spaceship != null) // only call if we’re in range
+        if (context.performed)
         {
-            spaceship.TryUseItem();
+            if (hotbarSelector != null)
+            {
+                if (!hotbarSelector.TryUseSelectedItem(gameObject))
+                    Debug.Log("No usable item in hand!");
+            }
         }
     }
 
