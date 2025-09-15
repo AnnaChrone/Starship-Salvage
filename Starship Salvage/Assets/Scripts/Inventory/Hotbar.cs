@@ -241,6 +241,35 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
+    public bool TryUseSelectedItem(GameObject user)
+    {
+        int slot = index;
+        GameObject heldItem = heldItemInstances[slot];
+
+        if (heldItem != null)
+        {
+            IUsable usable = heldItem.GetComponent<IUsable>();
+            if (usable != null)
+            {
+                // Call item’s custom use logic
+                usable.Use(user);
+
+                // Remove after use
+                Destroy(heldItem);
+                heldItemInstances[slot] = null;
+                storedItemPrefabs[slot] = null;
+
+                if (slotIcons[slot] != null)
+                    slotIcons[slot].sprite = null;
+
+                UpdateSelection();
+                return true;
+            }
+            else
+                return false;
+        }else
+            return false;
+    }
 
     public bool RemoveItemByID(string itemID)
     {
