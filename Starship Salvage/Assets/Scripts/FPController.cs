@@ -40,6 +40,16 @@ public class FPController : MonoBehaviour
     public GameObject PauseMenu;
     public bool isPaused = false;
 
+    [Header("Landing Particles")]
+    public ParticleSystem landingParticles;
+
+    private bool wasGrounded;
+
+    [SerializeField] private Transform feet; // at player's feet
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask groundMask;
+
+    
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -69,7 +79,12 @@ public class FPController : MonoBehaviour
         }
     }
 
-    
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(feet.position, Vector3.down, groundCheckDistance, groundMask);
+    }
+
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         if (!Dialogue.isFrozen)
@@ -93,13 +108,29 @@ public class FPController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+
+    private void OnLand()
+    {
+        if (landingParticles != null)
+        {
+            landingParticles.Play();
+        }
+    }
     public void HandleMovement()
     {
-        Vector3 move = transform.right * moveInput.x + transform.forward *
-        moveInput.y;
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * moveSpeed * Time.deltaTime);
-        if (controller.isGrounded && velocity.y < 0)
+
+        bool isGrounded = IsGrounded();
+
+        if (!wasGrounded && isGrounded)
+            OnLand();
+        wasGrounded = isGrounded;
+
+        // Gravity
+        if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
