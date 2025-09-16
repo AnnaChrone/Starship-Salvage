@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7556101825725765051}
   - component: {fileID: 8811123584218845024}
   - component: {fileID: 6947919997147223191}
-  - component: {fileID: -6109031529002134024}
   m_Layer: 0
   m_Name: Spanner
   m_TagString: Untagged
@@ -124,21 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11260c799ee7279479fab6e0b0da07c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: Spanner
+  itemID: 
   itemPrefab: {fileID: 0}
   icon: {fileID: 21300000, guid: 3bb9ffa92db1557469c379cce723f87d, type: 3}
-  consumable: 0
-  unlockAbilityName: 
---- !u!114 &-6109031529002134024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487940200309989136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34adddc649fe5f34584a900d361cf785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetShip: {fileID: 4084685646906182359, guid: d45bf5eda852fde47b5ed4769c312466, type: 3}

@@ -115,11 +115,11 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1dcc6bb5-3e6a-4e8c-821b-68e2af901724",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "MultiTap(tapTime=10000,tapDelay=0.3,pressPoint=0.5)",
+                    "interactions": "",
                     "initialStateCheck": true
                 }
             ],
@@ -501,21 +501,10 @@
                 {
                     "name": "",
                     "id": "3fabfee0-0bad-4f92-a1e8-9af3081ae572",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/capsLock",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "26ac1821-63fb-4244-8dcb-1af6256351d0",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
                     "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -135,23 +135,20 @@ public class FPController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private bool isRunning = false;
-
     public void OnRun(InputAction.CallbackContext context)
+{
+    if (!Dialogue.isFrozen)
     {
-        if (Dialogue.isFrozen) return;
-
-        if (context.performed) // double-tap W
-        {
-            moveSpeed = runSpeed;
-            Debug.Log("Double-tap detected Running!");
+            if (context.performed)
+            {
+                moveSpeed = runSpeed;
+            }
+            else if (context.canceled)
+            {
+                moveSpeed = originalMoveSpeed;
+            }
         }
-        else if (context.canceled) // when W released
-        {
-            moveSpeed = originalMoveSpeed;
-            Debug.Log("Stopped running");
-        }
-    }
+}
     public void HandleLook()
     {
         if (isPaused) return; // Don't rotate camera when paused
@@ -164,6 +161,25 @@ public class FPController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, gunPoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.AddForce(gunPoint.forward * 1000f);
+            Destroy(bullet, 3);
+        }
+    }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
