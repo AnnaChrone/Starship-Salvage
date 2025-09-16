@@ -4,15 +4,17 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class Spaceship : MonoBehaviour, AIInteractable
+public class Spaceship : MonoBehaviour, IInteractable
 {
     public SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
     private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-  
+     private Renderer rend; //highlighting
+    private Color originalColor;
     private SpaceshipFixing spaceshipFixing;
+    public bool isFrozen = false; //Pauses game
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,12 +23,27 @@ public class Spaceship : MonoBehaviour, AIInteractable
         spaceshipFixing = FindAnyObjectByType<SpaceshipFixing>();
     }
 
-    public bool CanInteractAI()
+     public void Highlight()
+    {
+        if (rend != null)
+        {
+            rend.material.color = Color.yellow; 
+        }
+    }
+    public void Unhighlight()
+    {
+        if (rend != null)
+        {
+            rend.material.color = originalColor;
+        }
+    }
+
+    public bool CanInteract()
     {
         return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
     }
 
-    public void InteractAI()
+    public void Interact()
     {
         
         if (isDialogueActive)
@@ -41,6 +58,10 @@ public class Spaceship : MonoBehaviour, AIInteractable
 
     void StartDialogue()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        isFrozen = true; //Pauses game so that player does not run away from NPC
+
         isDialogueActive = true;
 
 
@@ -49,7 +70,7 @@ public class Spaceship : MonoBehaviour, AIInteractable
         DisplayCurrentLine();
     }
 
-        void NextLine()
+        public void NextLine()
     {
         if (isTyping)
         {
@@ -106,5 +127,8 @@ public class Spaceship : MonoBehaviour, AIInteractable
         StopAllCoroutines();
         shipDialogueControl.SetDialogue("");
         shipDialogueControl.ShowDialoguePanel(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        isFrozen = false;
     }
 }

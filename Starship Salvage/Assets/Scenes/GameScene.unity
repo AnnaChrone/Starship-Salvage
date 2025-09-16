@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipDialogueData: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
+  isFrozen: 0
 --- !u!43 &109398757
 Mesh:
   m_ObjectHideFlags: 0
@@ -6294,7 +6295,7 @@ GameObject:
   - component: {fileID: 1473776320}
   - component: {fileID: 1473776319}
   - component: {fileID: 1473776318}
-  - component: {fileID: 1473776317}
+  - component: {fileID: 1473776321}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -6317,23 +6318,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1473776317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473776315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 89de0a36f16940e4abe28b83713d319a, type: 2}
-  item: {fileID: 0}
-  isFrozen: 0
-  hotbar: {fileID: 790370926}
-  RewardItem: {fileID: 0}
 --- !u!65 &1473776318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6408,6 +6392,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473776315}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1473776321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473776315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f388562192e54b94fa25b868afcca95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipDialogueData: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
+  isFrozen: 0
 --- !u!4 &1481911726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1286709902092802603, guid: 8fb46f6bdfaa36c459e62f202322104f, type: 3}
