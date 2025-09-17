@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8b132294133043ad49620f7d27cf9, type: 3}
   m_Name: Crash_Landing
   m_EditorClassIdentifier: 
-  shipName: Spaceship
+  shipName: Andromeda
   Lines:
   - We seem to have crash landed on a foreign planet.
   - I will perform a scan of the local area.
@@ -25,6 +25,3 @@ MonoBehaviour:
   endLines: 00000001010001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  ShipPartIndex: 5
-  ShipPartNotFound: 4
-  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

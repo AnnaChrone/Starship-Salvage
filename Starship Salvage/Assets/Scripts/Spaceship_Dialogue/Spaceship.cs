@@ -4,26 +4,26 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class Spaceship : MonoBehaviour, IInteractable
+public class Spaceship : MonoBehaviour//, IInteractable
 {
-    public SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
+    private SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
     private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
      private Renderer rend; //highlighting
     private Color originalColor;
-    private SpaceshipFixing spaceshipFixing;
+   
     public bool isFrozen = false; //Pauses game
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         shipDialogueControl = SpaceshipAIController.Instance; //Create an instance
-        spaceshipFixing = FindAnyObjectByType<SpaceshipFixing>();
+       
     }
 
-     public void Highlight()
+     /* public void Highlight()
     {
         if (rend != null)
         {
@@ -43,7 +43,7 @@ public class Spaceship : MonoBehaviour, IInteractable
         return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
     }
 
-    public void Interact()
+   public void Interact()
     {
         
         if (isDialogueActive)
@@ -54,10 +54,13 @@ public class Spaceship : MonoBehaviour, IInteractable
         {
             StartDialogue();
         }
-    }
+    }*/
 
-    void StartDialogue()
+    public void StartDialogue(SpaceshipDialogue Andromeda)
     {
+        if (isDialogueActive) return;
+
+        shipDialogueData = Andromeda;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isFrozen = true; //Pauses game so that player does not run away from NPC

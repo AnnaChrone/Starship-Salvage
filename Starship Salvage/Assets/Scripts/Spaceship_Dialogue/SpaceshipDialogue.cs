@@ -8,8 +8,7 @@ public class SpaceshipDialogue : ScriptableObject
     public bool[] endLines; //Dialogue ends
     public float autoProgressDelay; //Delay between dialogue
     public float typingSpeed; //Speed at which each char is displayed
-    public int ShipPartIndex; //Dialogue for when a ship part is inserted
-    public int ShipPartNotFound; //Dialogue if player does not have correct piece
+    
    
 }
 
