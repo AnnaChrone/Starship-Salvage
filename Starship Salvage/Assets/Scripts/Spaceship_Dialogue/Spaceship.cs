@@ -4,16 +4,21 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 public class Spaceship : MonoBehaviour//, IInteractable
 {
     private SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
     private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
+    public bool finishedDialogue = false;
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
      private Renderer rend; //highlighting
     private Color originalColor;
-   
+    public GameObject CrashLandingScene;
+    public float fadeDuration =3f;
+    public CanvasGroup panel;
+
     public bool isFrozen = false; //Pauses game
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -66,6 +71,7 @@ public class Spaceship : MonoBehaviour//, IInteractable
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         isDialogueActive = true;
+       
 
 
         shipDialogueControl.ShowDialoguePanel(true);
@@ -127,11 +133,32 @@ public class Spaceship : MonoBehaviour//, IInteractable
     }
     public void EndDialogue()
     {
+        Debug.Log("im ending dialogue");
         StopAllCoroutines();
         shipDialogueControl.SetDialogue("");
+        finishedDialogue = true;
+        if (CrashLandingScene != null)
+        {
+            StartCoroutine(FadeOutPanel());
+        }
         shipDialogueControl.ShowDialoguePanel(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isFrozen = false;
+    }
+
+    IEnumerator FadeOutPanel()
+    {
+        float startAlpha = panel.alpha;
+        float time = 0f;
+
+        while (time < fadeDuration)
+        {
+            time += Time.deltaTime;
+            panel.alpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
+            yield return null;
+        }
+
+        CrashLandingScene.SetActive(false);
     }
 }
