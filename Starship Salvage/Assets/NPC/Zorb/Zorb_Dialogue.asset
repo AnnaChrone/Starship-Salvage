@@ -14,29 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Zorb
   Lines:
-  - Hey you...
-  - Look at this weird metal thing I found...
-  - You want this? It might be useful for that busted ship you have there...
-  - Well, you got to help me first.
-  - I lost my special yellow blanky :(
-  - Can you help me find it?
-  - Okay I will be waiting
-  - Awesome! I last had it in the town over there. Come talk to me once you find
-    it!!!
-  - Have you found it yet?
-  - Thank you so much!
-  - As promised, here, have this. Go use it on your ship!
+  - "And there I didn\u2019t think I could get more stressed\u2026"
+  - Hey, kid! Did no one teach you not to use Lu Signal towers as parking markers?
+  - "It\u2019s completely busted! How am I meant to tell the region presidents about
+    the festival now?!"
+  - " I\u2019m so gonna get fired\u2026"
+  - "You\u2019re SORRY?! Sorry doesn\u2019t save my butt from getting the sack, kid!"
+  - "Tell you what. If you\u2019re so sorry, you can HAND DELIVER these flyers to
+    each region president. "
+  - "You don\u2019t look properly equipped for the task though, so I suggest you
+    start by visiting the Lu Ra president first. "
+  - "He might be able to help you with what you\u2019ll need for the other regions."
+  - 'Be quick, kid, the festival is in a few days... '
+  - I CANNOT afford not to have the support of the presidents!
+  - "Come back here when you\u2019re finished with your punishment!"
   autoProgressLines: 0101010101010101010101
-  endLines: 0000000000000101010001
+  endLines: 0000000000000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  Choices:
-  - dialogueIndex: 5
-    Choices:
-    - Of course!
-    - Hmm.. maybe later.
-    nextDialogueIndexes: 0700000006000000
-    givesQuest: 0100
-  questInProgressIndex: 8
-  questCompletedIndex: 9
+  Choices: []
+  questInProgressIndex: 0
+  questCompletedIndex: 0
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
