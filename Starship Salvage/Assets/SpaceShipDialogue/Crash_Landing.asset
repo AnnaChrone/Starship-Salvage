@@ -16,6 +16,9 @@ MonoBehaviour:
   Lines:
   - Im sick of seeing this all the time
   autoProgressLines: 01
-  endLines: 00000001010001
+  endLines: 01
   autoProgressDelay: 1.5
   typingSpeed: 0.05
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  quests: {fileID: 0}
