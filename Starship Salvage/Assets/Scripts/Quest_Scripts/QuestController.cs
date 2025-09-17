@@ -7,6 +7,7 @@ public class QuestController : MonoBehaviour
     public List<QuestProgress> activeQuests = new(); //List containg players quest progress
     public List<string> completedQuests = new(); //List containing completed quests
     public Hotbar hotbar; //Calls the hotbar
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
