@@ -1722,6 +1722,7 @@ GameObject:
   - component: {fileID: 309584798}
   - component: {fileID: 309584799}
   - component: {fileID: 309584800}
+  - component: {fileID: 309584801}
   m_Layer: 0
   m_Name: SpaceshipAIController
   m_TagString: Untagged
@@ -1774,6 +1775,20 @@ MonoBehaviour:
   spaceship: {fileID: 76767987}
   crashLand: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
   CrashLandingScene: {fileID: 911739469}
+--- !u!114 &309584801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309584797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0f15161d9cabe4a9dae37da8f4bd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceship: {fileID: 76767987}
+  FlyerQuest: {fileID: 11400000, guid: fb67c26144f2ffe42b282f78aef8d39c, type: 2}
 --- !u!1 &319408898
 GameObject:
   m_ObjectHideFlags: 0

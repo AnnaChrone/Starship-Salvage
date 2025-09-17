@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdb8b132294133043ad49620f7d27cf9, type: 3}
-  m_Name: Crash_Landing
+  m_Name: FlyerQuest
   m_EditorClassIdentifier: 
   shipName: Andromeda
   Lines:
-  - Im sick of seeing this all the time
-  autoProgressLines: 01
-  endLines: 01
+  - Do this quest
+  - Quest complete
+  autoProgressLines: 0101
+  endLines: 0101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   questInProgressIndex: 0
-  questCompletedIndex: 0
-  quests: {fileID: 0}
+  questCompletedIndex: 1
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

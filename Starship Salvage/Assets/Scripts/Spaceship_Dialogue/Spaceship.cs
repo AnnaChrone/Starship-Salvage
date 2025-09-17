@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
-public class Spaceship : MonoBehaviour//, IInteractable
+public class Spaceship : MonoBehaviour
 {
     private SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
     private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
@@ -13,14 +13,15 @@ public class Spaceship : MonoBehaviour//, IInteractable
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
-     private Renderer rend; //highlighting
-    private Color originalColor;
+
     public GameObject CrashLandingScene;
     public float fadeDuration =3f;
     public CanvasGroup panel;
     public CanvasGroup shader;
 
     public bool isFrozen = false; //Pauses game
+    private enum QuestState { NotStarted, InProgress, Completed } //States of quests
+    private QuestState questState = QuestState.NotStarted; //Initial QuestState
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,42 +30,22 @@ public class Spaceship : MonoBehaviour//, IInteractable
        
     }
 
-     /* public void Highlight()
-    {
-        if (rend != null)
-        {
-            rend.material.color = Color.yellow; 
-        }
-    }
-    public void Unhighlight()
-    {
-        if (rend != null)
-        {
-            rend.material.color = originalColor;
-        }
-    }
-
-    public bool CanInteract()
-    {
-        return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
-    }
-
-   public void Interact()
-    {
-        
-        if (isDialogueActive)
-        {
-            NextLine();
-        }
-        else
-        {
-            StartDialogue();
-        }
-    }*/
 
     public void StartDialogue(SpaceshipDialogue Andromeda)
     {
+
         if (isDialogueActive) return;
+
+        SyncQuestState();
+
+        if (questState == QuestState.InProgress)
+        {
+            dialogueIndex = shipDialogueData.questInProgressIndex;
+        }
+        else if (questState == QuestState.Completed)
+        {
+            dialogueIndex = shipDialogueData.questCompletedIndex;
+        }
 
         shipDialogueData = Andromeda;
         Cursor.lockState = CursorLockMode.None;
@@ -73,7 +54,6 @@ public class Spaceship : MonoBehaviour//, IInteractable
 
         isDialogueActive = true;
        
-
 
         shipDialogueControl.ShowDialoguePanel(true);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
@@ -107,6 +87,24 @@ public class Spaceship : MonoBehaviour//, IInteractable
         }
     }
 
+    void SyncQuestState()
+    {
+        if (shipDialogueData.quests == null) return;
+
+        string questID = shipDialogueData.quests.QuestID;
+        if (QuestController.Instance.isQuestCompleted(questID))
+        {
+            questState = QuestState.Completed;
+        }
+        else if (QuestController.Instance.IsQuestActive(questID))
+            {
+                questState = QuestState.InProgress;
+            }
+            else
+            {
+                questState = QuestState.NotStarted;
+            }
+    }
        IEnumerator TypeLine()
     {
         isTyping = true;

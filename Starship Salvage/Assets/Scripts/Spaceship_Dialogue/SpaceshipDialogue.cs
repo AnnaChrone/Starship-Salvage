@@ -9,6 +9,8 @@ public class SpaceshipDialogue : ScriptableObject
     public float autoProgressDelay; //Delay between dialogue
     public float typingSpeed; //Speed at which each char is displayed
     
-   
+   public int questInProgressIndex; //What does NPC say when quest is in progress
+    public int questCompletedIndex; //What does NPC say when qiest is completed
+    public Quests quests; //the actual quest
 }
 
