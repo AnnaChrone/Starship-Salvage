@@ -27,11 +27,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         dialogueControl = DialogueController.Instance; //Create an instance
 
         // Save reference for highlighting
-        rend = GetComponent<Renderer>();
+       /* rend = GetComponent<Renderer>();
         if (rend != null)
         {
             originalColor = rend.material.color;
-        }
+        }*/
     }
 
     public void Highlight()

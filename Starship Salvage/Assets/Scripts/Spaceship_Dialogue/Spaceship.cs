@@ -18,6 +18,7 @@ public class Spaceship : MonoBehaviour//, IInteractable
     public GameObject CrashLandingScene;
     public float fadeDuration =3f;
     public CanvasGroup panel;
+    public CanvasGroup shader;
 
     public bool isFrozen = false; //Pauses game
 
@@ -156,6 +157,7 @@ public class Spaceship : MonoBehaviour//, IInteractable
         {
             time += Time.deltaTime;
             panel.alpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
+            shader.alpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
             yield return null;
         }
 
