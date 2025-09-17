@@ -14,14 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Andromeda
   Lines:
-  - We seem to have crash landed on a foreign planet.
-  - I will perform a scan of the local area.
-  - SCANNING....SCANNING
-  - There seems to be signs of life in the area, they may be able to help you
-  - You have the incorrect part.
-  - Success! You have repaired part of the ship.
-  - You still have more to go.
-  autoProgressLines: 01010101010101
+  - Im sick of seeing this all the time
+  autoProgressLines: 01
   endLines: 00000001010001
   autoProgressDelay: 1.5
   typingSpeed: 0.05

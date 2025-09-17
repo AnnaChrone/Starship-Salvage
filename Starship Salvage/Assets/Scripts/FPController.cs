@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
 using System.Runtime.InteropServices;
+using System.Collections;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -42,10 +43,15 @@ public class FPController : MonoBehaviour
 
     [Header("Landing Particles")]
     public ParticleSystem landingParticles;
-
-    private bool wasGrounded;
-
     [SerializeField] private Transform feet; // at player's feet
+
+    [Header("Floating")]
+    public float floatDuration = 8f;   // how long to float
+    public float floatSpeed = 3f;      // upward speed
+    private bool wasGrounded;
+    public PlayerAbilities fruits;
+
+    
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
 
@@ -296,6 +302,32 @@ public class FPController : MonoBehaviour
         }
     }
 
+    public void OnFloat(InputAction.CallbackContext context)
+    {
+        if (Dialogue.isFrozen) return;
+
+        if (context.performed && fruits.FloatAquired) // double-tap space
+        {
+            Debug.Log("Double-tap SPACE Floating!");
+            StartCoroutine(FloatUpwards());
+        }
+    }
+
+    private IEnumerator FloatUpwards()
+    {
+
+
+        float timer = 0f;
+        while (timer < floatDuration)
+        {
+            gravity = 0f;
+            controller.Move(Vector3.up * floatSpeed * Time.deltaTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("falling!");
+        gravity = -9.81f;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out SpaceshipFixing ship))

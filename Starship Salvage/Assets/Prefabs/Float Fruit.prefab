@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5670930913381038972}
   - component: {fileID: 6550250609161213230}
   m_Layer: 0
-  m_Name: Item 1
+  m_Name: Float Fruit
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,5 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11260c799ee7279479fab6e0b0da07c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 
   itemPrefab: {fileID: 1292721829374849161}
   icon: {fileID: 21300000, guid: 89d82d31bc7d41b4b86ad32d006e1f5e, type: 3}
+  consumable: 0
+  unlockAbilityName: 

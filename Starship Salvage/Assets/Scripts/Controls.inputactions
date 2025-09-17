@@ -121,6 +121,15 @@
                     "processors": "",
                     "interactions": "MultiTap(tapTime=10000,tapDelay=0.3)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Float",
+                    "type": "Button",
+                    "id": "6d16e124-8541-452d-8b43-c9d281bd3a36",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "MultiTap(tapTime=0.2,tapDelay=0.3)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -517,6 +526,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c57eca5b-71de-4018-9efd-a33c235383f1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Float",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
