@@ -46,5 +46,5 @@ public class QuestController : MonoBehaviour
     }
 
     public bool IsQuestActive(string questID) => activeQuests.Exists(q => q.questID == questID); //This will return true if the input quest ID matches the ID in a list
-   // public bool IsQuestCompleted(string questID) => completedQuests.Contains(questID); //Will return the completed quest to the list
+    public bool IsQuestCompleted(string questID) => completedQuests.Contains(questID); //Will return the completed quest to the list
 }

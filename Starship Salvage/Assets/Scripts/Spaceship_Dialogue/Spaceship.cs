@@ -18,10 +18,8 @@ public class Spaceship : MonoBehaviour
     public float fadeDuration =3f;
     public CanvasGroup panel;
     public CanvasGroup shader;
-
     public bool isFrozen = false; //Pauses game
-    private enum QuestState { NotStarted, InProgress, Completed } //States of quests
-    private QuestState questState = QuestState.NotStarted; //Initial QuestState
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,16 +34,7 @@ public class Spaceship : MonoBehaviour
 
         if (isDialogueActive) return;
 
-        SyncQuestState();
-
-        if (questState == QuestState.InProgress)
-        {
-            dialogueIndex = shipDialogueData.questInProgressIndex;
-        }
-        else if (questState == QuestState.Completed)
-        {
-            dialogueIndex = shipDialogueData.questCompletedIndex;
-        }
+        
 
         shipDialogueData = Andromeda;
         Cursor.lockState = CursorLockMode.None;
@@ -59,6 +48,8 @@ public class Spaceship : MonoBehaviour
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
         DisplayCurrentLine();
     }
+
+     
 
         public void NextLine()
     {
@@ -87,24 +78,7 @@ public class Spaceship : MonoBehaviour
         }
     }
 
-    void SyncQuestState()
-    {
-        if (shipDialogueData.quests == null) return;
-
-        string questID = shipDialogueData.quests.QuestID;
-        if (QuestController.Instance.isQuestCompleted(questID))
-        {
-            questState = QuestState.Completed;
-        }
-        else if (QuestController.Instance.IsQuestActive(questID))
-            {
-                questState = QuestState.InProgress;
-            }
-            else
-            {
-                questState = QuestState.NotStarted;
-            }
-    }
+   
        IEnumerator TypeLine()
     {
         isTyping = true;

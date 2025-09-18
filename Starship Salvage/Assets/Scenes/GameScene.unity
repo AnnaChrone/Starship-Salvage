@@ -1719,6 +1719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceship: {fileID: 76767987}
   FlyerQuest: {fileID: 11400000, guid: fb67c26144f2ffe42b282f78aef8d39c, type: 2}
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
 --- !u!1 &319408898
 GameObject:
   m_ObjectHideFlags: 0
