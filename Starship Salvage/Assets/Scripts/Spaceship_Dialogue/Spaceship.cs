@@ -29,7 +29,7 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    public void StartDialogue(SpaceshipDialogue Andromeda)
+    public void StartDialogue(SpaceshipDialogue Andromeda, int dialogueIndex)
     {
 
         if (isDialogueActive) return;

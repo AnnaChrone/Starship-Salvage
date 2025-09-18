@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public NPCDialogue dialogueData; //Calls from NPCDialogue class
     private DialogueController dialogueControl; //Calls from DialogueControoler class
     public Item item; //Calls from Item class
+    public bool hasTalked = false;
 
     private int dialogueIndex; //Index of lines
     private bool isTyping, isDialogueActive;
@@ -223,6 +225,8 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         Debug.Log("End");
         StopAllCoroutines();
+        hasTalked = true;
+        Debug.Log("has talked is true");
         isDialogueActive = false;
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
