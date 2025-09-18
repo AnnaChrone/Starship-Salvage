@@ -22,17 +22,24 @@ MonoBehaviour:
   - "You\u2019re SORRY?! Sorry doesn\u2019t save my butt from getting the sack, kid!"
   - "Tell you what. If you\u2019re so sorry, you can HAND DELIVER these flyers to
     each region president. "
+  - Okay kid, you have no choice.
   - "You don\u2019t look properly equipped for the task though, so I suggest you
     start by visiting the Lu Ra president first. "
   - "He might be able to help you with what you\u2019ll need for the other regions."
   - 'Be quick, kid, the festival is in a few days... '
   - I CANNOT afford not to have the support of the presidents!
   - "Come back here when you\u2019re finished with your punishment!"
-  autoProgressLines: 0101010101010101010101
-  endLines: 0000000000000000000001
+  autoProgressLines: 010101010101010101010101
+  endLines: 000000000000000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  Choices: []
+  Choices:
+  - dialogueIndex: 5
+    Choices:
+    - OKAY
+    - NO
+    nextDialogueIndexes: 0700000006000000
+    givesQuest: 0100
   questInProgressIndex: 0
   questCompletedIndex: 0
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

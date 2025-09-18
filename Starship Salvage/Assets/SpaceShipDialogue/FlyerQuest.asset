@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Andromeda
   Lines:
+  - ...
   - Do this quest
   - Quest complete
-  autoProgressLines: 0101
-  endLines: 0101
+  autoProgressLines: 010101
+  endLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  questInProgressIndex: 0
-  questCompletedIndex: 1
-  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
+  questInProgressIndex: 1
+  questCompletedIndex: 2

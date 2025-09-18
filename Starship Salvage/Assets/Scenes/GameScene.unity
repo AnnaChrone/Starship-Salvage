@@ -1790,6 +1790,7 @@ MonoBehaviour:
   spaceship: {fileID: 76767987}
   FlyerQuest: {fileID: 11400000, guid: fb67c26144f2ffe42b282f78aef8d39c, type: 2}
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
+  npc: {fileID: 1487406193}
 --- !u!1 &319408898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,7 +5356,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1473776321}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Spaceship, Assembly-CSharp
         m_MethodName: EndDialogue
         m_Mode: 1
@@ -7329,7 +7330,6 @@ GameObject:
   - component: {fileID: 1473776320}
   - component: {fileID: 1473776319}
   - component: {fileID: 1473776318}
-  - component: {fileID: 1473776321}
   m_Layer: 0
   m_Name: SpaceshipTrigger_temp
   m_TagString: Untagged
@@ -7426,24 +7426,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473776315}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1473776321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473776315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f388562192e54b94fa25b868afcca95e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finishedDialogue: 0
-  CrashLandingScene: {fileID: 0}
-  fadeDuration: 0
-  panel: {fileID: 0}
-  shader: {fileID: 0}
-  isFrozen: 0
 --- !u!4 &1481911726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1286709902092802603, guid: 8fb46f6bdfaa36c459e62f202322104f, type: 3}
@@ -7715,6 +7697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
   item: {fileID: 0}
+  hasTalked: 0
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 1068187363}
@@ -8749,7 +8732,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1473776321}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Spaceship, Assembly-CSharp
         m_MethodName: NextLine
         m_Mode: 1
