@@ -12,8 +12,7 @@ public class Spaceship : MonoBehaviour
     public bool finishedDialogue = false;
 
     private int dialogueIndex; //Index of lines
-    private bool isTyping, isDialogueActive;
-
+    private bool isTyping, isDialogueActive ;
     public GameObject CrashLandingScene;
     public float fadeDuration =3f;
     public CanvasGroup panel;
@@ -28,21 +27,20 @@ public class Spaceship : MonoBehaviour
        
     }
 
-
     public void StartDialogue(SpaceshipDialogue Andromeda, int dialogueIndex)
     {
 
-        if (isDialogueActive) return;
+        // if (isDialogueActive) return;
+
 
         
-
         shipDialogueData = Andromeda;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         isDialogueActive = true;
-       
+
 
         shipDialogueControl.ShowDialoguePanel(true);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);

@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 {
     public NPCDialogue dialogueData; //Calls from NPCDialogue class
     private DialogueController dialogueControl; //Calls from DialogueControoler class
+    public FlyerQuestDialogue flyerQuest;
     public Item item; //Calls from Item class
     public bool hasTalked = false;
 
@@ -130,7 +131,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     }
 
-
    public void NextLine()
     {
         if (isTyping)
@@ -226,6 +226,12 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         Debug.Log("End");
         StopAllCoroutines();
         hasTalked = true;
+
+        if (flyerQuest != null)
+        {
+            flyerQuest.FlyerQuestSpeak();
+        }
+        
         Debug.Log("has talked is true");
         isDialogueActive = false;
         dialogueControl.SetDialogue("");

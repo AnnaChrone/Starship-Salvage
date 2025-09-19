@@ -10,7 +10,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         CrashLandingScene.SetActive(true);
-            spaceship.StartDialogue(crashLand, 0);
+          spaceship.StartDialogue(crashLand, 0);
        
         
     }

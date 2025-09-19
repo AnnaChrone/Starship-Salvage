@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FlyerQuestDialogur : MonoBehaviour
+public class FlyerQuestDialogue : MonoBehaviour
 {
     public Spaceship spaceship;
     public SpaceshipDialogue FlyerQuest;
@@ -10,13 +10,8 @@ public class FlyerQuestDialogur : MonoBehaviour
     private QuestState questState = QuestState.NotStarted; //Initial QuestState
     int dialogueIndex;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-   /* public void Update()
+    public void FlyerQuestSpeak()
     {
          if (npc != null && npc.hasTalked == true )
         {
@@ -25,9 +20,7 @@ public class FlyerQuestDialogur : MonoBehaviour
             spaceship.StartDialogue(FlyerQuest, dialogueIndex);
             Debug.Log("Andromeda talk about progress");
         } 
-    }*/
-    
-      
+    }
     
 
     void SyncQuestState()
@@ -38,17 +31,20 @@ public class FlyerQuestDialogur : MonoBehaviour
         }
 
         string questID = quests.QuestID;
-        if (QuestController.Instance.isQuestCompleted(questID))
+        if (QuestController.Instance.IsQuestCompleted(questID))
         {
             questState = QuestState.Completed;
+            Debug.Log("quest complete");
         }
         else if (QuestController.Instance.IsQuestActive(questID))
         {
             questState = QuestState.InProgress;
+            Debug.Log("quest in progress");
         }
         else
         {
             questState = QuestState.NotStarted;
+            Debug.Log("quest not started");
         }
     }
 
