@@ -5,6 +5,7 @@ public class PlayerAbilities : MonoBehaviour
     public bool FloatAquired = false;
     public bool GlowAquired = false;
     public bool GrowAquired = false;
+    public bool CommAquired = false;
     public GameObject GlowEffect;
 
     public void UnlockAbility(string abilityName)
@@ -23,6 +24,10 @@ public class PlayerAbilities : MonoBehaviour
             case "Grow":
                 GrowAquired = true;
                 Debug.Log("Unlocked Grow!");
+                break;
+            case "Comm":
+                CommAquired = true;
+                Debug.Log("Unlocked Comm!");
                 break;
             default:
                 break;
