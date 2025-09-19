@@ -10,6 +10,8 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public NPCDialogue dialogueData; //Calls from NPCDialogue class
     private DialogueController dialogueControl; //Calls from DialogueControoler class
     public FlyerQuestDialogue flyerQuest;
+
+    public FlyerAppear flyerappear;
     public Item item; //Calls from Item class
     public bool hasTalked = false;
 
@@ -227,10 +229,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         StopAllCoroutines();
         hasTalked = true;
 
-        if (flyerQuest != null)
+        if (flyerappear != null)
         {
-            flyerQuest.FlyerQuestSpeak();
+            flyerappear.FlyerAppears();
         }
+
+        if (flyerQuest != null && flyerappear.hasFlyerAppeared == true)
+            {
+                flyerQuest.FlyerQuestSpeak();
+            }
+
         
         Debug.Log("has talked is true");
         isDialogueActive = false;
