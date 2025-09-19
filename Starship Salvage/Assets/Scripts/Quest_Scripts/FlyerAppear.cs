@@ -5,7 +5,7 @@ public class FlyerAppear : MonoBehaviour
     public GameObject CoLuFlyer;
     public GameObject RaLuFlyer;
     public GameObject LuLuFlyer;
-    private NPC npc;
+    public NPC npc;
     public bool hasFlyerAppeared;
 
     public void FlyerAppears()
