@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: ReciveFlyer LuLu
   m_EditorClassIdentifier: 
-  npcName: 
+  npcName: President Lucoo
   Lines: []
   autoProgressLines: 
   endLines: 
