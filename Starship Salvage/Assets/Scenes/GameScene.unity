@@ -13433,6 +13433,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6d16e124-8541-452d-8b43-c9d281bd3a36
     m_ActionName: 'New action map/Float[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1339711966}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnGrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dca6737d-4193-499c-a83d-9ff7c362e46e
+    m_ActionName: 'New action map/Grow[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -13463,6 +13479,8 @@ MonoBehaviour:
   crouchHeight: 1
   standHeight: 2
   crouchSpeed: 2.5
+  growHeight: 10
+  growSpeed: 20
   pickupRange: 3
   holdPoint: {fileID: 1617641979}
   hotbarSelector: {fileID: 790370926}
@@ -13515,7 +13533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloatAquired: 0
   GlowAquired: 0
-  GrowAquired: 0
+  GrowAquired: 1
   CommAquired: 0
   GlowEffect: {fileID: 1816574860}
 --- !u!1 &1366831042
@@ -25997,7 +26015,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 285285429}
-  - {fileID: 1339711963}
   - {fileID: 1958677872}
   - {fileID: 1384008369}
   - {fileID: 2095225162}
@@ -26005,3 +26022,4 @@ SceneRoots:
   - {fileID: 1311281732}
   - {fileID: 1473776316}
   - {fileID: 2144493544}
+  - {fileID: 1339711963}

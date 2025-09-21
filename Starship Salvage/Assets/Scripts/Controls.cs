@@ -216,6 +216,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""MultiTap(tapTime=0.2,tapDelay=0.3)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grow"",
+                    ""type"": ""Button"",
+                    ""id"": ""dca6737d-4193-499c-a83d-9ff7c362e46e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -625,6 +634,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Float"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad26de74-98cb-4ba8-919f-22bfb0f70611"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Grow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -675,6 +695,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_HotbarNext = m_Newactionmap.FindAction("HotbarNext", throwIfNotFound: true);
         m_Newactionmap_Run = m_Newactionmap.FindAction("Run", throwIfNotFound: true);
         m_Newactionmap_Float = m_Newactionmap.FindAction("Float", throwIfNotFound: true);
+        m_Newactionmap_Grow = m_Newactionmap.FindAction("Grow", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -769,6 +790,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_HotbarNext;
     private readonly InputAction m_Newactionmap_Run;
     private readonly InputAction m_Newactionmap_Float;
+    private readonly InputAction m_Newactionmap_Grow;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -837,6 +859,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Float => m_Wrapper.m_Newactionmap_Float;
         /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Grow".
+        /// </summary>
+        public InputAction @Grow => m_Wrapper.m_Newactionmap_Grow;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
@@ -904,6 +930,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Float.started += instance.OnFloat;
             @Float.performed += instance.OnFloat;
             @Float.canceled += instance.OnFloat;
+            @Grow.started += instance.OnGrow;
+            @Grow.performed += instance.OnGrow;
+            @Grow.canceled += instance.OnGrow;
         }
 
         /// <summary>
@@ -957,6 +986,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Float.started -= instance.OnFloat;
             @Float.performed -= instance.OnFloat;
             @Float.canceled -= instance.OnFloat;
+            @Grow.started -= instance.OnGrow;
+            @Grow.performed -= instance.OnGrow;
+            @Grow.canceled -= instance.OnGrow;
         }
 
         /// <summary>
@@ -1121,5 +1153,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFloat(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Grow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGrow(InputAction.CallbackContext context);
     }
 }

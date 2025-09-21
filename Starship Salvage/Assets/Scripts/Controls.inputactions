@@ -130,6 +130,15 @@
                     "processors": "",
                     "interactions": "MultiTap(tapTime=0.2,tapDelay=0.3)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grow",
+                    "type": "Button",
+                    "id": "dca6737d-4193-499c-a83d-9ff7c362e46e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -537,6 +546,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Float",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad26de74-98cb-4ba8-919f-22bfb0f70611",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Grow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

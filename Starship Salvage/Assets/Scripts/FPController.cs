@@ -29,6 +29,11 @@ public class FPController : MonoBehaviour
     public float crouchSpeed = 2.5f;
     private float originalMoveSpeed;
 
+    [Header("Grow")]
+    public float growHeight = 10f;
+    public float growSpeed = 20f;
+
+
     [Header("PickUp")]
     public float pickupRange = 3f;
     public Transform holdPoint;
@@ -238,8 +243,6 @@ public class FPController : MonoBehaviour
         }
     }
 
-
-
     public void OnScroll(InputAction.CallbackContext context)
     {
         float scrollValue = context.ReadValue<float>();
@@ -342,6 +345,38 @@ public class FPController : MonoBehaviour
         {
             if (spaceship == ship)
                 spaceship = null;
+        }
+    }
+
+    public void OnGrow(InputAction.CallbackContext context)
+    {
+        if (Dialogue.isFrozen) return;
+
+        if (context.performed && fruits.GrowAquired)
+        {
+            // Scale the entire player object (mesh + controller)
+            transform.localScale = Vector3.one * 2f;
+
+            // Adjust CharacterController manually because scaling doesn't affect it
+            controller.height = growHeight; // double height
+            controller.center = new Vector3(0, controller.height / 2f, 0);
+
+            // Nudge up to prevent sinking
+            controller.transform.position += Vector3.up * (standHeight / 2f);
+
+            moveSpeed = growSpeed;
+        }
+        else if (context.canceled)
+        {
+            // Reset scale
+            transform.localScale = Vector3.one;
+
+            // Reset CharacterController
+            controller.height = standHeight;
+            controller.center = new Vector3(0, standHeight / 2f, 0);
+            controller.transform.position += Vector3.up * 0.1f;
+
+            moveSpeed = originalMoveSpeed;
         }
     }
 
