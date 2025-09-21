@@ -7328,6 +7328,8 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  highlightmat: {fileID: 2100000, guid: 5e9f898cad5aebe4a9b262b2e138e538, type: 2}
+  originalmat: {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
 --- !u!136 &520267405
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9094,6 +9096,8 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
+  originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
 --- !u!136 &750023847
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15097,6 +15101,8 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 1068187363}
+  highlightmat: {fileID: 2100000, guid: d9eb92597c854074c8ff58613b2d39e1, type: 2}
+  originalmat: {fileID: 2100000, guid: 8ccc6abfbdedd1d46a57a64e6e55d823, type: 2}
 --- !u!114 &1487406194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19202,6 +19208,8 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  highlightmat: {fileID: 2100000, guid: 4524e7b15d2906a4c96cd58dc2290726, type: 2}
+  originalmat: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
 --- !u!136 &1731941331
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -25,32 +25,29 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
 
     private Renderer rend; //highlighting
-    private Color originalColor;
+    public Material highlightmat;
+    public Material originalmat;
 
     public void Start()
     {
         dialogueControl = DialogueController.Instance; //Create an instance
 
         // Save reference for highlighting
-       /* rend = GetComponent<Renderer>();
-        if (rend != null)
-        {
-            originalColor = rend.material.color;
-        }*/
+        rend = GetComponent<Renderer>();
     }
 
     public void Highlight()
     {
         if (rend != null)
         {
-            rend.material.color = Color.yellow; 
+            rend.material = highlightmat; 
         }
     }
     public void Unhighlight()
     {
         if (rend != null)
         {
-            rend.material.color = originalColor;
+            rend.material = originalmat;
         }
     }
     public bool CanInteract()
