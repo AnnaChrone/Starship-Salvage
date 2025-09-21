@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: ReciveFlyer LuLu
+  m_EditorClassIdentifier: 
+  npcName: President Lucoo
+  Lines:
+  - An invite to the Lumies Festival, you say?
+  - "My, my\u2026this is exciting!"
+  - ' It has been ever so long since we united as Lumies for some good raucous fun!'
+  - Well, you really have lightened our rather chilly mood here, my strange alien
+    friend!
+  - ' It really is hard to stay positive when your hot fruit tea keeps freezing. '
+  - Speaking of fruit, as a way to say thank you for being the messenger to such
+    delightful news, I want to tell you a Lu Lu secret!
+  - 'Deep in the darkest part of the Lu Lu ice mines, there grows a mythical fruit
+    whose ember glows forever: the Neonana fruit.'
+  - If you eat it, you too will glow.
+  - To find it, go down the tunnel that is not lit, for the glow fruit shall be the
+    true light!
+  - Fear not, when the Lumies of Lu Lu turn three, they eat the Neonana fruit as
+    a way of being accepted into society.
+  - I am sure you can face the dark like a three-year-old Lumie can.
+  - But I must leave you now.
+  - ' I have to go and have my fruit tea defrosted for the nineteenth time today. '
+  - Perhaps I will see you again at the Lumies Festival. Good bye!
+  - "Questioning our ancient fruits is feeble coming from someone who needs a spacesuit
+    to survive here, don\u2019t you think?"
+  - ' Unless you have any other silly questions you want to waste my time with, I
+    have to go now and have my fruit tea defrosted for the nineteenth time today.'
+  - Perhaps I will see you again at the Lumies Festival. Good bye!
+  autoProgressLines: 0101010101010101010101010101010101
+  endLines: 0000000000000000000000000001000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 8
+    Choices:
+    - Dark? Yikes!
+    - What's with all these fruits?
+    nextDialogueIndexes: 090000000e000000
+    givesQuest: 
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  quests: {fileID: 0}

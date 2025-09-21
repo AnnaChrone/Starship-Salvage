@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: ReceiveFlyer RaLu
+  m_EditorClassIdentifier: 
+  npcName: President Rakoo
+  Lines:
+  - "What\u2019s this? A flyer? Surely Min Lu has greater technological advancements
+    than messenger\u2026aliens."
+  - "Whatever. I wouldn\u2019t put it past my brother to use such archaic methods,
+    ha ha!"
+  - " I\u2019ve always been the better sibling\u2026 "
+  - "So he\u2019s hosting the annual Lumies Festival, ay?"
+  - "Let\u2019s see if he\u2019ll be able to pull it off this year, or if it\u2019ll
+    go up in flames like last time!"
+  - "Don\u2019t ask\u2026"
+  - 'You need help with visiting the other regions? What are you, weak? '
+  - I guess not every species can be all powerful like the Lumies.
+  - "I can\u2019t help you much, but I can tell you about the ancient Aprella fruit
+    kept in the temple on the highest peak of Ra Lu."
+  - It will be quite the journey to get up there, though the descent should be much
+    quicker!
+  - "Just follow the path to the temple and you shouldn\u2019t get too lost\u2026"
+  - "I just said don\u2019t ask! Are you aliens hard of hearing? "
+  - "Hearing doesn\u2019t seem to be the only thing you people lack."
+  - How do you even survive without being as powerful as us Lumies?
+  - " I can\u2019t help you become a Lumie, but I can tell you about the ancient
+    Aprella fruit kept in the temple on the highest peak of Ra Lu."
+  - ' It will be quite the journey to get up there, though the descent should be
+    much quicker!'
+  - "Just follow the path to the temple and you shouldn\u2019t get too lost\u2026"
+  autoProgressLines: 0101010101010101010101010101010101
+  endLines: 000000000000000000000100000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 5
+    Choices:
+    - Ask for help with regions.
+    - Ask what happened last year
+    nextDialogueIndexes: 060000000b000000
+    givesQuest: 
+  questInProgressIndex: 0
+  questCompletedIndex: 0
+  quests: {fileID: 0}
