@@ -29,8 +29,13 @@ MonoBehaviour:
   - 'Be quick, kid, the festival is in a few days... '
   - I CANNOT afford not to have the support of the presidents!
   - "Come back here when you\u2019re finished with your punishment!"
-  autoProgressLines: 010101010101010101010101
-  endLines: 000000000000000000000001
+  - You've delivered them all already? That was quick!
+  - Not too bad, Kid.
+  - 'I found this whilst looking for something to repair the Signal Tower you broke,
+    but i guess it could work to fix your ship too... '
+  - Can I help you? Go do what i asked!
+  autoProgressLines: 01010101010101010101010101010101
+  endLines: 00000000000000000000000100000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
@@ -40,6 +45,6 @@ MonoBehaviour:
     - NO
     nextDialogueIndexes: 0700000006000000
     givesQuest: 0100
-  questInProgressIndex: 0
-  questCompletedIndex: 0
+  questInProgressIndex: 15
+  questCompletedIndex: 12
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

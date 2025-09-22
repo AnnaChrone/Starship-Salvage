@@ -27,6 +27,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     private Renderer rend; //highlighting
     public Material highlightmat;
     public Material originalmat;
+    public bool NotZorb;
+    public bool QuestFinished;
+
+
+    public NPC CoLu;
+    public NPC LuLu;
+    public NPC RaLu;
+
 
     public void Start()
     {
@@ -85,7 +93,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
         else if (questState == QuestState.Completed)
         {
-            //take blanket HERE
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
 
@@ -107,31 +114,43 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
 
         string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
-
-        if (QuestController.Instance.IsQuestActive(questID))
+        if (NotZorb)
         {
-            int slotIndex = hotbar.FindItemSlot(questID);
-            if (slotIndex != -1) // quest item found
+            if (QuestController.Instance.IsQuestActive(questID))
             {
-                hotbar.RemoveItemAt(slotIndex);   // removes quest item
-                questState = QuestState.Completed;
-                QuestController.Instance.CompleteQuest(questID);
+                int slotIndex = hotbar.FindItemSlot(questID);
+                if (slotIndex != -1) // quest item found
+                {
+                    hotbar.RemoveItemAt(slotIndex);   // removes quest item
+                    questState = QuestState.Completed;
+                    QuestFinished = true;
+                    QuestController.Instance.CompleteQuest(questID);
+                }
+                else
+                {
+                    questState = QuestState.InProgress;
+                }
             }
             else
             {
-                questState = QuestState.InProgress;
+                questState = QuestState.NotStarted;
             }
-        }
-        else
+        }else
         {
-            questState = QuestState.NotStarted;
+            if ((CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+            {
+                questState = QuestState.Completed;
+                QuestFinished = true;
+                QuestController.Instance.CompleteQuest(questID);
+            }
         }
 
     }
 
    public void NextLine()
     {
-        SyncQuestState(); //attempted fix
+        SyncQuestState(); 
+
         if (isTyping)
         {
             StopAllCoroutines();
