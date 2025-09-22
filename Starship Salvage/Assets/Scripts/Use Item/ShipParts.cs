@@ -8,10 +8,23 @@ public class ShipParts : MonoBehaviour, IUsable
     public string Name;
     public int repairCount = 0;
     public GameObject successText;
+    public GameObject ship;
+    public bool inRange;
+
+    private void OnTriggerEnter(Collider ship)
+    {
+        inRange = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        inRange = false;
+    }
     public void Use(GameObject user)
     {
+        
 
-        if (shipPart)
+        if (shipPart && inRange)
         {
             var hotbar = FindFirstObjectByType<Hotbar>(); //Finds hotbar in the scene
             repairCount++;
@@ -44,6 +57,10 @@ public class ShipParts : MonoBehaviour, IUsable
         yield return new WaitForSeconds(delay);
 
         if (successText != null)
+        {
+            Debug.Log("hiding text");
             successText.SetActive(false);
+        }
+            
     }
 }
