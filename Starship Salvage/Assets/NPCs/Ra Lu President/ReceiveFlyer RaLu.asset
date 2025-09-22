@@ -39,8 +39,8 @@ MonoBehaviour:
   - ' It will be quite the journey to get up there, though the descent should be
     much quicker!'
   - "Just follow the path to the temple and you shouldn\u2019t get too lost\u2026"
-  autoProgressLines: 0101010101010101010101010101010101
-  endLines: 000000000000000000000001000001
+  autoProgressLines: 010101010101010101010101010101010101
+  endLines: 000000000000000000000001000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:

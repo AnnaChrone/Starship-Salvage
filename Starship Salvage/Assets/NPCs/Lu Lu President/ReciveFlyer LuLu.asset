@@ -39,8 +39,8 @@ MonoBehaviour:
   - ' Unless you have any other silly questions you want to waste my time with, I
     have to go now and have my fruit tea defrosted for the nineteenth time today.'
   - Perhaps I will see you again at the Lumies Festival. Good bye!
-  autoProgressLines: 0101010101010101010101010101010101
-  endLines: 0000000000000000000000000001000001
+  autoProgressLines: 010101010101010101010101010101010101
+  endLines: 000000000000000000000000000100000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:

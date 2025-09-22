@@ -231,7 +231,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             flyerappear.FlyerAppears();
         }
 
-        if (flyerQuest != null && flyerappear.hasFlyerAppeared == true)
+        if (flyerQuest != null && flyerappear != null && flyerappear.hasFlyerAppeared == true)
             {
                 flyerQuest.FlyerQuestSpeak();
             }
