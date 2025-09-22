@@ -8,7 +8,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class Spaceship : MonoBehaviour
 {
     private SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
-    private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
+    public SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
     public bool finishedDialogue = false;
 
     private int dialogueIndex; //Index of lines
@@ -42,7 +42,7 @@ public class Spaceship : MonoBehaviour
         isDialogueActive = true;
 
 
-        shipDialogueControl.ShowDialoguePanel(true);
+        shipDialogueControl.ShowDialoguePanel(isDialogueActive);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
         DisplayCurrentLine();
     }
