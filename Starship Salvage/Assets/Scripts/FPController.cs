@@ -124,6 +124,7 @@ public class FPController : MonoBehaviour
     {
         if (landingParticles != null)
         {
+            Debug.Log("triggering particles");
             landingParticles.Play();
         }
     }
