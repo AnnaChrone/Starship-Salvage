@@ -906,10 +906,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 57d5c439a6cb6274494f518dccd422ad, type: 2}
     - target: {fileID: 6274745553418604549, guid: d9a440402a363584abc50184881273d7, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b686b1663378cd44958f26f39afd479, type: 3}
+    - target: {fileID: 6274745553418604549, guid: d9a440402a363584abc50184881273d7, type: 3}
       propertyPath: itemID
       value: GlowFruit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8890933478400687532, guid: d9a440402a363584abc50184881273d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4106245548490665940, guid: d9a440402a363584abc50184881273d7, type: 3}
@@ -917,8 +922,11 @@ PrefabInstance:
       addedObject: {fileID: 236030200}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2889876209711249745, guid: d9a440402a363584abc50184881273d7, type: 3}
-      insertIndex: 6
+      insertIndex: -1
       addedObject: {fileID: 1053965686}
+    - targetCorrespondingSourceObject: {fileID: 2889876209711249745, guid: d9a440402a363584abc50184881273d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1053965693}
   m_SourcePrefab: {fileID: 100100000, guid: d9a440402a363584abc50184881273d7, type: 3}
 --- !u!4 &70434197 stripped
 Transform:
@@ -4786,7 +4794,6 @@ GameObject:
   - component: {fileID: 309584798}
   - component: {fileID: 309584799}
   - component: {fileID: 309584800}
-  - component: {fileID: 309584801}
   m_Layer: 0
   m_Name: SpaceshipAIController
   m_TagString: Untagged
@@ -4839,22 +4846,6 @@ MonoBehaviour:
   spaceship: {fileID: 654588027}
   crashLand: {fileID: 11400000, guid: 3ead158deabc71842bde5caf5d8838f4, type: 2}
   CrashLandingScene: {fileID: 911739469}
---- !u!114 &309584801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309584797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb0f15161d9cabe4a9dae37da8f4bd5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spaceship: {fileID: 654588027}
-  FlyerQuest: {fileID: 11400000, guid: fb67c26144f2ffe42b282f78aef8d39c, type: 2}
-  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
-  npc: {fileID: 1487406193}
 --- !u!1 &319408898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6322,7 +6313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 79eed491c839cb0408ec46bd8941c861, type: 2}
-  flyerQuest: {fileID: 309584801}
+  flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
   hasTalked: 1
@@ -7040,7 +7031,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4895115019472492858, guid: 2591131524f97d147bfefba7057bc529, type: 3}
   m_PrefabInstance: {fileID: 1944157055}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &638354291
+--- !u!114 &638354297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7049,15 +7040,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 638354284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4243f2769c5cdd14e8cdaa20cf86db3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 966589822de51a042b998589f93fdd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPart: 1
-  Name: 
-  repairCount: 0
-  successText: {fileID: 0}
-  ship: {fileID: 0}
-  inRange: 0
+  consumable: 1
+  AbilityName: Float
 --- !u!1 &642822816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,7 +7206,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7254,19 +7241,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -225.6
+      value: 107.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.2
+      value: -11.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.2
+      value: -231.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7151211
+      value: 0.7490688
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7274,7 +7261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6990006
+      value: -0.6624923
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7286,7 +7273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 88.694
+      value: -82.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8272,7 +8259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: b5fe5de0ffee2ac49ab1d4b388ebfc5e, type: 2}
-  flyerQuest: {fileID: 309584801}
+  flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
   hasTalked: 1
@@ -9120,7 +9107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &911739470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9357,6 +9344,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &973578921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973578908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966589822de51a042b998589f93fdd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 1
+  AbilityName: Grow
 --- !u!1 &974540415
 GameObject:
   m_ObjectHideFlags: 0
@@ -10048,6 +10049,20 @@ MonoBehaviour:
   pulseSpeed: 2
   minIntensity: 0.5
   maxIntensity: 2
+--- !u!114 &1053965693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053965679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966589822de51a042b998589f93fdd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 1
+  AbilityName: Glow
 --- !u!1 &1054825280
 GameObject:
   m_ObjectHideFlags: 0
@@ -12838,7 +12853,7 @@ Transform:
   m_GameObject: {fileID: 1339711959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.29352808, z: -0, w: -0.9559505}
-  m_LocalPosition: {x: -174.84, y: -9.38, z: 69.31}
+  m_LocalPosition: {x: -171.18, y: -7, z: 67.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14283,7 +14298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
-  flyerQuest: {fileID: 309584801}
+  flyerQuest: {fileID: 0}
   flyerappear: {fileID: 1487406194}
   item: {fileID: 0}
   hasTalked: 1
@@ -18413,7 +18428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 869dba41bea01554294e43473bfdfd72, type: 2}
-  flyerQuest: {fileID: 309584801}
+  flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
   hasTalked: 1
@@ -22279,6 +22294,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6550250609161213230, guid: 2591131524f97d147bfefba7057bc529, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: f09cf5bf43f97254d892d12ac272a51a, type: 3}
+    - target: {fileID: 6550250609161213230, guid: 2591131524f97d147bfefba7057bc529, type: 3}
       propertyPath: itemID
       value: FloatFruit
       objectReference: {fileID: 0}
@@ -22299,7 +22318,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1292721829374849161, guid: 2591131524f97d147bfefba7057bc529, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 638354291}
+      addedObject: {fileID: 638354297}
   m_SourcePrefab: {fileID: 100100000, guid: 2591131524f97d147bfefba7057bc529, type: 3}
 --- !u!1 &1958677868
 GameObject:
@@ -24229,6 +24248,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
     - target: {fileID: 5520670217315546152, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: da392f21672d63547bb7535930b30bbb, type: 3}
+    - target: {fileID: 5520670217315546152, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
       propertyPath: itemPrefab
       value: 
       objectReference: {fileID: 3358720215328515386, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
@@ -24294,6 +24317,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3358720215328515386, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
       insertIndex: -1
       addedObject: {fileID: 973578915}
+    - targetCorrespondingSourceObject: {fileID: 3358720215328515386, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973578921}
   m_SourcePrefab: {fileID: 100100000, guid: bc7c91b39bf2cd64cbc45c89ed026908, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

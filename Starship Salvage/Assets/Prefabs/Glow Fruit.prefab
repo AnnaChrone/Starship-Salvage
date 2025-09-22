@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5117030763057972217}
   - component: {fileID: 587330621060687714}
   - component: {fileID: 6274745553418604549}
-  - component: {fileID: -8890933478400687532}
   m_Layer: 0
   m_Name: Glow Fruit
   m_TagString: Pickup
@@ -150,22 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11260c799ee7279479fab6e0b0da07c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 
+  itemID: GlowFruit
   itemPrefab: {fileID: 2889876209711249745}
-  icon: {fileID: 21300000, guid: d23855f6ea543714a92c1c9d432fbf2b, type: 3}
+  icon: {fileID: 21300000, guid: 7b686b1663378cd44958f26f39afd479, type: 3}
   consumable: 1
   unlockAbilityName: Glow
---- !u!114 &-8890933478400687532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889876209711249745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4243f2769c5cdd14e8cdaa20cf86db3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  consumable: 1
-  AbilityName: Glow

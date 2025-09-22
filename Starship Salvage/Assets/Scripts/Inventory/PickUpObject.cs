@@ -60,6 +60,7 @@ public class PickUpObject : MonoBehaviour
             }
 
             Destroy(gameObject);
+            return;
         }
 
         var spaceship = FindFirstObjectByType<SpaceshipPartItem>();
