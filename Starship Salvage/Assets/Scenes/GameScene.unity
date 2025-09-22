@@ -3302,6 +3302,7 @@ Transform:
   - {fileID: 1183453465}
   - {fileID: 2144375031}
   - {fileID: 654588023}
+  - {fileID: 1606080475}
   - {fileID: 911739470}
   - {fileID: 1042405353}
   m_Father: {fileID: 0}
@@ -7250,15 +7251,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 285285429}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -225.6
+      value: -1185.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.2
+      value: -552.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7298,7 +7299,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ce16bdc60637e9e4ebbc162b1d8349fc, type: 2}
     - target: {fileID: 919132149155446097, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
       propertyPath: m_Name
-      value: LowPoly
+      value: House
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -14932,6 +14933,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599199229}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1606080475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06fcb2dac3ab39e4db34054a9d472f78, type: 3}
+  m_PrefabInstance: {fileID: 658632321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616615764
 GameObject:
   m_ObjectHideFlags: 0
@@ -24309,4 +24315,3 @@ SceneRoots:
   - {fileID: 1473776316}
   - {fileID: 2144493544}
   - {fileID: 1339711963}
-  - {fileID: 658632321}
