@@ -35,20 +35,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         // Save reference for highlighting
         rend = GetComponent<Renderer>();
     }
-   /* void Update()
-    {
-        if (isFrozen)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-    }*/
-
+   
     public void Highlight()
     {
         if (rend != null)
@@ -144,6 +131,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
    public void NextLine()
     {
+        SyncQuestState(); //attempted fix
         if (isTyping)
         {
             StopAllCoroutines();
