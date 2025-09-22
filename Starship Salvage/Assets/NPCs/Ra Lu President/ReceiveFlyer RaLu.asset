@@ -50,7 +50,7 @@ MonoBehaviour:
     - ...
     nextDialogueIndexes: 0100000001000000
     givesQuest: 0101
-  - dialogueIndex: 5
+  - dialogueIndex: 6
     Choices:
     - Ask for help with regions.
     - Ask what happened last year

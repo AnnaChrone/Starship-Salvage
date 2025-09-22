@@ -35,6 +35,19 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         // Save reference for highlighting
         rend = GetComponent<Renderer>();
     }
+   /* void Update()
+    {
+        if (isFrozen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }*/
 
     public void Highlight()
     {
@@ -69,8 +82,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     void StartDialogue()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Debug.Log("dialgoue has started");
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         SyncQuestState(); //Sync dialogue depending on state of quest
@@ -241,8 +253,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         isDialogueActive = false;
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         isFrozen = false;
     
     }

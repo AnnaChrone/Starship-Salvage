@@ -12,7 +12,10 @@ public class FPController : MonoBehaviour
     public float runSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
-    public NPC Dialogue;
+    public NPC Zorb;
+    public NPC CoLu;
+    public NPC RaLu;
+    public NPC LuLu;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -68,6 +71,7 @@ public class FPController : MonoBehaviour
     private float verticalRotation = 0f;
 
     private SpaceshipFixing spaceship;
+    private bool Freeze;
 
     private void Awake()
     {
@@ -88,6 +92,27 @@ public class FPController : MonoBehaviour
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
+
+
+        if (Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen)
+        {
+            Freeze = true;
+        }
+        else
+        {
+            Freeze = false;
+        }
+
+        if (Freeze)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     private bool IsGrounded()
@@ -98,7 +123,7 @@ public class FPController : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if (!Dialogue.isFrozen)
+        if (!Freeze)
         {
             moveInput = context.ReadValue<Vector2>();
         }
@@ -106,7 +131,7 @@ public class FPController : MonoBehaviour
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        if (!Dialogue.isFrozen)
+        if (!Freeze)
         {
             lookInput = context.ReadValue<Vector2>();
         }
@@ -149,7 +174,7 @@ public class FPController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        if (Dialogue.isFrozen) return;
+        if (Freeze) return;
 
         if (context.performed) // double-tap W
         {
@@ -308,7 +333,7 @@ public class FPController : MonoBehaviour
 
     public void OnFloat(InputAction.CallbackContext context)
     {
-        if (Dialogue.isFrozen) return;
+        if (Freeze) return;
 
         if (context.performed && fruits.FloatAquired) // double-tap space
         {
@@ -351,7 +376,7 @@ public class FPController : MonoBehaviour
 
     public void OnGrow(InputAction.CallbackContext context)
     {
-        if (Dialogue.isFrozen) return;
+        if (Freeze) return;
 
         if (context.performed && fruits.GrowAquired)
         {

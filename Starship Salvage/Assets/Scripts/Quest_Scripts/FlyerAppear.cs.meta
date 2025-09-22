@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 1e4a990a876d09842970df8f82e201d2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - CoLuFlyer: {instanceID: 0}
+  - RaLuFlyer: {instanceID: 0}
+  - LuLuFlyer: {instanceID: 0}
+  - npc: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

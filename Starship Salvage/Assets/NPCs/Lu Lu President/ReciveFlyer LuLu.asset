@@ -50,11 +50,11 @@ MonoBehaviour:
     - ...
     nextDialogueIndexes: 0100000001000000
     givesQuest: 0101
-  - dialogueIndex: 8
+  - dialogueIndex: 9
     Choices:
     - Dark? Yikes!
     - What's with all these fruits?
-    nextDialogueIndexes: 090000000e000000
+    nextDialogueIndexes: 0a0000000f000000
     givesQuest: 0000
   questInProgressIndex: 0
   questCompletedIndex: 1
