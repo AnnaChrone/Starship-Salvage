@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: President Rakoo
   Lines:
+  - What brings you here?
   - "What\u2019s this? A flyer? Surely Min Lu has greater technological advancements
     than messenger\u2026aliens."
   - "Whatever. I wouldn\u2019t put it past my brother to use such archaic methods,
@@ -39,16 +40,22 @@ MonoBehaviour:
     much quicker!'
   - "Just follow the path to the temple and you shouldn\u2019t get too lost\u2026"
   autoProgressLines: 0101010101010101010101010101010101
-  endLines: 000000000000000000000100000001
+  endLines: 000000000000000000000001000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
+  - dialogueIndex: 0
+    Choices:
+    - I have something for you.
+    - ...
+    nextDialogueIndexes: 0100000001000000
+    givesQuest: 0101
   - dialogueIndex: 5
     Choices:
     - Ask for help with regions.
     - Ask what happened last year
-    nextDialogueIndexes: 060000000b000000
-    givesQuest: 
+    nextDialogueIndexes: 070000000c000000
+    givesQuest: 0000
   questInProgressIndex: 0
-  questCompletedIndex: 0
-  quests: {fileID: 0}
+  questCompletedIndex: 1
+  quests: {fileID: 11400000, guid: 9e4b20ad4e464904eb449403ffd7dd2b, type: 2}

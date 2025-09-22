@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: President Lucoo
   Lines:
+  - What is this?
   - An invite to the Lumies Festival, you say?
   - "My, my\u2026this is exciting!"
   - ' It has been ever so long since we united as Lumies for some good raucous fun!'
@@ -43,12 +44,18 @@ MonoBehaviour:
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
+  - dialogueIndex: 0
+    Choices:
+    - I have something for you
+    - ...
+    nextDialogueIndexes: 0100000001000000
+    givesQuest: 0101
   - dialogueIndex: 8
     Choices:
     - Dark? Yikes!
     - What's with all these fruits?
     nextDialogueIndexes: 090000000e000000
-    givesQuest: 
+    givesQuest: 0000
   questInProgressIndex: 0
-  questCompletedIndex: 0
-  quests: {fileID: 0}
+  questCompletedIndex: 1
+  quests: {fileID: 11400000, guid: 9a1f5548878211349b4cf65c3dcedffe, type: 2}

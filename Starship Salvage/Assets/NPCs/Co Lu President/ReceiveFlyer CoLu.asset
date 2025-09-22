@@ -55,12 +55,18 @@ MonoBehaviour:
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
+  - dialogueIndex: 0
+    Choices:
+    - Here you go!
+    - ...
+    nextDialogueIndexes: 0100000001000000
+    givesQuest: 0101
   - dialogueIndex: 6
     Choices:
     - Giggle bugs you say?
     - "Special gift sounds ominous\u2026"
     nextDialogueIndexes: 0700000011000000
-    givesQuest: 
+    givesQuest: 0000
   questInProgressIndex: 0
-  questCompletedIndex: 0
-  quests: {fileID: 0}
+  questCompletedIndex: 1
+  quests: {fileID: 11400000, guid: dc8cadc78ce3fb2438e260bbe27592eb, type: 2}
