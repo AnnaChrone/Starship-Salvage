@@ -15,10 +15,11 @@ MonoBehaviour:
   shipName: Andromeda
   Lines:
   - MAYDAY! MAYDAY!
-  - Crah landing imminent...
-  - Brace yourself!
-  autoProgressLines: 010101
-  endLines: 000001
+  - Stabilisers have given out.
+  - Crash landing imminent.
+  - "Estimated impact in 5, 4, 3, 2, 1\u2026"
+  autoProgressLines: 01010101
+  endLines: 00000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   questInProgressIndex: 0
