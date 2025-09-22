@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Andromeda
   Lines:
-  - Im sick of seeing this all the time
-  - You work bro?
-  autoProgressLines: 0101
-  endLines: 0001
+  - MAYDAY! MAYDAY!
+  - Crah landing imminent...
+  - Brace yourself!
+  autoProgressLines: 010101
+  endLines: 000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   questInProgressIndex: 0
