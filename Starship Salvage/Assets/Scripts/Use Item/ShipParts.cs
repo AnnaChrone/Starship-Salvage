@@ -9,6 +9,7 @@ public class ShipParts : MonoBehaviour, IUsable
     public int repairCount = 0;
     public GameObject successText;
     public GameObject ship;
+    public ShipRepairs repair;
     public bool inRange;
 
     private void OnTriggerEnter(Collider ship)
@@ -31,7 +32,8 @@ public class ShipParts : MonoBehaviour, IUsable
             if (hotbar.RemoveItemByID(Name))
             {
                 Debug.Log("Correct item used on ship! Item removed from hotbar.");
-                ShowText();
+                repair.Fix();
+                //Destroy(gameObject);
 
             }
             else
@@ -39,28 +41,8 @@ public class ShipParts : MonoBehaviour, IUsable
                 Debug.Log("You don't have the right item.");
 
             }
-            Destroy(gameObject);
-        }
-    }
-
-    public void ShowText()
-    {
-        if (successText != null)
-        {
-            successText.SetActive(true);
-            StartCoroutine(HideTextAfterDelay(2f));
-        }
-    }
-
-    private IEnumerator HideTextAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (successText != null)
-        {
-            Debug.Log("hiding text");
-            successText.SetActive(false);
-        }
             
+        }
     }
+
 }
