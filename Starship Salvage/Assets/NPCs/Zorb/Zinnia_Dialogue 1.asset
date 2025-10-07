@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: Zinnia_Dialogue 1
+  m_EditorClassIdentifier: 
+  npcName: Zinnia
+  Lines:
+  - "Oh no\u2026 oh no, oh no, OH NO! What do you mean my order was cancelled!"
+  - "I\u2019m meant to be supplying the flowers for the festival, but the company
+    I was sourcing from got shut down by the CLPD for fraud!"
+  - What? You can help me? I really hope you can.
+  - "I\u2019d go myself, but I\u2019ve never left Co Lu before, so I have no idea
+    where these flowers are located in each region."
+  - "You\u2019ve visited all the regions already? That\u2019s awesome! Maybe you
+    can help me after all."
+  - Hopefully you have a better sense of direction than me!
+  - "\u201CAs for finding the flowers, I\u2019m sure some locals in each region could
+    point you in the right direction."
+  - Good Luck!
+  - Meet back here once you've collected all four types! Ill teach you how to make
+    a bouquet :)
+  autoProgressLines: 010101010101010101
+  endLines: 000000000000000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 0
+    Choices:
+    - WHATS WRONG?
+    - EVERYTHING OK?
+    nextDialogueIndexes: 0100000001000000
+    givesQuest: 0000
+  - dialogueIndex: 2
+    Choices:
+    - I'LL HELP YOU!
+    - WHY CANT YOU GO YOURSELF
+    nextDialogueIndexes: 0300000004000000
+    givesQuest: 0000
+  - dialogueIndex: 3
+    Choices:
+    - I'VE BEEN TO ALL
+    - IT'S NOT HARD TO TRAVERSE...
+    nextDialogueIndexes: 0400000005000000
+    givesQuest: 0101
+  questInProgressIndex: 15
+  questCompletedIndex: 12
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

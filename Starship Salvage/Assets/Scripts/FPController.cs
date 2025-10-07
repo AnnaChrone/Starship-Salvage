@@ -16,6 +16,7 @@ public class FPController : MonoBehaviour
     public NPC CoLu;
     public NPC RaLu;
     public NPC LuLu;
+    public NPC Zinnia;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -94,7 +95,7 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
+        if (Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
         {
             Freeze = true;
         }
