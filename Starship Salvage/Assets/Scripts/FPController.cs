@@ -94,7 +94,7 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen)
+        if (Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
         {
             Freeze = true;
         }

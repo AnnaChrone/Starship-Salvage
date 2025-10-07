@@ -122,8 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4243f2769c5cdd14e8cdaa20cf86db3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumable: 1
-  AbilityName: Grow
+  shipPart: 1
+  Name: 
+  repairCount: 0
+  successText: {fileID: 0}
+  ship: {fileID: 0}
+  inRange: 0
 --- !u!114 &5520670217315546152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: GrowFruit
   itemPrefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: 109d33ea6620f1e4fa418bcd7668f936, type: 3}
+  icon: {fileID: 21300000, guid: da392f21672d63547bb7535930b30bbb, type: 3}
   consumable: 1
   unlockAbilityName: Grow
