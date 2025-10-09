@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: LuLu_Dialogue
+  m_EditorClassIdentifier: 
+  npcName: LULU NPC
+  Lines:
+  - Oh, hi friend! What can I do for you?
+  - "Hmmm\u2026 flowers\u2026"
+  - I've actually seen some flowers down in the ice tunnels a while back when I was
+    exploring!
+  - You'll have to memorise this direction pattern though, those ice tunnels are
+    ruthless if you get lost!
+  - 'Here''s the directions: enter the tunnels, turn left, then right, then right
+    again, then left, then right!'
+  - Don't forget! Left, Right, Right, Left, Right!
+  autoProgressLines: 010101010101
+  endLines: 000000000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices: []
+  questInProgressIndex: 3
+  questCompletedIndex: 12
+  quests: {fileID: 11400000, guid: af6e8db5d87342941873032a351bd7cb, type: 2}
