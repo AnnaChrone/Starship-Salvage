@@ -12,11 +12,17 @@ public class FPController : MonoBehaviour
     public float runSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
+
+    [Header("NPCs")]
     public NPC Zorb;
+    public NPC CoLuPres;
+    public NPC RaLuPres;
+    public NPC LuLuPres;
+    public NPC Zinnia;
     public NPC CoLu;
     public NPC RaLu;
     public NPC LuLu;
-    public NPC Zinnia;
+    public NPC MinLu;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -95,7 +101,7 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
+        if (RaLuPres.isFrozen || MinLu.isFrozen || LuLuPres.isFrozen || CoLuPres.isFrozen || Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
         {
             Freeze = true;
         }

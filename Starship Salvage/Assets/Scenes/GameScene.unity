@@ -952,7 +952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &102349936
 Transform:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ Transform:
   m_GameObject: {fileID: 102349935}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4332285, z: -0, w: -0.90128416}
-  m_LocalPosition: {x: -1028.86, y: -556.6, z: -14.15}
+  m_LocalPosition: {x: -1031.53, y: -556.6, z: -19.039999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  dialogueData: {fileID: 11400000, guid: 85ac95f5b9497e64c8534f82ec2e0a4f, type: 2}
   flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
@@ -988,6 +988,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 1068187363}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: 5e9f898cad5aebe4a9b262b2e138e538, type: 2}
   originalmat: {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
   NotZorb: 1
@@ -6043,7 +6047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &356910291
 Transform:
   m_ObjectHideFlags: 0
@@ -6053,7 +6057,7 @@ Transform:
   m_GameObject: {fileID: 356910290}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4332285, z: -0, w: -0.90128416}
-  m_LocalPosition: {x: -1027.47, y: -556.6, z: -14.15}
+  m_LocalPosition: {x: -1026.29, y: -556.6, z: -19.039999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6071,7 +6075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  dialogueData: {fileID: 11400000, guid: 45df49bb4fb07cf47b1c3bfdc7dab8ff, type: 2}
   flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
@@ -6079,6 +6083,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: d9eb92597c854074c8ff58613b2d39e1, type: 2}
   originalmat: {fileID: 2100000, guid: 8ccc6abfbdedd1d46a57a64e6e55d823, type: 2}
   NotZorb: 1
@@ -6190,7 +6198,7 @@ Transform:
   m_GameObject: {fileID: 362759917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.24, y: 0, z: 2.79}
+  m_LocalPosition: {x: 0.52, y: 0, z: 4.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7040,7 +7048,7 @@ Transform:
   m_GameObject: {fileID: 486599670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.11, y: 0, z: 1.39}
+  m_LocalPosition: {x: -0.27, y: 0, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7177,6 +7185,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: 5e9f898cad5aebe4a9b262b2e138e538, type: 2}
   originalmat: {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
   NotZorb: 1
@@ -8316,7 +8328,7 @@ Transform:
   m_GameObject: {fileID: 658496741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.26, y: 0, z: 4.07}
+  m_LocalPosition: {x: 1.16, y: 0, z: 5.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9397,6 +9409,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
   originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   NotZorb: 1
@@ -9499,7 +9515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &757602849
 Transform:
   m_ObjectHideFlags: 0
@@ -9509,7 +9525,7 @@ Transform:
   m_GameObject: {fileID: 757602848}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4332285, z: -0, w: -0.90128416}
-  m_LocalPosition: {x: -1026.18, y: -556.6, z: -14.15}
+  m_LocalPosition: {x: -1021.67, y: -556.6, z: -19.039999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9527,7 +9543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  dialogueData: {fileID: 11400000, guid: 5dcbc961a795f514ebb024ab0477e667, type: 2}
   flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
@@ -9535,6 +9551,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: 4524e7b15d2906a4c96cd58dc2290726, type: 2}
   originalmat: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
   NotZorb: 1
@@ -11730,7 +11750,7 @@ Transform:
   m_GameObject: {fileID: 1082371067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.28, y: 0, z: 5.35}
+  m_LocalPosition: {x: 1.37, y: 0, z: 7.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14664,10 +14684,14 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 1.5
   Zorb: {fileID: 1487406193}
-  CoLu: {fileID: 750023846}
-  RaLu: {fileID: 520267404}
-  LuLu: {fileID: 1731941330}
+  CoLuPres: {fileID: 750023846}
+  RaLuPres: {fileID: 520267404}
+  LuLuPres: {fileID: 1731941330}
   Zinnia: {fileID: 1439828742}
+  CoLu: {fileID: 1919157614}
+  RaLu: {fileID: 102349937}
+  LuLu: {fileID: 757602850}
+  MinLu: {fileID: 356910292}
   cameraTransform: {fileID: 330585546}
   lookSensitivity: 0.1
   verticalLookLimit: 90
@@ -15497,6 +15521,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 1068187363}
+  CoLuNPC: {fileID: 1919157612}
+  RaLuNPC: {fileID: 102349935}
+  LuLuNPC: {fileID: 757602848}
+  MinLuNPC: {fileID: 356910290}
   highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
   originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   NotZorb: 1
@@ -16138,6 +16166,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 1068187363}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: d9eb92597c854074c8ff58613b2d39e1, type: 2}
   originalmat: {fileID: 2100000, guid: 8ccc6abfbdedd1d46a57a64e6e55d823, type: 2}
   NotZorb: 0
@@ -20135,6 +20167,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: 4524e7b15d2906a4c96cd58dc2290726, type: 2}
   originalmat: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
   NotZorb: 1
@@ -24046,7 +24082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1919157613
 Transform:
   m_ObjectHideFlags: 0
@@ -24056,7 +24092,7 @@ Transform:
   m_GameObject: {fileID: 1919157612}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4332285, z: -0, w: -0.90128416}
-  m_LocalPosition: {x: -1030.15, y: -556.6, z: -14.15}
+  m_LocalPosition: {x: -1036.68, y: -556.6, z: -19.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24074,7 +24110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 0280d8c70e610df47a4cb3ee9c60a6ef, type: 2}
+  dialogueData: {fileID: 11400000, guid: adc103a4ac51e9542bdfb9c2748c2dbd, type: 2}
   flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
@@ -24082,6 +24118,10 @@ MonoBehaviour:
   isFrozen: 0
   hotbar: {fileID: 790370926}
   RewardItem: {fileID: 0}
+  CoLuNPC: {fileID: 0}
+  RaLuNPC: {fileID: 0}
+  LuLuNPC: {fileID: 0}
+  MinLuNPC: {fileID: 0}
   highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
   originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   NotZorb: 1

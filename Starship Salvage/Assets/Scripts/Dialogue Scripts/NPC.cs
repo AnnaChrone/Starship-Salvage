@@ -23,6 +23,13 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public Hotbar hotbar; //Calls the hotbar
     public GameObject RewardItem;
 
+    [Header("NPC activation on quest give")]
+    public GameObject CoLuNPC;
+    public GameObject RaLuNPC;
+    public GameObject LuLuNPC;
+    public GameObject MinLuNPC;
+
+
 
     private Renderer rend; //highlighting
     public Material highlightmat;
@@ -243,6 +250,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         Debug.Log("End");
         StopAllCoroutines();
         hasTalked = true;
+
+        if (MinLuNPC != null)
+        {
+            MinLuNPC.SetActive(true);
+            RaLuNPC.SetActive(true );
+            CoLuNPC.SetActive(true );
+            LuLuNPC.SetActive(true );
+        }
 
         if (flyerappear != null)
         {
