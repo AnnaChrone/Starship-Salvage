@@ -95,7 +95,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
-
         }
 
         isDialogueActive = true;

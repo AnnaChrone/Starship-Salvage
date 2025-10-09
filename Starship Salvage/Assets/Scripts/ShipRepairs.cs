@@ -12,6 +12,10 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text dayCount;
     public TMP_Text bigDay;
 
+    [Header("NPCs")]
+    public GameObject NPCZinnia;
+    public GameObject NPCChef;
+
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1f;
     public float HoldDuration = 3f;
@@ -28,7 +32,11 @@ public class ShipRepairs : MonoBehaviour
         {
             repairCount++;
             successText.SetText("Repair " + repairCount + "/3 completed" );
-            dayCount.SetText("DAY " + (repairCount + 1));
+            if (repairCount == 1)
+            { NPCZinnia.SetActive(true); }
+            else if (repairCount == 2)
+            { NPCChef.SetActive(false); } 
+                dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
         }
     }
