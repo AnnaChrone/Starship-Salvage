@@ -81,6 +81,7 @@ public class FPController : MonoBehaviour
 
     private SpaceshipFixing spaceship;
     private bool Freeze;
+    public bool animated = false;
 
     private void Awake()
     {
@@ -91,6 +92,7 @@ public class FPController : MonoBehaviour
         Cursor.visible = false;
         hotbarSelector.holdPoint = holdPoint;  // assign the camera holdPoint transform
         hotbarSelector.HandleScroll(0);        // force update so the first item shows correctly
+        
     }
     private void Update()
     {
@@ -122,8 +124,26 @@ public class FPController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    }
 
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+        {
+            PickUpObject cursor = hit.collider.GetComponent<PickUpObject>();
+            if (cursor != null && animated == false)
+            {
+                //logic to update cursor
+                Debug.Log("i will be animated!");
+                animated = true;
+            }
+
+            if (cursor == null && animated == true)
+            {
+                animated = false;
+                Debug.Log("im not animated anymore");
+                
+            }
+        }
+    }
     private bool IsGrounded()
     {
         return Physics.Raycast(feet.position, Vector3.down, groundCheckDistance, groundMask);

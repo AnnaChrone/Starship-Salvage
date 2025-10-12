@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
     public FPController controller;
     public GameObject Menu;
     public GameObject Controls;
+    public AudioSource ButtonSound;
     
     public void QuitGame()
     {
@@ -33,6 +34,10 @@ public class PauseMenu : MonoBehaviour
         Controls.SetActive(true);
     }
 
+    public void PlaySound()
+    {
+        ButtonSound.Play();
+    }
     public void BacktoPause()
     {
         Controls.SetActive(false);
