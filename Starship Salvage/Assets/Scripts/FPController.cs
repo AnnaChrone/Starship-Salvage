@@ -57,6 +57,13 @@ public class FPController : MonoBehaviour
     public bool isPaused = false;
     public AudioSource Select;
     public AudioSource Deselect;
+    private Coroutine slideRoutine;
+    public RectTransform PMenu;
+
+    [Header("Slide Settings")]
+    public float slideSpeed = 1000f;   // pixels per second
+    public float hiddenY = 900f;      // offscreen (above)
+    public float visibleY = 0f;       // fully visible
 
     [Header("Landing Particles")]
     public ParticleSystem landingParticles;
@@ -323,32 +330,50 @@ public class FPController : MonoBehaviour
         hotbarSelector.DropCurrentItem();
     }
 
-    
+
     public void OnPause(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
 
         isPaused = !isPaused;
 
+        if (slideRoutine != null)
+            StopCoroutine(slideRoutine);
+
         if (isPaused)
         {
             Select.Play();
+            slideRoutine = StartCoroutine(Slide(visibleY));
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            PauseMenu.SetActive(true);
-            Time.timeScale = 0f; 
+            Time.timeScale = 0f;
         }
         else
         {
             Deselect.Play();
+            slideRoutine = StartCoroutine(Slide(hiddenY));
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            PauseMenu.SetActive(false);
-            Time.timeScale = 1f; 
+            Time.timeScale = 1f;
         }
     }
 
-    public void OnUseItem(InputAction.CallbackContext context)
+    private IEnumerator Slide(float targetY)
+    {
+        Vector2 pos = PMenu.anchoredPosition;
+
+        while (Mathf.Abs(pos.y - targetY) > 0.1f)
+        {
+            pos.y = Mathf.MoveTowards(pos.y, targetY, slideSpeed * Time.unscaledDeltaTime);
+            PMenu.anchoredPosition = pos;
+            yield return null;
+        }
+
+        pos.y = targetY;
+        PMenu.anchoredPosition = pos;
+    }
+
+public void OnUseItem(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
