@@ -11,6 +11,7 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text successText;
     public TMP_Text dayCount;
     public TMP_Text bigDay;
+    public AudioSource Nextday;
 
     [Header("NPCs")]
     public GameObject NPCZinnia;
@@ -31,6 +32,7 @@ public class ShipRepairs : MonoBehaviour
         if (successText != null)
         {
             repairCount++;
+            Nextday.Play();
             successText.SetText("Repair " + repairCount + "/3 completed" );
             if (repairCount == 1)
             { NPCZinnia.SetActive(true); }

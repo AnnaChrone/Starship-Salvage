@@ -55,6 +55,8 @@ public class FPController : MonoBehaviour
     [Header("Pause Menu")]
     public GameObject PauseMenu;
     public bool isPaused = false;
+    public AudioSource Select;
+    public AudioSource Deselect;
 
     [Header("Landing Particles")]
     public ParticleSystem landingParticles;
@@ -206,8 +208,6 @@ public class FPController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-   
-
     public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -312,6 +312,7 @@ public class FPController : MonoBehaviour
 
         if (isPaused)
         {
+            Select.Play();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             PauseMenu.SetActive(true);
@@ -319,6 +320,7 @@ public class FPController : MonoBehaviour
         }
         else
         {
+            Deselect.Play();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             PauseMenu.SetActive(false);
