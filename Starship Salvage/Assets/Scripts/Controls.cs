@@ -225,6 +225,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c55cc65-c4e3-44bc-8f74-505ddcf8853f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -645,6 +654,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Grow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ca7efda-4741-4ab4-bea5-cf56550e7321"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb8354f5-b178-4128-a930-4ecfaa3da266"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -696,6 +727,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_Run = m_Newactionmap.FindAction("Run", throwIfNotFound: true);
         m_Newactionmap_Float = m_Newactionmap.FindAction("Float", throwIfNotFound: true);
         m_Newactionmap_Grow = m_Newactionmap.FindAction("Grow", throwIfNotFound: true);
+        m_Newactionmap_Map = m_Newactionmap.FindAction("Map", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -791,6 +823,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_Run;
     private readonly InputAction m_Newactionmap_Float;
     private readonly InputAction m_Newactionmap_Grow;
+    private readonly InputAction m_Newactionmap_Map;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -863,6 +896,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Grow => m_Wrapper.m_Newactionmap_Grow;
         /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Map".
+        /// </summary>
+        public InputAction @Map => m_Wrapper.m_Newactionmap_Map;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
@@ -933,6 +970,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Grow.started += instance.OnGrow;
             @Grow.performed += instance.OnGrow;
             @Grow.canceled += instance.OnGrow;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
         }
 
         /// <summary>
@@ -989,6 +1029,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Grow.started -= instance.OnGrow;
             @Grow.performed -= instance.OnGrow;
             @Grow.canceled -= instance.OnGrow;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
         }
 
         /// <summary>
@@ -1160,5 +1203,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGrow(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Map" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMap(InputAction.CallbackContext context);
     }
 }

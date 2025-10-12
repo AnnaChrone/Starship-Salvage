@@ -1718,7 +1718,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185054208}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1727,7 +1727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 709, y: 317}
+  m_AnchoredPosition: {x: 1218, y: 317}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185054210
@@ -14922,6 +14922,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dca6737d-4193-499c-a83d-9ff7c362e46e
     m_ActionName: 'New action map/Grow[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1339711966}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4c55cc65-c4e3-44bc-8f74-505ddcf8853f
+    m_ActionName: 'New action map/Map[/Keyboard/m]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -14955,8 +14971,6 @@ MonoBehaviour:
   cameraTransform: {fileID: 330585546}
   lookSensitivity: 0.1
   verticalLookLimit: 90
-  bulletPrefab: {fileID: 0}
-  gunPoint: {fileID: 0}
   crouchHeight: 1
   standHeight: 2
   crouchSpeed: 2.5
@@ -14970,9 +14984,13 @@ MonoBehaviour:
   Select: {fileID: 1899719179}
   Deselect: {fileID: 177839205}
   PMenu: {fileID: 1568653327}
+  Map: {fileID: 185054209}
+  mapOpen: 0
+  mapHiddenX: 1207
+  mapVisibleX: 740
   slideSpeed: 3500
-  hiddenY: 900
-  visibleY: 0
+  pauseHiddenY: 900
+  pauseVisibleY: 0
   landingParticles: {fileID: 1481911728}
   feet: {fileID: 234519757}
   floatDuration: 5
@@ -15463,11 +15481,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 185054209}
   - {fileID: 790370923}
   - {fileID: 609414196}
   - {fileID: 1380198582}
   - {fileID: 1891945452}
-  - {fileID: 185054209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23905,7 +23923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4799805, y: -2.960022}
+  m_AnchoredPosition: {x: -1.4799805, y: -2.959961}
   m_SizeDelta: {x: 50.322, y: 47.362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1891945453

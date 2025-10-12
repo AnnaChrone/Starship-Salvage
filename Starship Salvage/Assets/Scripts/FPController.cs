@@ -29,10 +29,6 @@ public class FPController : MonoBehaviour
     public float lookSensitivity = 2f;
     public float verticalLookLimit = 90f;
 
-    [Header("Shooting")]
-    public GameObject bulletPrefab;
-    public Transform gunPoint;
-
     [Header("Crouch")]
     public float crouchHeight = 1f;
     public float standHeight = 2f;
@@ -52,18 +48,26 @@ public class FPController : MonoBehaviour
     [Header("Inventory")]
     public Hotbar hotbarSelector;
 
+
     [Header("Pause Menu")]
     public GameObject PauseMenu;
     public bool isPaused = false;
     public AudioSource Select;
     public AudioSource Deselect;
-    private Coroutine slideRoutine;
     public RectTransform PMenu;
 
+    [Header("Map")]
+    public RectTransform Map;
+    public bool mapOpen = false;
+    private Coroutine slideRoutineMap;
+    public float mapHiddenX = 2450f;    
+    public float mapVisibleX = 1472f;       
+
     [Header("Slide Settings")]
-    public float slideSpeed = 1000f;   // pixels per second
-    public float hiddenY = 900f;      // offscreen (above)
-    public float visibleY = 0f;       // fully visible
+    public float slideSpeed = 1000f;
+    private Coroutine slideRoutinePause;
+    public float pauseHiddenY = 900f;      // offscreen (above)
+    public float pauseVisibleY = 0f;       // fully visible
 
     [Header("Landing Particles")]
     public ParticleSystem landingParticles;
@@ -337,13 +341,13 @@ public class FPController : MonoBehaviour
 
         isPaused = !isPaused;
 
-        if (slideRoutine != null)
-            StopCoroutine(slideRoutine);
+        if (slideRoutinePause != null)
+            StopCoroutine(slideRoutinePause);
 
         if (isPaused)
         {
             Select.Play();
-            slideRoutine = StartCoroutine(Slide(visibleY));
+            slideRoutinePause = StartCoroutine(SlidePause(pauseVisibleY));
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
@@ -351,14 +355,14 @@ public class FPController : MonoBehaviour
         else
         {
             Deselect.Play();
-            slideRoutine = StartCoroutine(Slide(hiddenY));
+            slideRoutinePause = StartCoroutine(SlidePause(pauseHiddenY));
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1f;
         }
     }
 
-    private IEnumerator Slide(float targetY)
+    private IEnumerator SlidePause(float targetY)
     {
         Vector2 pos = PMenu.anchoredPosition;
 
@@ -373,7 +377,43 @@ public class FPController : MonoBehaviour
         PMenu.anchoredPosition = pos;
     }
 
-public void OnUseItem(InputAction.CallbackContext context)
+    // --------------------------
+    // INPUT: Map
+    // --------------------------
+    public void OnMap(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        mapOpen = !mapOpen;
+
+        if (slideRoutineMap != null)
+            StopCoroutine(slideRoutineMap);
+
+        if (mapOpen)
+        {
+            slideRoutineMap = StartCoroutine(SlideMap(mapVisibleX));
+        }
+        else
+        {
+            slideRoutineMap = StartCoroutine(SlideMap(mapHiddenX));
+        }
+    }
+
+    private IEnumerator SlideMap(float targetX)
+    {
+        Vector2 pos = Map.anchoredPosition;
+
+        while (Mathf.Abs(pos.x - targetX) > 0.1f)
+        {
+            pos.x = Mathf.MoveTowards(pos.x, targetX, slideSpeed * Time.unscaledDeltaTime);
+            Map.anchoredPosition = pos;
+            yield return null;
+        }
+
+        pos.x = targetX;
+        Map.anchoredPosition = pos;
+    }
+    public void OnUseItem(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
