@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 {
@@ -29,12 +31,17 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public GameObject LuLuNPC;
     public GameObject MinLuNPC;
 
-
+    [Header("Region Flowers")]
+    public bool RaLuFlower;
+    public bool MinLuFlower;
+    public bool CoLuFlower;
+    public bool LuLuFlower;
 
     private Renderer rend; //highlighting
     public Material highlightmat;
     public Material originalmat;
-    public bool NotZorb;
+    public bool Zorb;
+    public bool Zinnia;
     public bool QuestFinished;
 
 
@@ -84,6 +91,13 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     void StartDialogue()
     {
+
+        //check flowers are there
+        RaLuFlower = hotbar.hasItem("8");
+        MinLuFlower = hotbar.hasItem("7");
+        LuLuFlower = hotbar.hasItem("6");
+        CoLuFlower = hotbar.hasItem("5");
+
         Debug.Log("dialgoue has started");
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
@@ -96,13 +110,24 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
         else if (questState == QuestState.InProgress)
         {
-            dialogueIndex = dialogueData.questInProgressIndex; //There is a specific index for what dialogue to display
+            if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
+            {
+                dialogueIndex = dialogueData.FlowerTableindex;
+            }
+            else
+            {
+                dialogueIndex = dialogueData.questInProgressIndex; //There is a specific index for what dialogue to display
+            }
+                
         }
         else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
         }
+
+
+        
 
         isDialogueActive = true;
 
@@ -119,10 +144,13 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             return;
         }
 
+        
+
         string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
-        if (NotZorb)
+
+        if (QuestController.Instance.IsQuestActive(questID))
         {
-            if (QuestController.Instance.IsQuestActive(questID))
+            if (!Zorb && !Zinnia)
             {
                 int slotIndex = hotbar.FindItemSlot(questID);
                 if (slotIndex != -1) // quest item found
@@ -132,24 +160,32 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                     QuestFinished = true;
                     QuestController.Instance.CompleteQuest(questID);
                 }
-                else
-                {
-                    questState = QuestState.InProgress;
-                }
+                
             }
-            else
-            {
-                questState = QuestState.NotStarted;
-            }
-        }else
-        {
-            if ((CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+            else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
                 questState = QuestState.Completed;
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
             }
+           /* else if (Zinnia && RaLuFlower && LuLuFlower && MinLuFlower && CoLuFlower)
+            {
+                questState = QuestState.Completed;
+                QuestFinished = true;
+                QuestController.Instance.CompleteQuest(questID);
+            }*/
+            else
+            {
+                questState = QuestState.InProgress;
+                Debug.Log("QUest in progress");
+            }
         }
+        else
+        {
+            questState = QuestState.NotStarted;
+            Debug.Log("Quest not started");
+        }
+        
 
     }
 

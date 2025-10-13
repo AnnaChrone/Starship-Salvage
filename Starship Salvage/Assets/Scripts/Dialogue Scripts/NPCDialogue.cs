@@ -12,7 +12,8 @@ public class NPCDialogue : ScriptableObject
 
     public DialogueChoice[] Choices;
     public int questInProgressIndex; //What does NPC say when quest is in progress
-    public int questCompletedIndex; //What does NPC say when qiest is completed
+    public int questCompletedIndex; //What does NPC say when quest is completed
+    public int FlowerTableindex;
     public Quests quests; //the actual quest
 }
 

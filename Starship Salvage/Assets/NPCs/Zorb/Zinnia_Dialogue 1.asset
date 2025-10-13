@@ -30,8 +30,12 @@ MonoBehaviour:
     a bouquet :)
   - It doesn't look like you've found all flowers yet...
   - Come back here once youve found them all!
-  autoProgressLines: 0101010101010101010101
-  endLines: 0000000000000000010001
+  - Oh look! You've found them all! Now, all you need to do is turn them into a bouquet!
+  - It's very easy, just use this flower arranging table I have here! *trigger press
+    b*
+  - FINISHED
+  autoProgressLines: 0101010101010101010101010101
+  endLines: 0000000000000000010001000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:
@@ -54,5 +58,6 @@ MonoBehaviour:
     nextDialogueIndexes: 0400000005000000
     givesQuest: 0101
   questInProgressIndex: 9
-  questCompletedIndex: 12
+  questCompletedIndex: 13
+  FlowerTableindex: 11
   quests: {fileID: 11400000, guid: af6e8db5d87342941873032a351bd7cb, type: 2}
