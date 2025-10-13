@@ -18,6 +18,8 @@ public class Spaceship : MonoBehaviour
     public CanvasGroup panel;
     public CanvasGroup shader;
     public bool isFrozen = false; //Pauses game
+    public AudioSource Siren;
+    public AudioSource Crash;
    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -110,6 +112,8 @@ public class Spaceship : MonoBehaviour
         finishedDialogue = true;
         if (CrashLandingScene != null)
         {
+            Siren.mute = true;
+            Crash.Play();
             StartCoroutine(FadeOutPanel());
         }
         shipDialogueControl.ShowDialoguePanel(false);

@@ -7,6 +7,8 @@ public class PickUpObject : MonoBehaviour
     public GameObject itemPrefab; 
     public Sprite icon;
 
+    public AudioSource Collect;
+
     [Header("Consumable / Special")]
     public bool consumable = false; 
     public string unlockAbilityName; 
@@ -23,6 +25,7 @@ public class PickUpObject : MonoBehaviour
     public void PickUp(Transform holdPoint)
     {
         isHeld = true;
+        Collect.Play();
         rb.useGravity = false;
         rb.isKinematic = true; 
         rb.linearVelocity = Vector3.zero;

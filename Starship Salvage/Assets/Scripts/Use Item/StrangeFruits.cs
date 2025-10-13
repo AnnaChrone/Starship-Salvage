@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class StrangeFruits : MonoBehaviour, IUsable
 {
@@ -6,6 +7,7 @@ public class StrangeFruits : MonoBehaviour, IUsable
 
     [Header("Special Ability")]
     public string AbilityName; 
+    public CanvasGroup AbilityImage;
 
     public void Use(GameObject user)
     {
@@ -15,6 +17,7 @@ public class StrangeFruits : MonoBehaviour, IUsable
         if (abilities != null && !string.IsNullOrEmpty(AbilityName))
         {
             abilities.UnlockAbility(AbilityName);
+            AbilityImage.alpha = 1;
         }
 
         if (consumable)
