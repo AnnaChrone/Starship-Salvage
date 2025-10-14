@@ -36,6 +36,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool MinLuFlower;
     public bool CoLuFlower;
     public bool LuLuFlower;
+    public GameObject FlowerTable;
 
     private Renderer rend; //highlighting
     public Material highlightmat;
@@ -113,6 +114,10 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
             {
                 dialogueIndex = dialogueData.FlowerTableindex;
+                if (FlowerTable != null)
+                {
+                    FlowerTable.SetActive(true);
+                }
             }
             else
             {

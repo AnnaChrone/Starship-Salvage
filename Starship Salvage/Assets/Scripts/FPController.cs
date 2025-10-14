@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
 using System.Runtime.InteropServices;
 using System.Collections;
+using TMPro;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -74,10 +75,12 @@ public class FPController : MonoBehaviour
     [SerializeField] private Transform feet; // at player's feet
 
     [Header("Floating")]
-    public float floatDuration = 8f;   // how long to float
+    public float floatDuration = 10f;   // how long to float
     public float floatSpeed = 3f;      // upward speed
     private bool wasGrounded;
+    public TextMeshProUGUI Count;
     public PlayerAbilities fruits;
+    public GameObject FloatDisplay;
 
     
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -93,6 +96,7 @@ public class FPController : MonoBehaviour
     private SpaceshipFixing spaceship;
     private bool Freeze;
     public bool animated = false;
+    public Table Table;
 
     private void Awake()
     {
@@ -377,9 +381,6 @@ public class FPController : MonoBehaviour
         PMenu.anchoredPosition = pos;
     }
 
-    // --------------------------
-    // INPUT: Map
-    // --------------------------
     public void OnMap(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -431,23 +432,38 @@ public class FPController : MonoBehaviour
 
         if (context.performed && fruits.FloatAquired) // double-tap space
         {
+            FloatDisplay.SetActive(true);
             Debug.Log("Double-tap SPACE Floating!");
             StartCoroutine(FloatUpwards());
+            StartCoroutine(Countdown());
+           
+
         }
+    }
+
+    private IEnumerator Countdown()
+    {
+        for (int i = 5; i >= 0; i--)
+        {
+            Count.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        FloatDisplay.SetActive(false);
+
     }
 
     private IEnumerator FloatUpwards()
     {
-
-
         float timer = 0f;
+        gravity = 0f;
+
         while (timer < floatDuration)
         {
-            gravity = 0f;
             controller.Move(Vector3.up * floatSpeed * Time.deltaTime);
             timer += Time.deltaTime;
-            yield return null;
+            yield return null; // wait one frame
         }
+
         Debug.Log("falling!");
         gravity = -9.81f;
     }
@@ -500,5 +516,23 @@ public class FPController : MonoBehaviour
         }
     }
 
+    private bool Bouquet =false;
+    public void OnBouquet(InputAction.CallbackContext context)
+    {
+        if (Freeze) return;
+        if (!context.performed) return;
 
+        Bouquet = !Bouquet;
+
+        if (Table.RangeTable)
+        {
+            Bouquet = !Bouquet;
+            if (Bouquet)
+            {
+                //Load table scene
+            }else
+            {
+                //Close Table scene
+        }   }
+    }
 }

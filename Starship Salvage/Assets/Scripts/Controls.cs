@@ -234,6 +234,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bouquet"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b9f4eb9-0af2-4a3b-a173-277ee494d672"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -668,12 +677,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fb8354f5-b178-4128-a930-4ecfaa3da266"",
-                    ""path"": """",
+                    ""id"": ""c1942faf-a2c0-466d-b4f6-ec30550b0f19"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Map"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Bouquet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -728,6 +737,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_Float = m_Newactionmap.FindAction("Float", throwIfNotFound: true);
         m_Newactionmap_Grow = m_Newactionmap.FindAction("Grow", throwIfNotFound: true);
         m_Newactionmap_Map = m_Newactionmap.FindAction("Map", throwIfNotFound: true);
+        m_Newactionmap_Bouquet = m_Newactionmap.FindAction("Bouquet", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -824,6 +834,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_Float;
     private readonly InputAction m_Newactionmap_Grow;
     private readonly InputAction m_Newactionmap_Map;
+    private readonly InputAction m_Newactionmap_Bouquet;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -900,6 +911,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Map => m_Wrapper.m_Newactionmap_Map;
         /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Bouquet".
+        /// </summary>
+        public InputAction @Bouquet => m_Wrapper.m_Newactionmap_Bouquet;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
@@ -973,6 +988,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Map.started += instance.OnMap;
             @Map.performed += instance.OnMap;
             @Map.canceled += instance.OnMap;
+            @Bouquet.started += instance.OnBouquet;
+            @Bouquet.performed += instance.OnBouquet;
+            @Bouquet.canceled += instance.OnBouquet;
         }
 
         /// <summary>
@@ -1032,6 +1050,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Map.started -= instance.OnMap;
             @Map.performed -= instance.OnMap;
             @Map.canceled -= instance.OnMap;
+            @Bouquet.started -= instance.OnBouquet;
+            @Bouquet.performed -= instance.OnBouquet;
+            @Bouquet.canceled -= instance.OnBouquet;
         }
 
         /// <summary>
@@ -1210,5 +1231,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMap(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Bouquet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBouquet(InputAction.CallbackContext context);
     }
 }

@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Bouquet",
+                    "type": "Button",
+                    "id": "5b9f4eb9-0af2-4a3b-a173-277ee494d672",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -582,12 +591,12 @@
                 },
                 {
                     "name": "",
-                    "id": "fb8354f5-b178-4128-a930-4ecfaa3da266",
-                    "path": "",
+                    "id": "c1942faf-a2c0-466d-b4f6-ec30550b0f19",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Map",
+                    "groups": ";Keyboard",
+                    "action": "Bouquet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
