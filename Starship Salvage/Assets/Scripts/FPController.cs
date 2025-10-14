@@ -97,11 +97,15 @@ public class FPController : MonoBehaviour
     private bool Freeze;
     public bool animated = false;
     public Table Table;
+    public GameObject TableMinigame;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-
+        if (TableMinigame.activeInHierarchy)
+        {
+            Freeze = true;
+        }
         originalMoveSpeed = moveSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
