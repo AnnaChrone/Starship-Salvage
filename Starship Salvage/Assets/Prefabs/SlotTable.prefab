@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2943601548699390740}
   - component: {fileID: 550714324907063773}
   - component: {fileID: 6504000066355866934}
+  - component: {fileID: 5092757455026755642}
   m_Layer: 5
   m_Name: SlotTable
   m_TagString: Untagged
@@ -113,3 +114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d286933b0d0cc849a87ab22ec2fa9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5092757455026755642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768564936129901168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d257bac6ff04c1546ab3398e04d6f215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredFlower: Green
+  CorrectFlower: 0
+  OverallCheck: {fileID: 0}
