@@ -1,8 +1,10 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
+using Unity.SharpZipLib.BZip2;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -45,10 +47,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool Zinnia;
     public bool QuestFinished;
 
-
+    [Header("NPCs")]
     public NPC CoLu;
     public NPC LuLu;
     public NPC RaLu;
+
+    [Header("Audio Assignment")]
+    public AudioClip Clip1;
+    public AudioClip Clip2; 
+    public AudioClip Clip3; 
+    public AudioSource voice;
 
 
     public void Start()
@@ -58,6 +66,9 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         // Save reference for highlighting
         rend = GetComponent<Renderer>();
     }
+
+   /* 
+    }*/
    
     public void Highlight()
     {
@@ -173,12 +184,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
             }
-           /* else if (Zinnia && RaLuFlower && LuLuFlower && MinLuFlower && CoLuFlower)
-            {
-                questState = QuestState.Completed;
-                QuestFinished = true;
-                QuestController.Instance.CompleteQuest(questID);
-            }*/
             else
             {
                 questState = QuestState.InProgress;
@@ -241,7 +246,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         isTyping = true;
         dialogueControl.SetDialogue("");
-
+        PlayRandomClip();
         foreach (char letter in dialogueData.Lines[dialogueIndex]) //Types out line one char at a time
         {
             dialogueControl.SetDialogue(dialogueControl.dialogueText.text += letter);
@@ -317,6 +322,39 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         dialogueControl.ShowDialoguePanel(false);
         isFrozen = false;
     
+    }
+
+    private int lastClipIndex = -1; // remember the last clip to avoid immediate repetitions
+    public void PlayRandomClip()
+    {
+        if (voice == null)
+        {
+            Debug.LogWarning("AudioSource not assigned!");
+            return;
+        }
+
+        AudioClip[] clips = { Clip1, Clip2, Clip3 };
+        AudioClip[] validClips = System.Array.FindAll(clips, c => c != null);
+
+        if (validClips.Length == 0)
+        {
+            Debug.LogWarning("No valid audio clips assigned!");
+            return;
+        }
+
+        int randomClip;
+
+        // Make sure it don't pick the same clip twice in a row
+        do
+        {
+            randomClip = Random.Range(0, validClips.Length);
+        }
+        while (validClips.Length > 1 && randomClip == lastClipIndex);
+
+        lastClipIndex = randomClip;
+
+        AudioClip selectedClip = validClips[randomClip];
+        voice.PlayOneShot(selectedClip);
     }
 }
 

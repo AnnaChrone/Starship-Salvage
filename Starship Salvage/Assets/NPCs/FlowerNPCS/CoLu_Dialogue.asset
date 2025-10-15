@@ -25,7 +25,14 @@ MonoBehaviour:
   endLines: 0000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  Choices: []
+  Choices:
+  - dialogueIndex: 1
+    Choices:
+    - CLPD seem tough
+    - I'm here now!
+    nextDialogueIndexes: 0200000002000000
+    givesQuest: 0101
   questInProgressIndex: 3
   questCompletedIndex: 10
-  quests: {fileID: 11400000, guid: af6e8db5d87342941873032a351bd7cb, type: 2}
+  FlowerTableindex: 0
+  quests: {fileID: 11400000, guid: 143c8bfe9cce1ae47884f9dd96eba572, type: 2}

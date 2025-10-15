@@ -31,7 +31,8 @@ MonoBehaviour:
     - CLPD...
     - I AM
     nextDialogueIndexes: 0300000004000000
-    givesQuest: 0000
+    givesQuest: 0101
   questInProgressIndex: 5
   questCompletedIndex: 12
-  quests: {fileID: 11400000, guid: af6e8db5d87342941873032a351bd7cb, type: 2}
+  FlowerTableindex: 0
+  quests: {fileID: 11400000, guid: 8d561f53b2f046b4eb7fdcf6f11065f3, type: 2}
