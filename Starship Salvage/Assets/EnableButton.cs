@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnableButton : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnableButton : MonoBehaviour
     public bool BlueCorrect = false;
     public bool PurpleCorrect = false;
     private bool correct = false;
+    public GameObject Bouquet;
 
     void Update()
     {
@@ -18,6 +20,7 @@ public class EnableButton : MonoBehaviour
                 correct = true;
     
              //logic to make button visible here
+             Bouquet.SetActive(true);
              }
         }
     }

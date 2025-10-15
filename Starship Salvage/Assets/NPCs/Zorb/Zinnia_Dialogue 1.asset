@@ -45,11 +45,11 @@ MonoBehaviour:
     - EVERYTHING OK?
     nextDialogueIndexes: 0100000001000000
     givesQuest: 0000
-  - dialogueIndex: 2
+  - dialogueIndex: 1
     Choices:
     - I'LL HELP YOU!
     - WHY CANT YOU GO YOURSELF
-    nextDialogueIndexes: 0300000004000000
+    nextDialogueIndexes: 0300000003000000
     givesQuest: 0000
   - dialogueIndex: 3
     Choices:

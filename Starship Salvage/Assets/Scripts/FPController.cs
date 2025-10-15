@@ -61,8 +61,8 @@ public class FPController : MonoBehaviour
     public RectTransform Map;
     public bool mapOpen = false;
     private Coroutine slideRoutineMap;
-    public float mapHiddenX = 2450f;    
-    public float mapVisibleX = 1472f;       
+    public float mapHiddenX = 2450f;
+    public float mapVisibleX = 1472f;
 
     [Header("Slide Settings")]
     public float slideSpeed = 1000f;
@@ -82,11 +82,11 @@ public class FPController : MonoBehaviour
     public PlayerAbilities fruits;
     public GameObject FloatDisplay;
 
-    
+
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
 
-    
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -96,16 +96,16 @@ public class FPController : MonoBehaviour
     private SpaceshipFixing spaceship;
     private bool Freeze;
     public bool animated = false;
+
+    [Header("Table Minigame")]
     public Table Table;
-    public GameObject TableMinigame;
+    public GameObject TableGameobject;
+    public GameObject Minigame;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        if (TableMinigame.activeInHierarchy)
-        {
-            Freeze = true;
-        }
+        
         originalMoveSpeed = moveSpeed;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -118,13 +118,14 @@ public class FPController : MonoBehaviour
         HandleMovement();
         HandleLook();
 
+
         if (heldObject != null)
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
 
 
-        if (RaLuPres.isFrozen || MinLu.isFrozen || LuLuPres.isFrozen || CoLuPres.isFrozen || Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
+        if (Minigame.activeInHierarchy || RaLuPres.isFrozen || MinLu.isFrozen || LuLuPres.isFrozen || CoLuPres.isFrozen || Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
         {
             Freeze = true;
         }
@@ -526,17 +527,21 @@ public class FPController : MonoBehaviour
         if (Freeze) return;
         if (!context.performed) return;
 
-        Bouquet = !Bouquet;
 
         if (Table.RangeTable)
         {
             Bouquet = !Bouquet;
             if (Bouquet)
             {
-                //Load table scene
-            }else
+                TableGameobject.SetActive(true);
+                
+
+            }
+            else
             {
-                //Close Table scene
-        }   }
+                TableGameobject.SetActive(false);
+
+            }
+        }
     }
 }

@@ -94,12 +94,12 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
 
         //check flowers are there
-        RaLuFlower = hotbar.hasItem("8");
-        MinLuFlower = hotbar.hasItem("7");
-        LuLuFlower = hotbar.hasItem("6");
-        CoLuFlower = hotbar.hasItem("5");
+        RaLuFlower = hotbar.hasItem("CLF");
+        MinLuFlower = hotbar.hasItem("RLF");
+        LuLuFlower = hotbar.hasItem("LLF");
+        CoLuFlower = hotbar.hasItem("MLF");
 
-        Debug.Log("dialgoue has started");
+        Debug.Log("dialogue has started");
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         SyncQuestState(); //Sync dialogue depending on state of quest
@@ -155,7 +155,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
         if (QuestController.Instance.IsQuestActive(questID))
         {
-            if (!Zorb && !Zinnia)
+            if (!Zorb && Zinnia)
             {
                 int slotIndex = hotbar.FindItemSlot(questID);
                 if (slotIndex != -1) // quest item found

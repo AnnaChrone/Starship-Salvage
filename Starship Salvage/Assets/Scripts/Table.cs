@@ -7,6 +7,7 @@ public class Table : MonoBehaviour
     {
         //press B
         RangeTable = true;
+        Debug.Log("In range of B");
     }
 
     private void OnTriggerExit(Collider collide)
@@ -14,4 +15,7 @@ public class Table : MonoBehaviour
         
         RangeTable = false;
     }
+
+
+
 }

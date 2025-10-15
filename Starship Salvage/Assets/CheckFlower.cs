@@ -16,7 +16,10 @@ public class CheckFlower : MonoBehaviour
     {
         if (RequiredFlower != null)
         {
-            GivenFlower = transform.GetChild(0).name;
+            if (transform.GetChild(0) != null)
+            {
+                GivenFlower = transform.GetChild(0).name;
+            }
 
 
             if (GivenFlower == RequiredFlower)
