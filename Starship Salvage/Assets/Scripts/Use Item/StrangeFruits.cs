@@ -8,11 +8,13 @@ public class StrangeFruits : MonoBehaviour, IUsable
     [Header("Special Ability")]
     public string AbilityName; 
     public CanvasGroup AbilityImage;
+    public AudioSource EatAudio;
 
     public void Use(GameObject user)
     {
 
         // Unlock ability
+
         PlayerAbilities abilities = user.GetComponent<PlayerAbilities>();
         if (abilities != null && !string.IsNullOrEmpty(AbilityName))
         {
@@ -22,6 +24,7 @@ public class StrangeFruits : MonoBehaviour, IUsable
 
         if (consumable)
         {
+            EatAudio.Play();
             Destroy(gameObject);
         }
     }

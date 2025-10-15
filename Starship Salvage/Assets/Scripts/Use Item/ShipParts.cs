@@ -11,6 +11,7 @@ public class ShipParts : MonoBehaviour, IUsable
     public GameObject ship;
     public ShipRepairs repair;
     public bool inRange;
+    public AudioSource thunk;
 
     private void OnTriggerEnter(Collider ship)
     {
@@ -31,6 +32,7 @@ public class ShipParts : MonoBehaviour, IUsable
             repairCount++;
             if (hotbar.RemoveItemByID(Name))
             {
+                thunk.Play();
                 Debug.Log("Correct item used on ship! Item removed from hotbar.");
                 repair.Fix();
                 //Destroy(gameObject);

@@ -242,6 +242,7 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
+    public AudioSource UseAudio;
     public bool TryUseSelectedItem(GameObject user)
     {
         int slot = index;
@@ -259,6 +260,7 @@ public class Hotbar : MonoBehaviour
                     if (Ship.inRange)
                     {
                         // Remove after use
+                       // UseAudio.Play();
                         Destroy(heldItem);
                         heldItemInstances[slot] = null;
                         storedItemPrefabs[slot] = null;
@@ -275,6 +277,7 @@ public class Hotbar : MonoBehaviour
                 {
 
                     // Remove after use
+                    //UseAudio.Play();
                     Destroy(heldItem);
                     heldItemInstances[slot] = null;
                     storedItemPrefabs[slot] = null;

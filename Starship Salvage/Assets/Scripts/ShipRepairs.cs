@@ -12,6 +12,7 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text dayCount;
     public TMP_Text bigDay;
     public AudioSource Nextday;
+    public GameObject TEMP;
 
     [Header("NPCs")]
     public GameObject NPCZinnia;
@@ -40,6 +41,11 @@ public class ShipRepairs : MonoBehaviour
             { NPCChef.SetActive(false); } 
                 dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
+
+            if (repairCount == 2)
+            {
+                TEMP.SetActive(true);
+            }
         }
     }
 

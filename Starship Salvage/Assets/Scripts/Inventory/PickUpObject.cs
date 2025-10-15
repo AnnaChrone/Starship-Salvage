@@ -7,7 +7,9 @@ public class PickUpObject : MonoBehaviour
     public GameObject itemPrefab; 
     public Sprite icon;
 
+    [Header("Audios")]
     public AudioSource Collect;
+    public AudioSource DropAudio;
 
     [Header("Consumable / Special")]
     public bool consumable = false; 
@@ -38,6 +40,7 @@ public class PickUpObject : MonoBehaviour
 
     public void Drop()
     {
+        DropAudio.Play();
         isHeld = false;
         transform.SetParent(null, true);
         rb.useGravity = true;
