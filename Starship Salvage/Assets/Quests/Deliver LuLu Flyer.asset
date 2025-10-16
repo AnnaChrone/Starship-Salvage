@@ -15,4 +15,9 @@ MonoBehaviour:
   QuestID: 4
   QuestName: Deliver LuLu flyer
   Description: 
-  objectives: []
+  objectives:
+  - ObjectiveID: 20
+    Description: 
+    type: 0
+    Incomplete: 0
+    Complete: 0

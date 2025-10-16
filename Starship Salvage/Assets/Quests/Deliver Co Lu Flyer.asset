@@ -15,4 +15,9 @@ MonoBehaviour:
   QuestID: 3
   QuestName: Deliver Co Lu Flyer
   Description: 
-  objectives: []
+  objectives:
+  - ObjectiveID: 100
+    Description: 
+    type: 0
+    Incomplete: 0
+    Complete: 0

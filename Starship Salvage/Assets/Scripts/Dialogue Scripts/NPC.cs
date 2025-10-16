@@ -166,7 +166,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
         if (QuestController.Instance.IsQuestActive(questID))
         {
-            if (!Zorb && Zinnia)
+            if (!Zorb)
             {
                 int slotIndex = hotbar.FindItemSlot(questID);
                 if (slotIndex != -1) // quest item found
