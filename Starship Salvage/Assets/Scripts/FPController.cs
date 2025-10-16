@@ -39,6 +39,8 @@ public class FPController : MonoBehaviour
     [Header("Grow")]
     public float growHeight = 10f;
     public float growSpeed = 20f;
+    public AudioSource grow;
+    public AudioSource shrink;
 
 
     [Header("PickUp")]
@@ -81,6 +83,7 @@ public class FPController : MonoBehaviour
     public TextMeshProUGUI Count;
     public PlayerAbilities fruits;
     public GameObject FloatDisplay;
+    public AudioSource Floating;
 
     [Header("Footsteps")]
     public AudioSource Footsteps;
@@ -223,6 +226,7 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        
         bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
 
         if (isGrounded && isMoving && velocity.y <= 0 && gravity < 0)
@@ -232,6 +236,7 @@ public class FPController : MonoBehaviour
                 Footsteps.loop = true;
                 Footsteps.Play();
             }
+            Footsteps.pitch = moveSpeed > originalMoveSpeed ? 1.5f : 1f;
         }
         else
         {
@@ -461,6 +466,7 @@ public class FPController : MonoBehaviour
         {
             FloatDisplay.SetActive(true);
             Debug.Log("Double-tap SPACE Floating!");
+            Floating.Play();
             StartCoroutine(FloatUpwards());
             StartCoroutine(Countdown());
            
@@ -519,6 +525,7 @@ public class FPController : MonoBehaviour
         {
             // Scale the entire player object (mesh + controller)
             transform.localScale = Vector3.one * 2f;
+            grow.Play();
 
             // Adjust CharacterController manually because scaling doesn't affect it
             controller.height = growHeight; // double height
@@ -533,6 +540,7 @@ public class FPController : MonoBehaviour
         {
             // Reset scale
             transform.localScale = Vector3.one;
+            shrink.Play();
 
             // Reset CharacterController
             controller.height = standHeight;
