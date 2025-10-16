@@ -10,7 +10,8 @@ public class FlyerAppear : MonoBehaviour
 
     public void FlyerAppears()
     {
-        if (npc != null && npc.hasTalked == true)
+        Debug.Log("making appear");
+        if (npc != null && npc.hasTalked == true && !hasFlyerAppeared)
         {
             CoLuFlyer.SetActive(true);
             RaLuFlyer.SetActive(true);

@@ -7,7 +7,8 @@ public class Hotbar : MonoBehaviour
     public GameObject[] slots = new GameObject[7];
     public Image[] slotIcons = new Image[7];
     public Transform holdPoint;  
-    private GameObject[] heldItemInstances = new GameObject[7]; 
+    private GameObject[] heldItemInstances = new GameObject[7];
+    public ShipParts Ship;
 
 
 
@@ -241,6 +242,7 @@ public class Hotbar : MonoBehaviour
         UpdateSelection();
     }
 
+    public AudioSource UseAudio;
     public bool TryUseSelectedItem(GameObject user)
     {
         int slot = index;
@@ -253,17 +255,40 @@ public class Hotbar : MonoBehaviour
             {
                 // Call item’s custom use logic
                 usable.Use(user);
+                if (Ship != null)
+                {
+                    if (Ship.inRange)
+                    {
+                        // Remove after use
+                       // UseAudio.Play();
+                        Destroy(heldItem);
+                        heldItemInstances[slot] = null;
+                        storedItemPrefabs[slot] = null;
 
-                // Remove after use
-                Destroy(heldItem);
-                heldItemInstances[slot] = null;
-                storedItemPrefabs[slot] = null;
+                        if (slotIcons[slot] != null)
+                            slotIcons[slot].sprite = null;
 
-                if (slotIcons[slot] != null)
-                    slotIcons[slot].sprite = null;
+                        UpdateSelection();
+                        return true;
+                    }
+                    else return false;
+                }
+                else
+                {
 
-                UpdateSelection();
-                return true;
+                    // Remove after use
+                    //UseAudio.Play();
+                    Destroy(heldItem);
+                    heldItemInstances[slot] = null;
+                    storedItemPrefabs[slot] = null;
+
+                    if (slotIcons[slot] != null)
+                        slotIcons[slot].sprite = null;
+
+                    UpdateSelection();
+                    return true;
+                }
+
             }
             else
                 return false;

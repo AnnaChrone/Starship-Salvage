@@ -7,4 +7,3 @@ Please note, this game works with Keyboard and Controller, HOWEVER, navigating t
 
 The game prototype ends once youve repaired the ship to 1/3!
 
-P.S. We hate Zorb. We listened to his sob story about his Blankie over 50 times. 

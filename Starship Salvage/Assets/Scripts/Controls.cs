@@ -216,6 +216,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""MultiTap(tapTime=0.2,tapDelay=0.3)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grow"",
+                    ""type"": ""Button"",
+                    ""id"": ""dca6737d-4193-499c-a83d-9ff7c362e46e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c55cc65-c4e3-44bc-8f74-505ddcf8853f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bouquet"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b9f4eb9-0af2-4a3b-a173-277ee494d672"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -625,6 +652,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Float"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad26de74-98cb-4ba8-919f-22bfb0f70611"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Grow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ca7efda-4741-4ab4-bea5-cf56550e7321"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1942faf-a2c0-466d-b4f6-ec30550b0f19"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Bouquet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -675,6 +735,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_HotbarNext = m_Newactionmap.FindAction("HotbarNext", throwIfNotFound: true);
         m_Newactionmap_Run = m_Newactionmap.FindAction("Run", throwIfNotFound: true);
         m_Newactionmap_Float = m_Newactionmap.FindAction("Float", throwIfNotFound: true);
+        m_Newactionmap_Grow = m_Newactionmap.FindAction("Grow", throwIfNotFound: true);
+        m_Newactionmap_Map = m_Newactionmap.FindAction("Map", throwIfNotFound: true);
+        m_Newactionmap_Bouquet = m_Newactionmap.FindAction("Bouquet", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -769,6 +832,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_HotbarNext;
     private readonly InputAction m_Newactionmap_Run;
     private readonly InputAction m_Newactionmap_Float;
+    private readonly InputAction m_Newactionmap_Grow;
+    private readonly InputAction m_Newactionmap_Map;
+    private readonly InputAction m_Newactionmap_Bouquet;
     /// <summary>
     /// Provides access to input actions defined in input action map "New action map".
     /// </summary>
@@ -837,6 +903,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Float => m_Wrapper.m_Newactionmap_Float;
         /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Grow".
+        /// </summary>
+        public InputAction @Grow => m_Wrapper.m_Newactionmap_Grow;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Map".
+        /// </summary>
+        public InputAction @Map => m_Wrapper.m_Newactionmap_Map;
+        /// <summary>
+        /// Provides access to the underlying input action "Newactionmap/Bouquet".
+        /// </summary>
+        public InputAction @Bouquet => m_Wrapper.m_Newactionmap_Bouquet;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
@@ -904,6 +982,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Float.started += instance.OnFloat;
             @Float.performed += instance.OnFloat;
             @Float.canceled += instance.OnFloat;
+            @Grow.started += instance.OnGrow;
+            @Grow.performed += instance.OnGrow;
+            @Grow.canceled += instance.OnGrow;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
+            @Bouquet.started += instance.OnBouquet;
+            @Bouquet.performed += instance.OnBouquet;
+            @Bouquet.canceled += instance.OnBouquet;
         }
 
         /// <summary>
@@ -957,6 +1044,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Float.started -= instance.OnFloat;
             @Float.performed -= instance.OnFloat;
             @Float.canceled -= instance.OnFloat;
+            @Grow.started -= instance.OnGrow;
+            @Grow.performed -= instance.OnGrow;
+            @Grow.canceled -= instance.OnGrow;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
+            @Bouquet.started -= instance.OnBouquet;
+            @Bouquet.performed -= instance.OnBouquet;
+            @Bouquet.canceled -= instance.OnBouquet;
         }
 
         /// <summary>
@@ -1121,5 +1217,26 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFloat(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Grow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGrow(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Map" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMap(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Bouquet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBouquet(InputAction.CallbackContext context);
     }
 }

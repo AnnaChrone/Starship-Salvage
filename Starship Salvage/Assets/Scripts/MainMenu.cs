@@ -10,10 +10,18 @@ public class MainMenu : MonoBehaviour
     [Header("Controls Canvas")]
     public GameObject ControlCanvas;
 
+    [Header("Button Click")]
+    public AudioSource ButtonClick;
+
 
     public void SwapScene()
     {
         StartCoroutine(LoadSceneCleanly());
+    }
+
+    public void PlaySound()
+    {
+        ButtonClick.Play();
     }
 
     private IEnumerator LoadSceneCleanly()

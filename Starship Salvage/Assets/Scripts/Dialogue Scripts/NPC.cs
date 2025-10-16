@@ -1,9 +1,13 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
+using Unity.SharpZipLib.BZip2;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 {
@@ -23,34 +27,61 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public Hotbar hotbar; //Calls the hotbar
     public GameObject RewardItem;
 
+    [Header("NPC activation on quest give")]
+    public GameObject CoLuNPC;
+    public GameObject RaLuNPC;
+    public GameObject LuLuNPC;
+    public GameObject MinLuNPC;
+
+    [Header("Region Flowers")]
+    public bool RaLuFlower;
+    public bool MinLuFlower;
+    public bool CoLuFlower;
+    public bool LuLuFlower;
+    public GameObject FlowerTable;
 
     private Renderer rend; //highlighting
-    private Color originalColor;
+    public Material highlightmat;
+    public Material originalmat;
+    public bool Zorb;
+    public bool Zinnia;
+    public bool QuestFinished;
+
+    [Header("NPCs")]
+    public NPC CoLu;
+    public NPC LuLu;
+    public NPC RaLu;
+
+    [Header("Audio Assignment")]
+    public AudioClip Clip1;
+    public AudioClip Clip2; 
+    public AudioClip Clip3; 
+    public AudioSource voice;
+
 
     public void Start()
     {
         dialogueControl = DialogueController.Instance; //Create an instance
 
         // Save reference for highlighting
-       /* rend = GetComponent<Renderer>();
-        if (rend != null)
-        {
-            originalColor = rend.material.color;
-        }*/
+        rend = GetComponent<Renderer>();
     }
 
+   /* 
+    }*/
+   
     public void Highlight()
     {
         if (rend != null)
         {
-            rend.material.color = Color.yellow; 
+            rend.material = highlightmat; 
         }
     }
     public void Unhighlight()
     {
         if (rend != null)
         {
-            rend.material.color = originalColor;
+            rend.material = originalmat;
         }
     }
     public bool CanInteract()
@@ -72,8 +103,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     void StartDialogue()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+
+        //check flowers are there
+        RaLuFlower = hotbar.hasItem("CLF");
+        MinLuFlower = hotbar.hasItem("RLF");
+        LuLuFlower = hotbar.hasItem("LLF");
+        CoLuFlower = hotbar.hasItem("MLF");
+
+        Debug.Log("dialogue has started");
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         SyncQuestState(); //Sync dialogue depending on state of quest
@@ -85,15 +122,28 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
         else if (questState == QuestState.InProgress)
         {
-            dialogueIndex = dialogueData.questInProgressIndex; //There is a specific index for what dialogue to display
+            if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
+            {
+                dialogueIndex = dialogueData.FlowerTableindex;
+                if (FlowerTable != null)
+                {
+                    FlowerTable.SetActive(true);
+                }
+            }
+            else
+            {
+                dialogueIndex = dialogueData.questInProgressIndex; //There is a specific index for what dialogue to display
+            }
+                
         }
         else if (questState == QuestState.Completed)
         {
-            //take blanket HERE
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
-
         }
+
+
+        
 
         isDialogueActive = true;
 
@@ -110,31 +160,49 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             return;
         }
 
+        
+
         string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
 
         if (QuestController.Instance.IsQuestActive(questID))
         {
-            int slotIndex = hotbar.FindItemSlot(questID);
-            if (slotIndex != -1) // quest item found
+            if (!Zorb)
             {
-                hotbar.RemoveItemAt(slotIndex);   // removes quest item
+                int slotIndex = hotbar.FindItemSlot(questID);
+                if (slotIndex != -1) // quest item found
+                {
+                    hotbar.RemoveItemAt(slotIndex);   // removes quest item
+                    questState = QuestState.Completed;
+                    QuestFinished = true;
+                    QuestController.Instance.CompleteQuest(questID);
+                }
+                
+            }
+            else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+            {
                 questState = QuestState.Completed;
+                QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
             }
             else
             {
                 questState = QuestState.InProgress;
+                Debug.Log("QUest in progress");
             }
         }
         else
         {
             questState = QuestState.NotStarted;
+            Debug.Log("Quest not started");
         }
+        
 
     }
 
    public void NextLine()
     {
+        SyncQuestState(); 
+
         if (isTyping)
         {
             StopAllCoroutines();
@@ -178,7 +246,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         isTyping = true;
         dialogueControl.SetDialogue("");
-
+        PlayRandomClip();
         foreach (char letter in dialogueData.Lines[dialogueIndex]) //Types out line one char at a time
         {
             dialogueControl.SetDialogue(dialogueControl.dialogueText.text += letter);
@@ -229,12 +297,20 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         StopAllCoroutines();
         hasTalked = true;
 
+        if (MinLuNPC != null)
+        {
+            MinLuNPC.SetActive(true);
+            RaLuNPC.SetActive(true );
+            CoLuNPC.SetActive(true );
+            LuLuNPC.SetActive(true );
+        }
+
         if (flyerappear != null)
         {
             flyerappear.FlyerAppears();
         }
 
-        if (flyerQuest != null && flyerappear.hasFlyerAppeared == true)
+        if (flyerQuest != null && flyerappear != null && flyerappear.hasFlyerAppeared == true)
             {
                 flyerQuest.FlyerQuestSpeak();
             }
@@ -244,10 +320,41 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         isDialogueActive = false;
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         isFrozen = false;
     
+    }
+
+    private int lastClipIndex = -1; // remember the last clip to avoid immediate repetitions
+    public void PlayRandomClip()
+    {
+        if (voice == null)
+        {
+            Debug.LogWarning("AudioSource not assigned!");
+            return;
+        }
+
+        AudioClip[] clips = { Clip1, Clip2, Clip3 };
+        AudioClip[] validClips = System.Array.FindAll(clips, c => c != null);
+
+        if (validClips.Length == 0)
+        {
+            Debug.LogWarning("No valid audio clips assigned!");
+            return;
+        }
+
+        int randomClip;
+
+        // Make sure it don't pick the same clip twice in a row
+        do
+        {
+            randomClip = Random.Range(0, validClips.Length);
+        }
+        while (validClips.Length > 1 && randomClip == lastClipIndex);
+
+        lastClipIndex = randomClip;
+
+        AudioClip selectedClip = validClips[randomClip];
+        voice.PlayOneShot(selectedClip);
     }
 }
 

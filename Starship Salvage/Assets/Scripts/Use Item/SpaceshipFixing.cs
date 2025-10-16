@@ -1,26 +1,26 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpaceshipFixing : MonoBehaviour
+public class SpaceshipFixing : MonoBehaviour, IUsable
 {
 
     [SerializeField] private string requiredItemID;
     public GameObject successText;
-    
 
-    public bool TryUseItem()
+
+    public void Use(GameObject user)
     {
         var hotbar = FindFirstObjectByType<Hotbar>(); //Finds hotbar in the scene
         if (hotbar.RemoveItemByID(requiredItemID))
         {
             Debug.Log("Correct item used on ship! Item removed from hotbar.");
             ShowText();
-            return true;
+            
         }
         else
         {
             Debug.Log("You don't have the right item.");
-            return false;
+            
         }
     }
 

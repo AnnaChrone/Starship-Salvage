@@ -15,4 +15,9 @@ MonoBehaviour:
   QuestID: 2
   QuestName: Deliver Ra Lu Flyer
   Description: 
-  objectives: []
+  objectives:
+  - ObjectiveID: 50
+    Description: 
+    type: 0
+    Incomplete: 0
+    Complete: 0

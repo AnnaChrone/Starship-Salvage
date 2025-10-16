@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: Zorb_Dialogue
+  m_EditorClassIdentifier: 
+  npcName: Zorb
+  Lines:
+  - "And there I didn\u2019t think I could get more stressed\u2026"
+  - Hey, kid! Did no one teach you not to use Lu Signal towers as parking markers?
+  - "It\u2019s completely busted! How am I meant to tell the region presidents about
+    the festival now?!"
+  - " I\u2019m so gonna get fired\u2026"
+  - "You\u2019re SORRY?! Sorry doesn\u2019t save my butt from getting the sack, kid!"
+  - "Tell you what. If you\u2019re so sorry, you can HAND DELIVER these flyers to
+    each region president. "
+  - Okay kid, you have no choice.
+  - "You don\u2019t look properly equipped for the task though, so I suggest you
+    start by visiting the Ra Lu president first. "
+  - "He might be able to help you with what you\u2019ll need for the other regions."
+  - 'Be quick, kid, the festival is in a few days... '
+  - I CANNOT afford not to have the support of the presidents!
+  - "Come back here when you\u2019re finished with your punishment!"
+  - You've delivered them all already? That was quick!
+  - Not too bad, Kid.
+  - 'I found this whilst looking for something to repair the Signal Tower you broke,
+    but i guess it could work to fix your ship too... '
+  - Can I help you? Go do what i asked!
+  autoProgressLines: 01010101010101010101010101010101
+  endLines: 00000000000000000000000100000101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 5
+    Choices:
+    - OKAY
+    - NO
+    nextDialogueIndexes: 0700000006000000
+    givesQuest: 0100
+  questInProgressIndex: 15
+  questCompletedIndex: 12
+  quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

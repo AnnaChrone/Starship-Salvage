@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed89459f6cb7644fa8165eab7afa1db, type: 3}
   m_Name: Deliver Co Lu Flyer
   m_EditorClassIdentifier: 
-  QuestID: 2
+  QuestID: 3
   QuestName: Deliver Co Lu Flyer
   Description: 
-  objectives: []
+  objectives:
+  - ObjectiveID: 100
+    Description: 
+    type: 0
+    Incomplete: 0
+    Complete: 0

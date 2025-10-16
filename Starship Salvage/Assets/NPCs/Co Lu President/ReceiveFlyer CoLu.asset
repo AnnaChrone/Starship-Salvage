@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: ReceiveFlyer CoLu
+  m_EditorClassIdentifier: 
+  npcName: President Choo
+  Lines:
+  - My, my, a message for me from Min Lu!
+  - "Well, I haven\u2019t heard from my cousin in ages!"
+  - "If we\u2019ve been so cordially invited to this year\u2019s Lumies Festival,
+    he must have put aside the Min Lu/Co Lu spat we had at the last one!"
+  - I mean, how was I meant to know the Co Lu mushroom fields had been plagued by
+    giggle bugs?
+  - ' I will say that was the best laugh I have ever had!'
+  - Anyhoo, you can send word back to my cousin that Co Lu gratefully accepts his
+    invitation!
+  - ' I will be sure to bring him a *special* gift.'
+  - Nasty little critters! Once they get into a crop, the poor soul who eats the
+    harvest laughs for days on end!
+  - "Now imagine that when the entire planet of Lu is eating our traditional stew
+    made of said crops\u2026 Such fun! "
+  - My, but you have brought back good memories.
+  - I think you deserve a helping hand for trekking all this way to deliver these
+    flyers!
+  - "As I\u2019m sure you\u2019ve figured out by now, each region has their own unique
+    indigenous fruit."
+  - Over here in Co Lu, we have the marvellous Sizear fruit!
+  - "One bite and you\u2019ll get big enough to make crossing the rivers and land
+    much easier!"
+  - Just find the glowing purple marsh crater in the middle of Co Lu.
+  - Then go down to the bottom, where the Sizear fruit naturally grows!
+  - Good luck, and I hope to see you at the festival.
+  - "Oh, don\u2019t you fret about it. It\u2019s all good fun here!"
+  - ' Now, I think you deserve a helping hand for trekking all this way to deliver
+    these flyers! '
+  - "As I\u2019m sure you\u2019ve figured out by now, each region has their own unique
+    indigenous fruit. "
+  - Over here in Co Lu, we have the marvellous Sizear fruit!
+  - "One bite and you\u2019ll get big enough to make crossing the rivers and land
+    much easier!"
+  - Just find the glowing purple marsh crater in the middle of Co Lu.
+  - 'Then go down to the bottom, where the Sizear fruit naturally grows! '
+  - Good luck, and I hope to see you at the festival.
+  autoProgressLines: 01010101010101010101010101010101010101010101010101
+  endLines: 00000000000000000000000000000000010000000000000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 0
+    Choices:
+    - Here you go!
+    - ...
+    nextDialogueIndexes: 0100000001000000
+    givesQuest: 0101
+  - dialogueIndex: 6
+    Choices:
+    - Giggle bugs you say?
+    - "Special gift sounds ominous\u2026"
+    nextDialogueIndexes: 0700000011000000
+    givesQuest: 0000
+  questInProgressIndex: 0
+  questCompletedIndex: 1
+  quests: {fileID: 11400000, guid: dc8cadc78ce3fb2438e260bbe27592eb, type: 2}

@@ -130,6 +130,33 @@
                     "processors": "",
                     "interactions": "MultiTap(tapTime=0.2,tapDelay=0.3)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grow",
+                    "type": "Button",
+                    "id": "dca6737d-4193-499c-a83d-9ff7c362e46e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Map",
+                    "type": "Button",
+                    "id": "4c55cc65-c4e3-44bc-8f74-505ddcf8853f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Bouquet",
+                    "type": "Button",
+                    "id": "5b9f4eb9-0af2-4a3b-a173-277ee494d672",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -537,6 +564,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Float",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad26de74-98cb-4ba8-919f-22bfb0f70611",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Grow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ca7efda-4741-4ab4-bea5-cf56550e7321",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Map",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1942faf-a2c0-466d-b4f6-ec30550b0f19",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Bouquet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,6 +7,10 @@ public class PickUpObject : MonoBehaviour
     public GameObject itemPrefab; 
     public Sprite icon;
 
+    [Header("Audios")]
+    public AudioSource Collect;
+    public AudioSource DropAudio;
+
     [Header("Consumable / Special")]
     public bool consumable = false; 
     public string unlockAbilityName; 
@@ -23,6 +27,7 @@ public class PickUpObject : MonoBehaviour
     public void PickUp(Transform holdPoint)
     {
         isHeld = true;
+        Collect.Play();
         rb.useGravity = false;
         rb.isKinematic = true; 
         rb.linearVelocity = Vector3.zero;
@@ -35,6 +40,7 @@ public class PickUpObject : MonoBehaviour
 
     public void Drop()
     {
+        DropAudio.Play();
         isHeld = false;
         transform.SetParent(null, true);
         rb.useGravity = true;
@@ -60,6 +66,7 @@ public class PickUpObject : MonoBehaviour
             }
 
             Destroy(gameObject);
+            return;
         }
 
         var spaceship = FindFirstObjectByType<SpaceshipPartItem>();

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: MinLu_Dialogue
+  m_EditorClassIdentifier: 
+  npcName: MINLU NPC
+  Lines:
+  - You must be the poor soul who crashlanded right into the communication Tower!
+  - "Zorb is still not very pleased about that\u2026"
+  - You're looking for flowers? I thought Co Lu was covering those this year.
+  - "Ah. CLPD. Makes sense. Horrible Lumies they are\u2026"
+  - Fair enough! I'm not one to question other regions!
+  - Well, if you need to find the XXX Flower, I'm sure there's a few growing in the
+    Min Lu forest just behind the town.
+  autoProgressLines: 010101010101
+  endLines: 000000000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 2
+    Choices:
+    - CLPD...
+    - I AM
+    nextDialogueIndexes: 0300000004000000
+    givesQuest: 0101
+  questInProgressIndex: 5
+  questCompletedIndex: 12
+  FlowerTableindex: 0
+  quests: {fileID: 11400000, guid: 8d561f53b2f046b4eb7fdcf6f11065f3, type: 2}

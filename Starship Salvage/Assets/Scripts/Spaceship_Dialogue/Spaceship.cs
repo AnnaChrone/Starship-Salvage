@@ -8,7 +8,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class Spaceship : MonoBehaviour
 {
     private SpaceshipDialogue shipDialogueData; //Calls from NPCDialogue class
-    private SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
+    public SpaceshipAIController shipDialogueControl; //Calls from DialogueControoler class
     public bool finishedDialogue = false;
 
     private int dialogueIndex; //Index of lines
@@ -18,6 +18,8 @@ public class Spaceship : MonoBehaviour
     public CanvasGroup panel;
     public CanvasGroup shader;
     public bool isFrozen = false; //Pauses game
+    public AudioSource Siren;
+    public AudioSource Crash;
    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,7 +44,7 @@ public class Spaceship : MonoBehaviour
         isDialogueActive = true;
 
 
-        shipDialogueControl.ShowDialoguePanel(true);
+        shipDialogueControl.ShowDialoguePanel(isDialogueActive);
         shipDialogueControl.SetShipInfo(shipDialogueData.shipName);
         DisplayCurrentLine();
     }
@@ -110,6 +112,8 @@ public class Spaceship : MonoBehaviour
         finishedDialogue = true;
         if (CrashLandingScene != null)
         {
+            Siren.mute = true;
+            Crash.Play();
             StartCoroutine(FadeOutPanel());
         }
         shipDialogueControl.ShowDialoguePanel(false);
