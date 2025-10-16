@@ -211,7 +211,15 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        if (grown)
+        {
+            controller.Move(move * growSpeed * Time.deltaTime);
+
+        } else
+        {
+            controller.Move(move * moveSpeed * Time.deltaTime);
+        }
+
 
         bool isGrounded = IsGrounded();
 
@@ -517,35 +525,29 @@ public class FPController : MonoBehaviour
         }
     }
 
+    private bool grown = false;
     public void OnGrow(InputAction.CallbackContext context)
     {
         if (Freeze) return;
-
-        if (context.performed && fruits.GrowAquired)
+        if (context.performed)
         {
-            // Scale the entire player object (mesh + controller)
-            transform.localScale = Vector3.one * 2f;
+            grown = !grown;
+        }
+        if (grown && fruits.GrowAquired)
+        {
+            Debug.Log("Growing");
+            transform.localScale = Vector3.one * growHeight;
             grow.Play();
 
-            // Adjust CharacterController manually because scaling doesn't affect it
-            controller.height = growHeight; // double height
-            controller.center = new Vector3(0, controller.height / 2f, 0);
-
-            // Nudge up to prevent sinking
-            controller.transform.position += Vector3.up * (standHeight / 2f);
 
             moveSpeed = growSpeed;
         }
-        else if (context.canceled)
+        else
         {
             // Reset scale
             transform.localScale = Vector3.one;
             shrink.Play();
-
-            // Reset CharacterController
-            controller.height = standHeight;
-            controller.center = new Vector3(0, standHeight / 2f, 0);
-            controller.transform.position += Vector3.up * 0.1f;
+            Debug.Log("Shrinking");
 
             moveSpeed = originalMoveSpeed;
         }

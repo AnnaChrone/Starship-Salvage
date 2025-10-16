@@ -4714,7 +4714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1339711963}
+  - {fileID: 1517862154}
   - {fileID: 235887304}
   - {fileID: 997980585}
   - {fileID: 2129392018}
@@ -18130,15 +18130,9 @@ GameObject:
   - component: {fileID: 1339711963}
   - component: {fileID: 1339711962}
   - component: {fileID: 1339711961}
-  - component: {fileID: 1339711966}
-  - component: {fileID: 1339711965}
-  - component: {fileID: 1339711964}
-  - component: {fileID: 1339711967}
-  - component: {fileID: 1339711968}
-  - component: {fileID: 1339711969}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18204,8 +18198,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339711959}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.29352808, z: -0, w: -0.9559505}
-  m_LocalPosition: {x: -1131.1799, y: -550.06, z: 67.08}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18216,443 +18210,8 @@ Transform:
   - {fileID: 1816574861}
   - {fileID: 2078279650}
   - {fileID: 1086739444}
-  m_Father: {fileID: 285285429}
+  m_Father: {fileID: 1517862154}
   m_LocalEulerAnglesHint: {x: 0, y: 394.139, z: 0}
---- !u!143 &1339711964
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1339711965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9ab041e365055b44cb74881d34d88cee, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnMovement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e724fa43-38c7-4a7d-82cb-fc9a90cfc11c
-    m_ActionName: 'New action map/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a252d167-8a2d-4b35-b280-46338f93862d
-    m_ActionName: 'New action map/Look[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnScroll
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 82a3e061-355d-4e49-ba94-a1554ff336d8
-    m_ActionName: 'New action map/Scroll[/Mouse/scroll/y]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnPickUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a4cea54b-99de-4187-b805-c7dc1c0c461d
-    m_ActionName: 'New action map/Pickup[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnDrop
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4185fb32-b665-41e1-a0d1-446b4b4e820f
-    m_ActionName: 'New action map/Drop[/Keyboard/q]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1111ce9d-830e-4c68-b81d-ac0024e7ef05
-    m_ActionName: 'New action map/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnCrouch
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 54f7c4ba-a8b2-4cf3-8ec9-3e114e47cb28
-    m_ActionName: 'New action map/Crouch[/Keyboard/shift]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711967}
-        m_TargetAssemblyTypeName: InteractionDetector, Assembly-CSharp
-        m_MethodName: OnInteract
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 8e325f78-0e1f-4d7a-889a-9bf4bff5834d
-    m_ActionName: 'New action map/Interact[/Keyboard/i]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6e316f96-e995-4b11-830a-f5cfbcf68fba
-    m_ActionName: 'New action map/Pause[/Keyboard/tab]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnUseItem
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5c13a8fa-0567-4876-af91-a2b3912cb3b7
-    m_ActionName: 'New action map/UseItem[/Keyboard/b]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnHotbarPrev
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 76beab09-4a18-46bf-889d-54d3205659fc
-    m_ActionName: New action map/HotbarPrev
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnHotbarNext
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 552b4da3-451a-4611-b6d3-57eb10df68cd
-    m_ActionName: New action map/HotbarNext
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnRun
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1dcc6bb5-3e6a-4e8c-821b-68e2af901724
-    m_ActionName: 'New action map/Run[/Keyboard/ctrl]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnFloat
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6d16e124-8541-452d-8b43-c9d281bd3a36
-    m_ActionName: 'New action map/Float[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnGrow
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: dca6737d-4193-499c-a83d-9ff7c362e46e
-    m_ActionName: 'New action map/Grow[/Keyboard/r]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnMap
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4c55cc65-c4e3-44bc-8f74-505ddcf8853f
-    m_ActionName: 'New action map/Map[/Keyboard/m]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1339711966}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnBouquet
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5b9f4eb9-0af2-4a3b-a173-277ee494d672
-    m_ActionName: 'New action map/Bouquet[/Keyboard/b]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: New action map
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 330585545}
---- !u!114 &1339711966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2920fa716836fe44db26dfec82b2c036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 7
-  runSpeed: 12
-  gravity: -9.81
-  jumpHeight: 1.5
-  Zorb: {fileID: 1487406193}
-  CoLuPres: {fileID: 750023846}
-  RaLuPres: {fileID: 520267404}
-  LuLuPres: {fileID: 1731941330}
-  Zinnia: {fileID: 1439828742}
-  CoLu: {fileID: 1919157614}
-  RaLu: {fileID: 102349937}
-  LuLu: {fileID: 757602850}
-  MinLu: {fileID: 356910292}
-  cameraTransform: {fileID: 330585546}
-  lookSensitivity: 0.1
-  verticalLookLimit: 90
-  crouchHeight: 1
-  standHeight: 2
-  crouchSpeed: 2.5
-  growHeight: 10
-  growSpeed: 20
-  grow: {fileID: 602474862}
-  shrink: {fileID: 1175262281}
-  pickupRange: 3
-  holdPoint: {fileID: 1617641979}
-  hotbarSelector: {fileID: 790370926}
-  PauseMenu: {fileID: 1666157366}
-  isPaused: 0
-  Select: {fileID: 1899719179}
-  Deselect: {fileID: 177839205}
-  PMenu: {fileID: 1568653327}
-  Map: {fileID: 185054209}
-  mapOpen: 0
-  mapHiddenX: 1207
-  mapVisibleX: 740
-  slideSpeed: 3500
-  pauseHiddenY: 900
-  pauseVisibleY: 0
-  landingParticles: {fileID: 1481911728}
-  feet: {fileID: 234519757}
-  floatDuration: 5
-  floatSpeed: 3
-  Count: {fileID: 1554912039}
-  fruits: {fileID: 1339711969}
-  FloatDisplay: {fileID: 378038710}
-  Floating: {fileID: 1435297008}
-  Footsteps: {fileID: 842228339}
-  groundCheckDistance: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  animated: 0
-  Table: {fileID: 1935510429}
-  TableGameobject: {fileID: 1882887374}
-  Minigame: {fileID: 1062179825}
---- !u!114 &1339711967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9f112ac3761860498ec883a6175c41c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1339711968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196895208df9f594199d9bb003b7c2f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1339711969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339711959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621dadb95010e544b83fa6dbe06f18b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloatAquired: 0
-  GlowAquired: 0
-  GrowAquired: 0
-  CommAquired: 0
-  GlowEffect: {fileID: 1816574860}
 --- !u!1 &1366831042
 GameObject:
   m_ObjectHideFlags: 0
@@ -20578,6 +20137,455 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517815065}
   m_CullTransparentMesh: 1
+--- !u!1 &1517862153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517862154}
+  - component: {fileID: 1517862160}
+  - component: {fileID: 1517862159}
+  - component: {fileID: 1517862158}
+  - component: {fileID: 1517862157}
+  - component: {fileID: 1517862156}
+  - component: {fileID: 1517862155}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517862154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.29352808, z: -0, w: -0.9559505}
+  m_LocalPosition: {x: -1131.1799, y: -550.06, z: 67.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1339711963}
+  m_Father: {fileID: 285285429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517862155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621dadb95010e544b83fa6dbe06f18b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatAquired: 0
+  GlowAquired: 0
+  GrowAquired: 0
+  CommAquired: 0
+  GlowEffect: {fileID: 1816574860}
+--- !u!114 &1517862156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196895208df9f594199d9bb003b7c2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1517862157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f112ac3761860498ec883a6175c41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &1517862158
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1517862159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9ab041e365055b44cb74881d34d88cee, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e724fa43-38c7-4a7d-82cb-fc9a90cfc11c
+    m_ActionName: 'New action map/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a252d167-8a2d-4b35-b280-46338f93862d
+    m_ActionName: 'New action map/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 82a3e061-355d-4e49-ba94-a1554ff336d8
+    m_ActionName: 'New action map/Scroll[/Mouse/scroll/y]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a4cea54b-99de-4187-b805-c7dc1c0c461d
+    m_ActionName: 'New action map/Pickup[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4185fb32-b665-41e1-a0d1-446b4b4e820f
+    m_ActionName: 'New action map/Drop[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1111ce9d-830e-4c68-b81d-ac0024e7ef05
+    m_ActionName: 'New action map/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 54f7c4ba-a8b2-4cf3-8ec9-3e114e47cb28
+    m_ActionName: 'New action map/Crouch[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862157}
+        m_TargetAssemblyTypeName: InteractionDetector, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8e325f78-0e1f-4d7a-889a-9bf4bff5834d
+    m_ActionName: 'New action map/Interact[/Keyboard/i]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6e316f96-e995-4b11-830a-f5cfbcf68fba
+    m_ActionName: 'New action map/Pause[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnUseItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5c13a8fa-0567-4876-af91-a2b3912cb3b7
+    m_ActionName: 'New action map/UseItem[/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 76beab09-4a18-46bf-889d-54d3205659fc
+    m_ActionName: New action map/HotbarPrev
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 552b4da3-451a-4611-b6d3-57eb10df68cd
+    m_ActionName: New action map/HotbarNext
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1dcc6bb5-3e6a-4e8c-821b-68e2af901724
+    m_ActionName: 'New action map/Run[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnFloat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6d16e124-8541-452d-8b43-c9d281bd3a36
+    m_ActionName: 'New action map/Float[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnGrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dca6737d-4193-499c-a83d-9ff7c362e46e
+    m_ActionName: 'New action map/Grow[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnMap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4c55cc65-c4e3-44bc-8f74-505ddcf8853f
+    m_ActionName: 'New action map/Map[/Keyboard/m]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517862160}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnBouquet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5b9f4eb9-0af2-4a3b-a173-277ee494d672
+    m_ActionName: 'New action map/Bouquet[/Keyboard/b]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: New action map
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 330585545}
+--- !u!114 &1517862160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517862153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2920fa716836fe44db26dfec82b2c036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  runSpeed: 12
+  gravity: -9.81
+  jumpHeight: 1.5
+  Zorb: {fileID: 1487406193}
+  CoLuPres: {fileID: 750023846}
+  RaLuPres: {fileID: 520267404}
+  LuLuPres: {fileID: 1731941330}
+  Zinnia: {fileID: 1439828742}
+  CoLu: {fileID: 1919157614}
+  RaLu: {fileID: 102349937}
+  LuLu: {fileID: 757602850}
+  MinLu: {fileID: 356910292}
+  cameraTransform: {fileID: 330585546}
+  lookSensitivity: 0.1
+  verticalLookLimit: 90
+  crouchHeight: 1
+  standHeight: 2
+  crouchSpeed: 2.5
+  growHeight: 4
+  growSpeed: 30
+  grow: {fileID: 602474862}
+  shrink: {fileID: 1175262281}
+  pickupRange: 3
+  holdPoint: {fileID: 1617641979}
+  hotbarSelector: {fileID: 790370926}
+  PauseMenu: {fileID: 1666157366}
+  isPaused: 0
+  Select: {fileID: 1899719179}
+  Deselect: {fileID: 177839205}
+  PMenu: {fileID: 1568653327}
+  Map: {fileID: 185054209}
+  mapOpen: 0
+  mapHiddenX: 1207
+  mapVisibleX: 740
+  slideSpeed: 3500
+  pauseHiddenY: 900
+  pauseVisibleY: 0
+  landingParticles: {fileID: 1481911728}
+  feet: {fileID: 234519757}
+  floatDuration: 5
+  floatSpeed: 3
+  Count: {fileID: 1554912039}
+  fruits: {fileID: 1517862155}
+  FloatDisplay: {fileID: 378038710}
+  Floating: {fileID: 1435297008}
+  Footsteps: {fileID: 842228339}
+  groundCheckDistance: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  animated: 0
+  Table: {fileID: 1935510429}
+  TableGameobject: {fileID: 1882887374}
+  Minigame: {fileID: 1062179825}
 --- !u!1001 &1536171271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23377,7 +23385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd4e323fc09f5741aaa1e115da58c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1339711966}
+  controller: {fileID: 0}
   Menu: {fileID: 1666157366}
   Controls: {fileID: 797204791}
   ButtonSound: {fileID: 1666157372}
