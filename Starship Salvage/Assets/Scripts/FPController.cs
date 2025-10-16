@@ -82,6 +82,9 @@ public class FPController : MonoBehaviour
     public PlayerAbilities fruits;
     public GameObject FloatDisplay;
 
+    [Header("Footsteps")]
+    public AudioSource Footsteps;
+
 
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
@@ -219,6 +222,25 @@ public class FPController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
+
+        if (isGrounded && isMoving && velocity.y <= 0 && gravity < 0)
+        {
+            if (!Footsteps.isPlaying)
+            {
+                Footsteps.loop = true;
+                Footsteps.Play();
+            }
+        }
+        else
+        {
+            if (Footsteps.isPlaying)
+            {
+                Footsteps.Stop();
+            }
+        }
+
     }
 
     public void OnRun(InputAction.CallbackContext context)

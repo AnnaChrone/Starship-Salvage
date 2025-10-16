@@ -23,8 +23,8 @@ MonoBehaviour:
   - "You\u2019ve visited all the regions already? That\u2019s awesome! Maybe you
     can help me after all."
   - Hopefully you have a better sense of direction than me!
-  - "\u201CAs for finding the flowers, I\u2019m sure some locals in each region could
-    point you in the right direction."
+  - "As for finding the flowers, I\u2019m sure some locals in each region could point
+    you in the right direction."
   - Good Luck!
   - Meet back here once you've collected all four types! Ill teach you how to make
     a bouquet :)
@@ -33,9 +33,14 @@ MonoBehaviour:
   - Oh look! You've found them all! Now, all you need to do is turn them into a bouquet!
   - It's very easy, just use this flower arranging table I have here! *trigger press
     b*
-  - FINISHED
-  autoProgressLines: 0101010101010101010101010101
-  endLines: 0000000000000000010001000101
+  - Look at this bouquet! You really outdid yourself, friend! How ever could I repay
+    you?
+  - You know what? I actually CAN repay you!
+  - I know about that busted ship of yours, and maybe you could make use of these
+    gears I found!
+  - All the best getting back home :)
+  autoProgressLines: 0101010101010101010101010101010101
+  endLines: 0000000000000000010001000100000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   Choices:

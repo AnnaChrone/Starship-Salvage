@@ -9,6 +9,7 @@ public class StrangeFruits : MonoBehaviour, IUsable
     public string AbilityName; 
     public CanvasGroup AbilityImage;
     public AudioSource EatAudio;
+    public Hotbar inventory;
 
     public void Use(GameObject user)
     {
@@ -25,7 +26,7 @@ public class StrangeFruits : MonoBehaviour, IUsable
         if (consumable)
         {
             EatAudio.Play();
-            Destroy(gameObject);
+            inventory.RemoveItemByID(AbilityName);
         }
     }
 }
