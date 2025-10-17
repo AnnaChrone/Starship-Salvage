@@ -15,7 +15,7 @@ public class BouncingIcon : MonoBehaviour
     {
         float newY = Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
         transform.localPosition = startPos + Vector3.up * newY;
-        transform.LookAt(Camera.main.transform); 
+      //  transform.LookAt(Camera.main.transform); 
     }
 }
 
