@@ -7644,6 +7644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spanner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b18ddff25a6ccaf4f9905004860479d0, type: 3}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9597,7 +9601,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9c0048a4f6f199b4592f10104327c90e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -16673,7 +16677,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f4295ca3b81d99041b15b30872125083, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -20473,7 +20477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloatAquired: 0
   GlowAquired: 0
-  GrowAquired: 0
+  GrowAquired: 1
   CommAquired: 0
   GlowEffect: {fileID: 1816574860}
 --- !u!114 &1517862156
@@ -20815,6 +20819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2920fa716836fe44db26dfec82b2c036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1339711959}
   moveSpeed: 7
   runSpeed: 12
   gravity: -9.81
@@ -20834,8 +20839,8 @@ MonoBehaviour:
   crouchHeight: 1
   standHeight: 2
   crouchSpeed: 2.5
-  growHeight: 4
-  growSpeed: 30
+  growHeight: 9
+  growSpeed: 14
   grow: {fileID: 602474862}
   shrink: {fileID: 1175262281}
   pickupRange: 3
@@ -25440,10 +25445,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699063629}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 10, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -25454,8 +25459,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -30735,7 +30740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b757a48fe831ccd47958dd326d7ed82b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b757a48fe831ccd47958dd326d7ed82b, type: 3}
       propertyPath: m_TagString

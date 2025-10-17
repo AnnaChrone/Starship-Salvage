@@ -9,6 +9,7 @@ using TMPro;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
+    public GameObject Player;
     public float moveSpeed = 5f;
     public float runSpeed = 10f;
     public float gravity = -9.81f;
@@ -237,7 +238,8 @@ public class FPController : MonoBehaviour
         
         bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
 
-        if (isGrounded && isMoving && velocity.y <= 0 && gravity < 0)
+       
+        if (controller.isGrounded && isMoving && velocity.y <= 0)
         {
             if (!Footsteps.isPlaying)
             {
@@ -529,29 +531,28 @@ public class FPController : MonoBehaviour
     public void OnGrow(InputAction.CallbackContext context)
     {
         if (Freeze) return;
+
         if (context.performed)
         {
             grown = !grown;
-        }
-        if (grown && fruits.GrowAquired)
-        {
-            Debug.Log("Growing");
-            transform.localScale = Vector3.one * growHeight;
-            grow.Play();
 
-
-            moveSpeed = growSpeed;
-        }
-        else
-        {
-            // Reset scale
-            transform.localScale = Vector3.one;
-            shrink.Play();
-            Debug.Log("Shrinking");
-
-            moveSpeed = originalMoveSpeed;
+            if (grown && fruits.GrowAquired)
+            {
+                Debug.Log("Growing");
+                Player.transform.localScale = Vector3.one * growHeight;
+                grow.Play();
+                moveSpeed = growSpeed;
+            }
+            else
+            {
+                Debug.Log("Shrinking");
+                Player.transform.localScale = Vector3.one;
+                shrink.Play();
+                moveSpeed = originalMoveSpeed;
+            }
         }
     }
+
 
     private bool Bouquet =false;
     public void OnBouquet(InputAction.CallbackContext context)
