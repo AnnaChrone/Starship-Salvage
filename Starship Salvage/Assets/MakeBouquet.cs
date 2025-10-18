@@ -6,9 +6,11 @@ public class MakeBouquet : MonoBehaviour
     public GameObject Minigame;
     public GameObject DisableTable;
     public Hotbar inventory;
+    public GameObject ZinniaExclamation;
     public void OnMakeBouquet()
     {
         BouquetItem.SetActive(true);
+        ZinniaExclamation.SetActive(true);
         Minigame.SetActive(false);
         DisableTable.SetActive(false);
 

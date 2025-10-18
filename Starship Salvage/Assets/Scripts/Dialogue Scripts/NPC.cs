@@ -40,12 +40,19 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool LuLuFlower;
     public GameObject FlowerTable;
 
+
     private Renderer rend; //highlighting
     public Material highlightmat;
     public Material originalmat;
+
+    [Header("Identity bools")]
     public bool Zorb;
     public bool Zinnia;
+
     public bool QuestFinished;
+
+    [Header("Exclamations")]
+    public GameObject Exclamation;
 
     [Header("NPCs")]
     public NPC CoLu;
@@ -66,9 +73,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         // Save reference for highlighting
         rend = GetComponent<Renderer>();
     }
-
-   /* 
-    }*/
    
     public void Highlight()
     {
@@ -111,6 +115,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         CoLuFlower = hotbar.hasItem("MLF");
 
         Debug.Log("dialogue has started");
+        Exclamation.SetActive(false);
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         SyncQuestState(); //Sync dialogue depending on state of quest
@@ -124,6 +129,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
             {
+               
                 dialogueIndex = dialogueData.FlowerTableindex;
                 if (FlowerTable != null)
                 {
@@ -180,6 +186,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
+                Exclamation.SetActive(true);
                 questState = QuestState.Completed;
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
