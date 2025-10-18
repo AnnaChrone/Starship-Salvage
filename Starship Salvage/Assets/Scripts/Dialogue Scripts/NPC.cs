@@ -73,7 +73,21 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         // Save reference for highlighting
         rend = GetComponent<Renderer>();
     }
-   
+
+    public void Update()
+    {
+        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+        {
+            Exclamation.SetActive(true);
+        }
+        
+        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
+        {
+            Exclamation.SetActive(true);
+        }
+            
+    }
+
     public void Highlight()
     {
         if (rend != null)
@@ -186,7 +200,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
-                Exclamation.SetActive(true);
+         
                 questState = QuestState.Completed;
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
