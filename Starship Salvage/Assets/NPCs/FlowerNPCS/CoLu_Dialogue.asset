@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: CoLu_Dialogue
   m_EditorClassIdentifier: 
-  npcName: COLU NPC
+  npcName: Carinya
   Lines:
   - Oh, you're the one helping Zinnia find her flowers?
   - Such a shame the CLPD decided to do their jobs so close to the festival!

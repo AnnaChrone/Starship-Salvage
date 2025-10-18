@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: RaLu_Dialogue
   m_EditorClassIdentifier: 
-  npcName: RALU NPC
+  npcName: Rabino
   Lines:
   - "What do you want\u2026"
   - Flowers? I've never seen no flowers in Ra Lu, you think anything can grow here???

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: MinLu_Dialogue
   m_EditorClassIdentifier: 
-  npcName: MINLU NPC
+  npcName: Marani
   Lines:
   - You must be the poor soul who crashlanded right into the communication Tower!
   - "Zorb is still not very pleased about that\u2026"
