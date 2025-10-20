@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
+  - {fileID: 2100000, guid: 8b23976f0708da6498e015d12d000b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,5 +152,7 @@ MonoBehaviour:
   itemID: 2
   itemPrefab: {fileID: 0}
   icon: {fileID: 21300000, guid: 677adbd4f5a9cc54296b76ade7bb8597, type: 3}
+  Collect: {fileID: 0}
+  DropAudio: {fileID: 0}
   consumable: 0
   unlockAbilityName: 
