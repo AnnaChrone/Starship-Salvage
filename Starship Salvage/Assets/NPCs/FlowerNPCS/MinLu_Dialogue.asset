@@ -19,8 +19,8 @@ MonoBehaviour:
   - You're looking for flowers? I thought Co Lu was covering those this year.
   - "Ah. CLPD. Makes sense. Horrible Lumies they are\u2026"
   - Fair enough! I'm not one to question other regions!
-  - Well, if you need to find the XXX Flower, I'm sure there's a few growing in the
-    Min Lu forest just behind the town.
+  - Well, if you need to find the Drooperia Flower, I'm sure there's a few growing
+    in the Min Lu forest just behind the town.
   autoProgressLines: 010101010101
   endLines: 000000000001
   autoProgressDelay: 1.5
