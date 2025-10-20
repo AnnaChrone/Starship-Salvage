@@ -1,11 +1,16 @@
+using System.Collections;
+using System.Runtime.InteropServices;
+using TMPro;
+using Unity.SharpZipLib.BZip2;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
-using System.Runtime.InteropServices;
-using System.Collections;
-using TMPro;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Image = UnityEngine.UI.Image;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -102,6 +107,14 @@ public class FPController : MonoBehaviour
 
     private SpaceshipFixing spaceship;
     private bool Freeze;
+
+    [Header("animated cursor")]
+    public Sprite frame1;
+    public Sprite frame2;
+    public Sprite frame3;
+    public Sprite frame4;
+    public Image Star;
+    private Coroutine animationRoutine;
     public bool animated = false;
 
     [Header("Table Minigame")]
@@ -114,8 +127,8 @@ public class FPController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         
         originalMoveSpeed = moveSpeed;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
         hotbarSelector.holdPoint = holdPoint;  // assign the camera holdPoint transform
         hotbarSelector.HandleScroll(0);        // force update so the first item shows correctly
         
@@ -152,23 +165,48 @@ public class FPController : MonoBehaviour
             Cursor.visible = false;
         }
 
+        // === Raycast for pickup ===
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
             PickUpObject cursor = hit.collider.GetComponent<PickUpObject>();
-            if (cursor != null && animated == false)
+            if (cursor != null && !animated)
             {
-                //logic to update cursor
+                animationRoutine = StartCoroutine(PlayAnimation());
                 Debug.Log("i will be animated!");
                 animated = true;
             }
-
-            if (cursor == null && animated == true)
+            else if (cursor == null && animated)
             {
+                if (animationRoutine != null)
+                    StopCoroutine(animationRoutine); // stop the animation
+
+                Star.sprite = frame1; // reset immediately
                 animated = false;
                 Debug.Log("im not animated anymore");
-                
             }
+        }
+        else if (animated) //  also handle when ray hits nothing at all
+        {
+            if (animationRoutine != null)
+                StopCoroutine(animationRoutine);
+
+            Star.sprite = frame1;
+            animated = false;
+            Debug.Log("im not animated anymore (no hit)");
+        }
+    }
+
+    IEnumerator PlayAnimation()
+    {
+        float duration = 0.5f;
+        float frameTime = duration / 4f;
+        Sprite[] frames = { frame1, frame2, frame3, frame4 };
+
+        for (int i = 0; i < frames.Length; i++)
+        {
+            Star.sprite = frames[i];
+            yield return new WaitForSeconds(frameTime);
         }
     }
     private bool IsGrounded()
@@ -394,7 +432,7 @@ public class FPController : MonoBehaviour
         {
             Select.Play();
             slideRoutinePause = StartCoroutine(SlidePause(pauseVisibleY));
-            Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
         }
