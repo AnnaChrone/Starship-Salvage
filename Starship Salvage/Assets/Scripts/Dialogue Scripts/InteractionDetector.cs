@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InteractionDetector : MonoBehaviour
 {
     private IInteractable interactableInRange = null;
-
+    public TextMeshProUGUI PressText;
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -17,7 +18,7 @@ public class InteractionDetector : MonoBehaviour
         if (collide.TryGetComponent(out IInteractable interactable))
         {
             interactableInRange = interactable; //Checks if object is interactable
-            interactable.Highlight(); // highlights NPC
+            PressText.text = "Press [E]";
             Debug.Log("Box Trigger");
         }
     }
@@ -26,8 +27,9 @@ public class InteractionDetector : MonoBehaviour
     {
         if (collide.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
         {
-            interactable.Unhighlight(); // removes NPC highliight
+            
             interactableInRange = null; //Ensures that player does not interact with anything
+            PressText.text = null;
             Debug.Log("Box Untrigger");
         }
     }

@@ -40,11 +40,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool LuLuFlower;
     public GameObject FlowerTable;
 
-
-    private Renderer rend; //highlighting
-    public Material highlightmat;
-    public Material originalmat;
-
     [Header("Identity bools")]
     public bool Zorb;
     public bool Zinnia;
@@ -69,9 +64,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public void Start()
     {
         dialogueControl = DialogueController.Instance; //Create an instance
-
-        // Save reference for highlighting
-        rend = GetComponent<Renderer>();
     }
 
     public void Update()
@@ -88,20 +80,6 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             
     }
 
-    public void Highlight()
-    {
-        if (rend != null)
-        {
-            rend.material = highlightmat; 
-        }
-    }
-    public void Unhighlight()
-    {
-        if (rend != null)
-        {
-            rend.material = originalmat;
-        }
-    }
     public bool CanInteract()
     {
         return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
