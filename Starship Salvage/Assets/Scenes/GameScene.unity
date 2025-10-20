@@ -1334,8 +1334,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: 5e9f898cad5aebe4a9b262b2e138e538, type: 2}
-  originalmat: {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -1343,9 +1341,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 37eaafd37108261458f5eda42e77b888, type: 3}
-  Clip2: {fileID: 8300000, guid: c11441211857b8e4a9070dd52d74915c, type: 3}
-  Clip3: {fileID: 8300000, guid: 36e42fdf6ce4b40409e15e740db2e9a4, type: 3}
+  Clip1: {fileID: 8300000, guid: e0090940cd7029e4da92eb094f70cf1a, type: 3}
+  Clip2: {fileID: 8300000, guid: 877624e21c71e9c45880f154b7ec3486, type: 3}
+  Clip3: {fileID: 8300000, guid: 2c018bc7f3866e04cabf6a81374a846c, type: 3}
+  Clip4: {fileID: 8300000, guid: e8de76a522948554d95bf3e2ec7247be, type: 3}
   voice: {fileID: 102349941}
 --- !u!136 &102349938
 CapsuleCollider:
@@ -7131,8 +7130,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: d9eb92597c854074c8ff58613b2d39e1, type: 2}
-  originalmat: {fileID: 2100000, guid: 8ccc6abfbdedd1d46a57a64e6e55d823, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -7140,9 +7137,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 4441ec160d2f9d440bab29e9aef8fca4, type: 3}
-  Clip2: {fileID: 8300000, guid: d004082ecf2d6de43a1d22df3157b2b4, type: 3}
-  Clip3: {fileID: 8300000, guid: 21e488dab3294e043bd343647d952178, type: 3}
+  Clip1: {fileID: 8300000, guid: a01fafee6430feb4ab029246d170a8d9, type: 3}
+  Clip2: {fileID: 8300000, guid: 9f2363751d6b42447ae1bb69656f17ab, type: 3}
+  Clip3: {fileID: 8300000, guid: c85ab0b2d57c5a24aa0a51614a895ea0, type: 3}
+  Clip4: {fileID: 8300000, guid: 168dad6587ce6f44a9461963812dd3a3, type: 3}
   voice: {fileID: 356910296}
 --- !u!136 &356910293
 CapsuleCollider:
@@ -8631,8 +8629,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: 5e9f898cad5aebe4a9b262b2e138e538, type: 2}
-  originalmat: {fileID: 2100000, guid: d3c90a7dc84622f42bf3a2b7f33a3b73, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -8640,9 +8636,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 3486b459049010947a3dab597d67a5be, type: 3}
-  Clip2: {fileID: 8300000, guid: 1c6ac3e7c49abc04090e74fefe35a7d3, type: 3}
-  Clip3: {fileID: 8300000, guid: 2957a5d17f9844a49a64c8f1400ec4bf, type: 3}
+  Clip1: {fileID: 8300000, guid: 5d774886185a60f44bceba298929c1c9, type: 3}
+  Clip2: {fileID: 8300000, guid: f26b5a398951d8d40804ac9cfa3e392e, type: 3}
+  Clip3: {fileID: 8300000, guid: 8ea3e0a3338f7b34c8b4bd68e83da6a8, type: 3}
+  Clip4: {fileID: 8300000, guid: c703834dbbb46be449c38493d0d735c9, type: 3}
   voice: {fileID: 520267408}
 --- !u!136 &520267405
 CapsuleCollider:
@@ -11311,8 +11308,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
-  originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -11320,9 +11315,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 38752f563a076e74d91ce219c1b88c02, type: 3}
-  Clip2: {fileID: 8300000, guid: 54d8a2ebb99e86f44a7578bca834ce15, type: 3}
-  Clip3: {fileID: 8300000, guid: 35b3a59b9c35d514aadb9b81f354b17d, type: 3}
+  Clip1: {fileID: 8300000, guid: 5bf8946f47ce0fa4abead2b5c711c381, type: 3}
+  Clip2: {fileID: 8300000, guid: 77e7ee06aa90970428a88b719ca7e54c, type: 3}
+  Clip3: {fileID: 8300000, guid: 77be0c060b2a65e449d1a3fbb09cdcc8, type: 3}
+  Clip4: {fileID: 8300000, guid: 5e521a6e49b8ce3448beb92fdb45eba1, type: 3}
   voice: {fileID: 750023850}
 --- !u!136 &750023847
 CapsuleCollider:
@@ -11563,8 +11559,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: 4524e7b15d2906a4c96cd58dc2290726, type: 2}
-  originalmat: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -11572,9 +11566,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: b5ff7e8331863b8409bb021a887b7e43, type: 3}
-  Clip2: {fileID: 8300000, guid: 3e8784fe6c08dd645bc0b12ff91210ca, type: 3}
-  Clip3: {fileID: 8300000, guid: 4fb24dd1c78439b4a8036b36810dc80d, type: 3}
+  Clip1: {fileID: 8300000, guid: 643097b702f2a804a938aaec52c19a95, type: 3}
+  Clip2: {fileID: 8300000, guid: bb62db6e27ac42a4587f10c576e008fe, type: 3}
+  Clip3: {fileID: 8300000, guid: b56fe20f3b49156468dc39426d71ec8a, type: 3}
+  Clip4: {fileID: 8300000, guid: 7841ee44abc04e143a9ad29e0d03862d, type: 3}
   voice: {fileID: 757602854}
 --- !u!136 &757602851
 CapsuleCollider:
@@ -18472,8 +18467,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 3351660907958299053}
-  highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
-  originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   Zorb: 0
   Zinnia: 1
   QuestFinished: 0
@@ -18481,9 +18474,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 91e1a9e816cb21544aa6e01808e351c5, type: 3}
-  Clip2: {fileID: 8300000, guid: 11af8024884eb5247b56a6b8b6f7b6d4, type: 3}
-  Clip3: {fileID: 8300000, guid: efb98710b7a5c604ba85663656a4ab3a, type: 3}
+  Clip1: {fileID: 8300000, guid: 38f7aec5e31fe564ebf3c10d30b8321f, type: 3}
+  Clip2: {fileID: 8300000, guid: 40d3cdaec55833145946efbae019722d, type: 3}
+  Clip3: {fileID: 8300000, guid: 5318c355a6a7c0d4ca9561256a2dc2cc, type: 3}
+  Clip4: {fileID: 8300000, guid: e78428ceb02c4e44eaa36cec8a416587, type: 3}
   voice: {fileID: 1439828746}
 --- !u!136 &1439828743
 CapsuleCollider:
@@ -19232,8 +19226,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: d9eb92597c854074c8ff58613b2d39e1, type: 2}
-  originalmat: {fileID: 2100000, guid: 8ccc6abfbdedd1d46a57a64e6e55d823, type: 2}
   Zorb: 1
   Zinnia: 0
   QuestFinished: 0
@@ -19241,9 +19233,10 @@ MonoBehaviour:
   CoLu: {fileID: 750023846}
   LuLu: {fileID: 1731941330}
   RaLu: {fileID: 520267404}
-  Clip1: {fileID: 8300000, guid: 312e285ca87912c4aa78f04d57db3087, type: 3}
-  Clip2: {fileID: 8300000, guid: 75ce024f11ef9d445a3a58c6f7c8510e, type: 3}
-  Clip3: {fileID: 8300000, guid: 110963b45baeb6f4a9037ee977f51f90, type: 3}
+  Clip1: {fileID: 8300000, guid: eac97f7d9357011459c6a78fdcf1b939, type: 3}
+  Clip2: {fileID: 8300000, guid: 93f0e75897f06894c8438a630a956df9, type: 3}
+  Clip3: {fileID: 8300000, guid: 205c7e15a847bc8449ad7de76fa037e3, type: 3}
+  Clip4: {fileID: 8300000, guid: cc65177c188ee424e8de167dac4582cc, type: 3}
   voice: {fileID: 1487406195}
 --- !u!114 &1487406194
 MonoBehaviour:
@@ -24544,8 +24537,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: 4524e7b15d2906a4c96cd58dc2290726, type: 2}
-  originalmat: {fileID: 2100000, guid: de86fb08692a9bf4198a5455df70264a, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -24553,9 +24544,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 05dd52751bb3c7c46ab7191e1339681c, type: 3}
-  Clip2: {fileID: 8300000, guid: 5d243dd74c438664caf1f143ed01ebfb, type: 3}
-  Clip3: {fileID: 8300000, guid: db5566e435fab1b4da0a7ac5e7e9051b, type: 3}
+  Clip1: {fileID: 8300000, guid: d93fec66501ca004e8c0c583840549ec, type: 3}
+  Clip2: {fileID: 8300000, guid: 18f1ce46fdf7fd149b082cb3a508afe6, type: 3}
+  Clip3: {fileID: 8300000, guid: 9adac210ad9980b4a82a6150004b95fb, type: 3}
+  Clip4: {fileID: 8300000, guid: 95f631ac9f4a0494b83de853d70d2e31, type: 3}
   voice: {fileID: 1731941334}
 --- !u!136 &1731941331
 CapsuleCollider:
@@ -28568,8 +28560,6 @@ MonoBehaviour:
   CoLuFlower: 0
   LuLuFlower: 0
   FlowerTable: {fileID: 0}
-  highlightmat: {fileID: 2100000, guid: b72cd81a99c0367448170f3a86e6595e, type: 2}
-  originalmat: {fileID: 2100000, guid: cc19ea965bad42046ad7d84b71fce4ad, type: 2}
   Zorb: 0
   Zinnia: 0
   QuestFinished: 0
@@ -28577,9 +28567,10 @@ MonoBehaviour:
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 9b1c129dc84c4e640813e4c72ff2b80b, type: 3}
-  Clip2: {fileID: 8300000, guid: ea248e5e6694503439feef7cc79e2e5b, type: 3}
-  Clip3: {fileID: 8300000, guid: 98b8b37450034f64591efcd8c6946a8f, type: 3}
+  Clip1: {fileID: 8300000, guid: 340fc9c015c3ca74b9c3ff8f1349304a, type: 3}
+  Clip2: {fileID: 8300000, guid: f4e52b394f2ab934ea089f6c5ebfcecb, type: 3}
+  Clip3: {fileID: 8300000, guid: bf0a7be78d1ec174c8f0014a2282b54e, type: 3}
+  Clip4: {fileID: 8300000, guid: cb8818f11ed872e46b8a54b07eb177ba, type: 3}
   voice: {fileID: 1919157618}
 --- !u!136 &1919157615
 CapsuleCollider:

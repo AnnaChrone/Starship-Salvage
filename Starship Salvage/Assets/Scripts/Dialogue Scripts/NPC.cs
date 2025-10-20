@@ -57,7 +57,8 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Audio Assignment")]
     public AudioClip Clip1;
     public AudioClip Clip2; 
-    public AudioClip Clip3; 
+    public AudioClip Clip3;
+    public AudioClip Clip4;
     public AudioSource voice;
 
 
@@ -332,7 +333,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             return;
         }
 
-        AudioClip[] clips = { Clip1, Clip2, Clip3 };
+        AudioClip[] clips = { Clip1, Clip2, Clip3, Clip4 };
         AudioClip[] validClips = System.Array.FindAll(clips, c => c != null);
 
         if (validClips.Length == 0)
