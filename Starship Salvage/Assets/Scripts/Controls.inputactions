@@ -96,24 +96,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HotbarPrev",
-                    "type": "Button",
-                    "id": "76beab09-4a18-46bf-889d-54d3205659fc",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HotbarNext",
-                    "type": "Button",
-                    "id": "552b4da3-451a-4611-b6d3-57eb10df68cd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Run",
                     "type": "Button",
                     "id": "1dcc6bb5-3e6a-4e8c-821b-68e2af901724",
@@ -427,7 +409,7 @@
                 {
                     "name": "",
                     "id": "f13d3790-2319-4fb4-8541-eac12ca5a4d1",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -459,19 +441,8 @@
                 },
                 {
                     "name": "",
-                    "id": "9e9f8149-730c-455f-8ffd-8366c83dd2c3",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e052ab50-21ea-475c-abcd-a9284a83e526",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -514,28 +485,6 @@
                 },
                 {
                     "name": "",
-                    "id": "e37e1762-3ef9-4161-9340-93961638810b",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotbarPrev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6834d3a5-79b2-44fb-a9fe-7402968f1555",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "HotbarNext",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3fabfee0-0bad-4f92-a1e8-9af3081ae572",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -570,7 +519,7 @@
                 {
                     "name": "",
                     "id": "ad26de74-98cb-4ba8-919f-22bfb0f70611",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -615,17 +564,6 @@
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

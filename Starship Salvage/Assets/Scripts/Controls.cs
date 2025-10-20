@@ -182,24 +182,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HotbarPrev"",
-                    ""type"": ""Button"",
-                    ""id"": ""76beab09-4a18-46bf-889d-54d3205659fc"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HotbarNext"",
-                    ""type"": ""Button"",
-                    ""id"": ""552b4da3-451a-4611-b6d3-57eb10df68cd"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Run"",
                     ""type"": ""Button"",
                     ""id"": ""1dcc6bb5-3e6a-4e8c-821b-68e2af901724"",
@@ -513,7 +495,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f13d3790-2319-4fb4-8541-eac12ca5a4d1"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -545,19 +527,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e9f8149-730c-455f-8ffd-8366c83dd2c3"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e052ab50-21ea-475c-abcd-a9284a83e526"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -600,28 +571,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e37e1762-3ef9-4161-9340-93961638810b"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HotbarPrev"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6834d3a5-79b2-44fb-a9fe-7402968f1555"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""HotbarNext"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3fabfee0-0bad-4f92-a1e8-9af3081ae572"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
@@ -656,7 +605,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ad26de74-98cb-4ba8-919f-22bfb0f70611"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -705,17 +654,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Gamepad"",
-            ""bindingGroup"": ""Gamepad"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
         }
     ]
 }");
@@ -731,8 +669,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Newactionmap_Interact = m_Newactionmap.FindAction("Interact", throwIfNotFound: true);
         m_Newactionmap_Pause = m_Newactionmap.FindAction("Pause", throwIfNotFound: true);
         m_Newactionmap_UseItem = m_Newactionmap.FindAction("UseItem", throwIfNotFound: true);
-        m_Newactionmap_HotbarPrev = m_Newactionmap.FindAction("HotbarPrev", throwIfNotFound: true);
-        m_Newactionmap_HotbarNext = m_Newactionmap.FindAction("HotbarNext", throwIfNotFound: true);
         m_Newactionmap_Run = m_Newactionmap.FindAction("Run", throwIfNotFound: true);
         m_Newactionmap_Float = m_Newactionmap.FindAction("Float", throwIfNotFound: true);
         m_Newactionmap_Grow = m_Newactionmap.FindAction("Grow", throwIfNotFound: true);
@@ -828,8 +764,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_Interact;
     private readonly InputAction m_Newactionmap_Pause;
     private readonly InputAction m_Newactionmap_UseItem;
-    private readonly InputAction m_Newactionmap_HotbarPrev;
-    private readonly InputAction m_Newactionmap_HotbarNext;
     private readonly InputAction m_Newactionmap_Run;
     private readonly InputAction m_Newactionmap_Float;
     private readonly InputAction m_Newactionmap_Grow;
@@ -886,14 +820,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Newactionmap/UseItem".
         /// </summary>
         public InputAction @UseItem => m_Wrapper.m_Newactionmap_UseItem;
-        /// <summary>
-        /// Provides access to the underlying input action "Newactionmap/HotbarPrev".
-        /// </summary>
-        public InputAction @HotbarPrev => m_Wrapper.m_Newactionmap_HotbarPrev;
-        /// <summary>
-        /// Provides access to the underlying input action "Newactionmap/HotbarNext".
-        /// </summary>
-        public InputAction @HotbarNext => m_Wrapper.m_Newactionmap_HotbarNext;
         /// <summary>
         /// Provides access to the underlying input action "Newactionmap/Run".
         /// </summary>
@@ -970,12 +896,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @UseItem.started += instance.OnUseItem;
             @UseItem.performed += instance.OnUseItem;
             @UseItem.canceled += instance.OnUseItem;
-            @HotbarPrev.started += instance.OnHotbarPrev;
-            @HotbarPrev.performed += instance.OnHotbarPrev;
-            @HotbarPrev.canceled += instance.OnHotbarPrev;
-            @HotbarNext.started += instance.OnHotbarNext;
-            @HotbarNext.performed += instance.OnHotbarNext;
-            @HotbarNext.canceled += instance.OnHotbarNext;
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
@@ -1032,12 +952,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @UseItem.started -= instance.OnUseItem;
             @UseItem.performed -= instance.OnUseItem;
             @UseItem.canceled -= instance.OnUseItem;
-            @HotbarPrev.started -= instance.OnHotbarPrev;
-            @HotbarPrev.performed -= instance.OnHotbarPrev;
-            @HotbarPrev.canceled -= instance.OnHotbarPrev;
-            @HotbarNext.started -= instance.OnHotbarNext;
-            @HotbarNext.performed -= instance.OnHotbarNext;
-            @HotbarNext.canceled -= instance.OnHotbarNext;
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
@@ -1097,19 +1011,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
             return asset.controlSchemes[m_KeyboardSchemeIndex];
-        }
-    }
-    private int m_GamepadSchemeIndex = -1;
-    /// <summary>
-    /// Provides access to the input control scheme.
-    /// </summary>
-    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
-    public InputControlScheme GamepadScheme
-    {
-        get
-        {
-            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     /// <summary>
@@ -1189,20 +1090,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUseItem(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "HotbarPrev" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHotbarPrev(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "HotbarNext" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHotbarNext(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Run" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
