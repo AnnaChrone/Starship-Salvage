@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: LLF
   itemPrefab: {fileID: 4882368047883897963}
-  icon: {fileID: 21300000, guid: 740750bfd49182e4ab0f812cf90343dd, type: 3}
+  icon: {fileID: 21300000, guid: 0cb48bc6eda1189458e032eb3e9e4db7, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}
   consumable: 0

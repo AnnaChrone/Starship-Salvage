@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: CLF
   itemPrefab: {fileID: 3058195449700364492}
-  icon: {fileID: 21300000, guid: dc8e3b1e2d614524fa055c3c7d2b2357, type: 3}
+  icon: {fileID: 21300000, guid: cb7842cab93c4654ba03fe9321d596fc, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}
   consumable: 0
