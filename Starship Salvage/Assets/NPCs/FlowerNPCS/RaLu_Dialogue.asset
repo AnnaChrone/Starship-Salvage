@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: RaLu_Dialogue
   m_EditorClassIdentifier: 
-  npcName: RALU NPC
+  npcName: Rabino
   Lines:
   - "What do you want\u2026"
   - Flowers? I've never seen no flowers in Ra Lu, you think anything can grow here???
-  - The closest thing we have to a flower is our regional plant, the XXX
+  - The closest thing we have to a flower is our regional plant, the Thornid
   - They're pretty rare to find, considering they need a perfect Ra Lu climate to
     grow, but I'm sure you can find one if you try hard enough.
   - "They like to grow in the craters at the bases of the mountains of Ra Lu, so

@@ -40,12 +40,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool LuLuFlower;
     public GameObject FlowerTable;
 
-    private Renderer rend; //highlighting
-    public Material highlightmat;
-    public Material originalmat;
+    [Header("Identity bools")]
     public bool Zorb;
     public bool Zinnia;
+
     public bool QuestFinished;
+
+    [Header("Exclamations")]
+    public GameObject Exclamation;
 
     [Header("NPCs")]
     public NPC CoLu;
@@ -55,35 +57,30 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Audio Assignment")]
     public AudioClip Clip1;
     public AudioClip Clip2; 
-    public AudioClip Clip3; 
+    public AudioClip Clip3;
+    public AudioClip Clip4;
     public AudioSource voice;
 
 
     public void Start()
     {
         dialogueControl = DialogueController.Instance; //Create an instance
-
-        // Save reference for highlighting
-        rend = GetComponent<Renderer>();
     }
 
-   /* 
-    }*/
-   
-    public void Highlight()
+    public void Update()
     {
-        if (rend != null)
+        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
         {
-            rend.material = highlightmat; 
+            Exclamation.SetActive(true);
         }
-    }
-    public void Unhighlight()
-    {
-        if (rend != null)
+        
+        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
         {
-            rend.material = originalmat;
+            Exclamation.SetActive(true);
         }
+            
     }
+
     public bool CanInteract()
     {
         return !isDialogueActive; //If we can interact with NPC, return that dialogye is not active
@@ -111,6 +108,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         CoLuFlower = hotbar.hasItem("MLF");
 
         Debug.Log("dialogue has started");
+        Exclamation.SetActive(false);
         isFrozen = true; //Pauses game so that player does not run away from NPC
 
         SyncQuestState(); //Sync dialogue depending on state of quest
@@ -124,6 +122,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
             {
+               
                 dialogueIndex = dialogueData.FlowerTableindex;
                 if (FlowerTable != null)
                 {
@@ -180,6 +179,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
+         
                 questState = QuestState.Completed;
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
@@ -333,7 +333,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             return;
         }
 
-        AudioClip[] clips = { Clip1, Clip2, Clip3 };
+        AudioClip[] clips = { Clip1, Clip2, Clip3, Clip4 };
         AudioClip[] validClips = System.Array.FindAll(clips, c => c != null);
 
         if (validClips.Length == 0)

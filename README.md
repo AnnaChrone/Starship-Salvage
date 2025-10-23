@@ -5,5 +5,5 @@ HI! Welcome to Starship Salvage
 
 Please note, this game works with Keyboard and Controller, HOWEVER, navigating the cursor and selecting using controller does not work as of yet so please have a mouse handy for ingame situations!
 
-The game prototype ends once youve repaired the ship to 1/3!
+The game prototype ends once youve repaired the ship to 2/3!
 

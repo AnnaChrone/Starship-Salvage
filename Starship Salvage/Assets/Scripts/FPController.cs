@@ -1,14 +1,20 @@
+using System.Collections;
+using System.Runtime.InteropServices;
+using TMPro;
+using Unity.SharpZipLib.BZip2;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering; //needed for all input in new input system
-using System.Runtime.InteropServices;
-using System.Collections;
-using TMPro;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Image = UnityEngine.UI.Image;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
+    public GameObject Player;
     public float moveSpeed = 5f;
     public float runSpeed = 10f;
     public float gravity = -9.81f;
@@ -101,6 +107,14 @@ public class FPController : MonoBehaviour
 
     private SpaceshipFixing spaceship;
     private bool Freeze;
+
+    [Header("animated cursor")]
+    public Sprite frame1;
+    public Sprite frame2;
+    public Sprite frame3;
+    public Sprite frame4;
+    public Image Star;
+    private Coroutine animationRoutine;
     public bool animated = false;
 
     [Header("Table Minigame")]
@@ -113,8 +127,8 @@ public class FPController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         
         originalMoveSpeed = moveSpeed;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
         hotbarSelector.holdPoint = holdPoint;  // assign the camera holdPoint transform
         hotbarSelector.HandleScroll(0);        // force update so the first item shows correctly
         
@@ -151,23 +165,48 @@ public class FPController : MonoBehaviour
             Cursor.visible = false;
         }
 
+        // === Raycast for pickup ===
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
             PickUpObject cursor = hit.collider.GetComponent<PickUpObject>();
-            if (cursor != null && animated == false)
+            if (cursor != null && !animated)
             {
-                //logic to update cursor
+                animationRoutine = StartCoroutine(PlayAnimation());
                 Debug.Log("i will be animated!");
                 animated = true;
             }
-
-            if (cursor == null && animated == true)
+            else if (cursor == null && animated)
             {
+                if (animationRoutine != null)
+                    StopCoroutine(animationRoutine); // stop the animation
+
+                Star.sprite = frame1; // reset immediately
                 animated = false;
                 Debug.Log("im not animated anymore");
-                
             }
+        }
+        else if (animated) //  also handle when ray hits nothing at all
+        {
+            if (animationRoutine != null)
+                StopCoroutine(animationRoutine);
+
+            Star.sprite = frame1;
+            animated = false;
+            Debug.Log("im not animated anymore (no hit)");
+        }
+    }
+
+    IEnumerator PlayAnimation()
+    {
+        float duration = 0.5f;
+        float frameTime = duration / 4f;
+        Sprite[] frames = { frame1, frame2, frame3, frame4 };
+
+        for (int i = 0; i < frames.Length; i++)
+        {
+            Star.sprite = frames[i];
+            yield return new WaitForSeconds(frameTime);
         }
     }
     private bool IsGrounded()
@@ -211,7 +250,15 @@ public class FPController : MonoBehaviour
     public void HandleMovement()
     {
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        if (grown)
+        {
+            controller.Move(move * growSpeed * Time.deltaTime);
+
+        } else
+        {
+            controller.Move(move * moveSpeed * Time.deltaTime);
+        }
+
 
         bool isGrounded = IsGrounded();
 
@@ -229,7 +276,8 @@ public class FPController : MonoBehaviour
         
         bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
 
-        if (isGrounded && isMoving && velocity.y <= 0 && gravity < 0)
+       
+        if (controller.isGrounded && isMoving && velocity.y <= 0)
         {
             if (!Footsteps.isPlaying)
             {
@@ -384,7 +432,7 @@ public class FPController : MonoBehaviour
         {
             Select.Play();
             slideRoutinePause = StartCoroutine(SlidePause(pauseVisibleY));
-            Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
         }
@@ -517,39 +565,32 @@ public class FPController : MonoBehaviour
         }
     }
 
+    private bool grown = false;
     public void OnGrow(InputAction.CallbackContext context)
     {
         if (Freeze) return;
 
-        if (context.performed && fruits.GrowAquired)
+        if (context.performed)
         {
-            // Scale the entire player object (mesh + controller)
-            transform.localScale = Vector3.one * 2f;
-            grow.Play();
+            grown = !grown;
 
-            // Adjust CharacterController manually because scaling doesn't affect it
-            controller.height = growHeight; // double height
-            controller.center = new Vector3(0, controller.height / 2f, 0);
-
-            // Nudge up to prevent sinking
-            controller.transform.position += Vector3.up * (standHeight / 2f);
-
-            moveSpeed = growSpeed;
-        }
-        else if (context.canceled)
-        {
-            // Reset scale
-            transform.localScale = Vector3.one;
-            shrink.Play();
-
-            // Reset CharacterController
-            controller.height = standHeight;
-            controller.center = new Vector3(0, standHeight / 2f, 0);
-            controller.transform.position += Vector3.up * 0.1f;
-
-            moveSpeed = originalMoveSpeed;
+            if (grown && fruits.GrowAquired)
+            {
+                Debug.Log("Growing");
+                Player.transform.localScale = Vector3.one * growHeight;
+                grow.Play();
+                moveSpeed = growSpeed;
+            }
+            else
+            {
+                Debug.Log("Shrinking");
+                Player.transform.localScale = Vector3.one;
+                shrink.Play();
+                moveSpeed = originalMoveSpeed;
+            }
         }
     }
+
 
     private bool Bouquet =false;
     public void OnBouquet(InputAction.CallbackContext context)

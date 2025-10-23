@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
   m_Name: CoLu_Dialogue
   m_EditorClassIdentifier: 
-  npcName: COLU NPC
+  npcName: Carinya
   Lines:
   - Oh, you're the one helping Zinnia find her flowers?
   - Such a shame the CLPD decided to do their jobs so close to the festival!
-  - Anyhoo, Co Lus Flowers, XXX,  are very special, you see, they only grow in the
-    Co Lu greenhouse in the sky!
+  - Anyhoo, Co Lu's Flowers, Loopulents,  are very special, you see, they only grow
+    in the Co Lu greenhouse in the sky!
   - Just look for the Co Lu greenhouse on stilts and you'll find a XXX in there!
   - ' I hope you''ve either found the Sizear or Aprella Fruits in order to reach
     the front door!'

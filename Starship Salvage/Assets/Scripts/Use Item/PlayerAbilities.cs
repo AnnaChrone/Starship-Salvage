@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAbilities : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class PlayerAbilities : MonoBehaviour
     public bool GlowAquired = false;
     public bool GrowAquired = false;
     public bool CommAquired = false;
+    public Image Controls;
+    public Sprite GrowFloat;
+    public Sprite Grow;
+    public Sprite Float;
     public GameObject GlowEffect;
 
     public void UnlockAbility(string abilityName)
@@ -32,5 +37,21 @@ public class PlayerAbilities : MonoBehaviour
             default:
                 break;
         }
+
+        if (FloatAquired && !GrowAquired)
+        {
+            Controls.sprite = Float;
+            Debug.Log("Float Image");
+        }
+        else if (FloatAquired && GrowAquired)
+        {
+            Controls.sprite = GrowFloat;
+            Debug.Log("GrowFLoat image");
+        } else if (!FloatAquired && GrowAquired)
+        {
+            Controls.sprite = Grow;
+            Debug.Log("Grow image");
+        }
+
     }
 }
