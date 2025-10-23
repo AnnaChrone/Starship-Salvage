@@ -372,17 +372,17 @@ public class FPController : MonoBehaviour
                     return;
                 }
 
-                // Use the actual object from the scene
-                GameObject item = pickUp.gameObject;
+                // Create a new instance for the player to hold
+                GameObject newItem = Instantiate(pickUp.itemPrefab);
+                PickUpObject newPickUpScript = newItem.GetComponent<PickUpObject>();
+                newPickUpScript.PickUp(hotbarSelector.holdPoint);
 
-                // Tell it to follow the hold point
-                pickUp.PickUp(hotbarSelector.holdPoint);
-
-                // Store the object instance in the hotbar
-                hotbarSelector.SetHeldItemInstance(freeSlot, item);
-
-                // Store prefab reference (optional, for icon)
+                // Store this instance in the hotbar
+                hotbarSelector.SetHeldItemInstance(freeSlot, newItem);
                 hotbarSelector.StoreItemInSlot(freeSlot, pickUp.itemPrefab);
+
+                // Remove the original world item
+                Destroy(pickUp.gameObject);
 
                 // Update hotbar selection
                 hotbarSelector.CurrentIndex = freeSlot;

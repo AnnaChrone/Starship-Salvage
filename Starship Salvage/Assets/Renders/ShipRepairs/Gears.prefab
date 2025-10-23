@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1467757774220513323
 Transform:
   m_ObjectHideFlags: 0
@@ -30,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6725996779914002617}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5283637, y: 0.46992734, z: 0.5283638, w: 0.46992734}
+  m_LocalRotation: {x: 0.52836317, y: 0.4699281, z: 0.52836317, w: 0.4699281}
   m_LocalPosition: {x: -1125.7301, y: -549.298, z: 71.76937}
   m_LocalScale: {x: 25, y: 25, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 96.7}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 96.7}
 --- !u!33 &3269242936969283067
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: Gears
-  itemPrefab: {fileID: 4206207236837207157, guid: 132f162ed06bccb4aba89e522af47cb7, type: 3}
+  itemPrefab: {fileID: 6725996779914002617}
   icon: {fileID: 21300000, guid: 117392bb94f14ca41928b67ad4b5ce5e, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}

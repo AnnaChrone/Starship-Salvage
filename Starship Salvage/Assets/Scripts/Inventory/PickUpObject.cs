@@ -30,8 +30,8 @@ public class PickUpObject : MonoBehaviour
         Collect.Play();
         rb.useGravity = false;
         rb.isKinematic = true; 
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+      //  rb.linearVelocity = Vector3.zero;
+      //  rb.angularVelocity = Vector3.zero;
 
         transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
