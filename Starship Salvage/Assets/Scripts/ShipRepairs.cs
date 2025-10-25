@@ -14,8 +14,19 @@ public class ShipRepairs : MonoBehaviour
     public AudioSource Nextday;
     public GameObject TEMP;
 
-    [Header("NPCs")]
+    [Header("NPCs Day 1")]
+    public GameObject NPCZorb;
+    public GameObject NPCChoo;
+    public GameObject NPCRakoo;
+    public GameObject NPCLucoo;
+    [Header("NPCs Day 2")]
     public GameObject NPCZinnia;
+    public GameObject NPCLuLu;
+    public GameObject NPCRaLu;
+    public GameObject NPCCoLu;
+    public GameObject NPCMinLu;
+    [Header("NPCs Day 3")]
+    public GameObject NPCCook;
     public GameObject NPCChef;
 
     public CanvasGroup canvasGroup;
@@ -36,9 +47,24 @@ public class ShipRepairs : MonoBehaviour
             Nextday.Play();
             successText.SetText("Repair " + repairCount + "/3 completed" );
             if (repairCount == 1)
-            { NPCZinnia.SetActive(true); }
+            {
+                NPCZinnia.SetActive(true);
+                NPCZorb.SetActive(false);
+                NPCChoo.SetActive(false);
+                NPCLucoo.SetActive(false);
+                NPCRakoo.SetActive(false);
+                
+            }
             else if (repairCount == 2)
-            { NPCChef.SetActive(false); } 
+            {
+                NPCChef.SetActive(true);
+                NPCCook.SetActive(true);
+                NPCZinnia.SetActive(false);
+                NPCMinLu.SetActive(false);
+                NPCCoLu.SetActive(false);
+                NPCLuLu.SetActive(false);
+                NPCRaLu.SetActive(false);
+            } 
                 dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
 

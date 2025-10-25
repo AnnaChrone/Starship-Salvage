@@ -50,7 +50,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Exclamations")]
     public GameObject Exclamation;
 
-    [Header("NPCs")]
+    [Header("NPC Presidents")]
     public NPC CoLu;
     public NPC LuLu;
     public NPC RaLu;
@@ -347,7 +347,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     
     }
 
-    private int lastClipIndex = -1; // remember the last clip to avoid immediate repetitions
+    private int lastClipIndex = -1; 
     public void PlayRandomClip()
     {
         if (voice == null)
