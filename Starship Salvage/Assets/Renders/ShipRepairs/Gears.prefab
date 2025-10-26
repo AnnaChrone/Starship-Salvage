@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1467757774220513323
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: Gears
   itemPrefab: {fileID: 6725996779914002617}
-  icon: {fileID: 21300000, guid: 117392bb94f14ca41928b67ad4b5ce5e, type: 3}
+  icon: {fileID: 21300000, guid: 0ca93496683f13b47bee1371a52b8653, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}
   consumable: 0
