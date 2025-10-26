@@ -29003,7 +29003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1256282896
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37193,7 +37193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1624065298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52841,6 +52841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Co Lu Flyer
       objectReference: {fileID: 0}
+    - target: {fileID: 1752822450344855610, guid: c49058c3f4ca7ab4b8b6ff27e453d19d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8403005929305558793, guid: c49058c3f4ca7ab4b8b6ff27e453d19d, type: 3}
       propertyPath: Collect
       value: 
@@ -52918,6 +52922,10 @@ PrefabInstance:
     - target: {fileID: 8246399718339767305, guid: b4388a5a9d43f3e49829df1a9eaa3d26, type: 3}
       propertyPath: m_Name
       value: Ra Lu Flyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246399718339767305, guid: b4388a5a9d43f3e49829df1a9eaa3d26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8583308374762731821, guid: b4388a5a9d43f3e49829df1a9eaa3d26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53470,10 +53478,6 @@ PrefabInstance:
     - target: {fileID: 6725996779914002617, guid: ad97741728c8506429343dea22b912bf, type: 3}
       propertyPath: m_Name
       value: Gears
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725996779914002617, guid: ad97741728c8506429343dea22b912bf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512076118027496451, guid: ad97741728c8506429343dea22b912bf, type: 3}
       propertyPath: Collect
@@ -54756,6 +54760,10 @@ PrefabInstance:
     - target: {fileID: 223267922555684352, guid: 19fa4c004856a4f4999b485712042ed7, type: 3}
       propertyPath: m_Name
       value: Lu Lu Flyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 223267922555684352, guid: 19fa4c004856a4f4999b485712042ed7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6053677222827464572, guid: 19fa4c004856a4f4999b485712042ed7, type: 3}
       propertyPath: Collect

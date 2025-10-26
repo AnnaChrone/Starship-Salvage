@@ -156,14 +156,26 @@ public class FPController : MonoBehaviour
 
         if (Freeze)
         {
+            // Unlock and show cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // Immediately stop player motion
+            moveInput = Vector2.zero;
+            lookInput = Vector2.zero;
+            velocity = Vector3.zero; // reset gravity & jump velocity
+
+            // Ensure CharacterController doesn’t move at all this frame
+            if (controller != null)
+                controller.Move(Vector3.zero);
         }
         else
         {
+            // Lock and hide cursor again
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
 
         // === Raycast for pickup ===
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
