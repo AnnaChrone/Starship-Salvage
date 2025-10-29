@@ -47,6 +47,8 @@ public class FPController : MonoBehaviour
     public float growSpeed = 20f;
     public AudioSource grow;
     public AudioSource shrink;
+    public bool inGrowBlock = false;
+    public TextMeshProUGUI warningText;
 
 
     [Header("PickUp")]
@@ -561,6 +563,12 @@ public class FPController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("GrowBlock"))
+        {
+            inGrowBlock = true;
+            Debug.Log("growth disabled");
+        }
+
         if (other.TryGetComponent(out SpaceshipFixing ship))
         {
             spaceship = ship;
@@ -569,6 +577,12 @@ public class FPController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("GrowBlock"))
+        {
+            inGrowBlock = false;
+            Debug.Log("Exited GrowBlock – growth enabled");
+        }
+
         if (other.TryGetComponent(out Spaceship ship))
         {
             if (spaceship == ship)
@@ -577,16 +591,45 @@ public class FPController : MonoBehaviour
     }
 
     private bool grown = false;
+
+    private Coroutine warningRoutine;
+
+    private IEnumerator ShowWarning(string message, float duration)
+    {
+        // Stop any previous warning in progress
+        if (warningRoutine != null)
+        {
+            StopCoroutine(warningRoutine);
+            warningRoutine = null;
+        }
+
+        // Show message
+        warningText.text = message;
+
+        // Wait for duration
+        yield return new WaitForSeconds(duration);
+
+        // Clear message
+        warningText.text = "";
+
+        // Mark routine complete
+        warningRoutine = null;
+    }
     public void OnGrow(InputAction.CallbackContext context)
     {
         if (Freeze) return;
 
         if (context.performed)
         {
-            grown = !grown;
             if (fruits.GrowAquired)
             {
-                if (grown)
+                grown = !grown;
+                if (inGrowBlock)
+                {
+                    warningRoutine = StartCoroutine(ShowWarning("You can't grow in a cave", 3f));
+                    grown = false;
+                    return;
+                }else if (grown)
                 {
                     Debug.Log("Growing");
                     Player.transform.localScale = Vector3.one * growHeight;
