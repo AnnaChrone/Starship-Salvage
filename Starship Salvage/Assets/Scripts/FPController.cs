@@ -177,7 +177,6 @@ public class FPController : MonoBehaviour
         }
 
 
-        // === Raycast for pickup ===
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
@@ -585,21 +584,24 @@ public class FPController : MonoBehaviour
         if (context.performed)
         {
             grown = !grown;
-
-            if (grown && fruits.GrowAquired)
+            if (fruits.GrowAquired)
             {
-                Debug.Log("Growing");
-                Player.transform.localScale = Vector3.one * growHeight;
-                grow.Play();
-                moveSpeed = growSpeed;
+                if (grown)
+                {
+                    Debug.Log("Growing");
+                    Player.transform.localScale = Vector3.one * growHeight;
+                    grow.Play();
+                    moveSpeed = growSpeed;
+                }
+                else
+                {
+                    Debug.Log("Shrinking");
+                    Player.transform.localScale = Vector3.one;
+                    shrink.Play();
+                    moveSpeed = originalMoveSpeed;
+                }
             }
-            else
-            {
-                Debug.Log("Shrinking");
-                Player.transform.localScale = Vector3.one;
-                shrink.Play();
-                moveSpeed = originalMoveSpeed;
-            }
+            
         }
     }
 
