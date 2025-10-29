@@ -68,10 +68,6 @@ public class ShipRepairs : MonoBehaviour
                 dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
 
-            if (repairCount == 2)
-            {
-                TEMP.SetActive(true);
-            }
         }
     }
 
@@ -85,7 +81,7 @@ public class ShipRepairs : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 1f;
-        successText.SetText("Repair " + repairCount + "/3 completed\nSomeone in Co Lu needs your help");
+        successText.SetText("Repair " + repairCount + "/3 completed");
         dayCount.SetText("DAY " + (repairCount + 1));
         bigDay.SetText("DAY " + (repairCount + 1));
         StartCoroutine(Wait());
