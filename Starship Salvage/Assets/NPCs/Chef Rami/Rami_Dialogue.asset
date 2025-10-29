@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: Rami_Dialogue
+  m_EditorClassIdentifier: 
+  npcName: Chef Rami
+  Lines:
+  - This is NOT how you act in a five-star restaurant, punk! NOT HOW YOU ACT!
+  - "You\u2019re fired! I\u2019m sick of you! I don\u2019t care if you\u2019re the
+    best chef we have\u2026you are USELESS."
+  - " I\u2019ll find a replacement in three seconds, just you wait and see."
+  - "There is a 100% chance that the festival will be a disaster like last year if
+    you are the chef! I bet youre from Co Lu\u2026"
+  - HEY, YOU! How would you like to be a chef for the festival?
+  - "You can\u2019t do any worse than this imbecile I had before."
+  - "Tell you what, if you do well, I\u2019ll give you this shiny thruster we\u2019ve
+    been saving for XXX."
+  - So what do you say?
+  - "Yes? See, replaced in three seconds! You start in five minutes, kid. We\u2019re
+    on a tight schedule."
+  - Just head inside the Bistro and I'll show you the ropes
+  - No? Whatever. I'm sure you would have sucked as a chef anyway.
+  - Come back here when you change your mind!
+  - What'd I tell you? head inside the bistro!
+  - Ah you're back. You ready to cook?
+  - Excellent! Just head inside the Bistro and I'll show you the ropes
+  - This is... DELICIOUS!! Wow, kid you really know how to make a mean stew!
+  - This is going to be such a hit at the festival!
+  - As promised, heres that repair part I told you about.
+  - And hey, if you ever need a part time job as a chef, you know where to find me!
+  autoProgressLines: 
+  endLines: 00000000000000000001000101000100000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 7
+    Choices:
+    - I'LL GIVE IT A TRY
+    - COUNT ME OUT
+    nextDialogueIndexes: 080000000a000000
+    givesQuest: 0100
+  - dialogueIndex: 13
+    Choices:
+    - READY AS I'LL EVER BE
+    - STILL TOO SCARED...
+    nextDialogueIndexes: 0e0000000a000000
+    givesQuest: 0100
+  questInProgressIndex: 12
+  questCompletedIndex: 15
+  FlowerTableindex: 0
+  RetryRamiindex: 13
+  quests: {fileID: 11400000, guid: 67471d16ba722734aa9fd12539286a7a, type: 2}

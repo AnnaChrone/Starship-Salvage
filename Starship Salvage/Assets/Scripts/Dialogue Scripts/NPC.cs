@@ -43,9 +43,12 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Identity bools")]
     public bool Zorb;
     public bool Zinnia;
+    public bool Rami;
 
     public bool QuestFinished;
     public bool FinishedNPC = false;
+    public bool FirstTime = true;
+    public bool Denied = false;
 
     [Header("Exclamations")]
     public GameObject Exclamation;
@@ -113,6 +116,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         LuLuFlower = hotbar.hasItem("LLF");
         CoLuFlower = hotbar.hasItem("MLF");
 
+        
         Debug.Log("dialogue has started");
         Exclamation.SetActive(false);
         isFrozen = true; //Pauses game so that player does not run away from NPC
@@ -123,6 +127,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         if (questState == QuestState.NotStarted)
         {
             dialogueIndex = 0;
+
+            if (Rami && !FirstTime)
+            {
+                dialogueIndex = dialogueData.RetryRamiindex;
+            }
         }
         else if (questState == QuestState.InProgress)
         {
@@ -148,8 +157,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
             
         }
 
+        if (Rami)
+        {
+            FirstTime = false;
+        }
 
-        
 
         isDialogueActive = true;
 

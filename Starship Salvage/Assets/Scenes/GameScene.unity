@@ -2861,8 +2861,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 289441141}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -10626,8 +10629,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 1941835052}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -13732,8 +13738,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 535167512}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -18135,8 +18144,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 114481947}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -18386,8 +18398,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 1521019813}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -24906,7 +24921,7 @@ GameObject:
   - component: {fileID: 1064054064}
   - component: {fileID: 1064054063}
   m_Layer: 0
-  m_Name: ExclamationRakoo
+  m_Name: ExclamationRami
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29248,7 +29263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1256282896
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29358,14 +29373,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 79eed491c839cb0408ec46bd8941c861, type: 2}
+  dialogueData: {fileID: 11400000, guid: 08c1016453c6f9b4ab079b5f76f8e6e6, type: 2}
   flyerQuest: {fileID: 0}
   flyerappear: {fileID: 0}
   item: {fileID: 0}
   hasTalked: 1
   isFrozen: 0
   hotbar: {fileID: 790370926}
-  RewardItem: {fileID: 0}
+  RewardItem: {fileID: 1725092253}
   CoLuNPC: {fileID: 0}
   RaLuNPC: {fileID: 0}
   LuLuNPC: {fileID: 0}
@@ -29377,8 +29392,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 1
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 1
+  Denied: 0
   Exclamation: {fileID: 1064054062}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -29473,7 +29491,7 @@ Transform:
   m_GameObject: {fileID: 1256282895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -763, y: -550.32, z: -42}
+  m_LocalPosition: {x: -785.5, y: -552.5, z: -42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32486,8 +32504,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 3351660907958299053}
   Zorb: 0
   Zinnia: 1
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 2269251046167241748}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -33906,8 +33927,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 1
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 177756092}
   CoLu: {fileID: 750023846}
   LuLu: {fileID: 1731941330}
@@ -35000,6 +35024,7 @@ MonoBehaviour:
   RaLu: {fileID: 102349937}
   LuLu: {fileID: 757602850}
   MinLu: {fileID: 356910292}
+  Rami: {fileID: 1256282897}
   cameraTransform: {fileID: 330585546}
   lookSensitivity: 0.1
   verticalLookLimit: 90
@@ -37464,7 +37489,6 @@ GameObject:
   - component: {fileID: 1624065302}
   - component: {fileID: 1624065301}
   - component: {fileID: 1624065300}
-  - component: {fileID: 1624065299}
   - component: {fileID: 1624065298}
   m_Layer: 0
   m_Name: Cook_NPC
@@ -37570,48 +37594,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1624065299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624065297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0633da646b45bed4186937bfb8c7b437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 79eed491c839cb0408ec46bd8941c861, type: 2}
-  flyerQuest: {fileID: 0}
-  flyerappear: {fileID: 0}
-  item: {fileID: 0}
-  hasTalked: 1
-  isFrozen: 0
-  hotbar: {fileID: 790370926}
-  RewardItem: {fileID: 0}
-  CoLuNPC: {fileID: 0}
-  RaLuNPC: {fileID: 0}
-  LuLuNPC: {fileID: 0}
-  MinLuNPC: {fileID: 0}
-  RaLuFlower: 0
-  MinLuFlower: 0
-  CoLuFlower: 0
-  LuLuFlower: 0
-  FlowerTable: {fileID: 0}
-  Zorb: 0
-  Zinnia: 0
-  QuestFinished: 0
-  FinishedNPC: 0
-  Exclamation: {fileID: 632166304}
-  CoLu: {fileID: 0}
-  LuLu: {fileID: 0}
-  RaLu: {fileID: 0}
-  Clip1: {fileID: 8300000, guid: 5d774886185a60f44bceba298929c1c9, type: 3}
-  Clip2: {fileID: 8300000, guid: f26b5a398951d8d40804ac9cfa3e392e, type: 3}
-  Clip3: {fileID: 8300000, guid: 8ea3e0a3338f7b34c8b4bd68e83da6a8, type: 3}
-  Clip4: {fileID: 8300000, guid: c703834dbbb46be449c38493d0d735c9, type: 3}
-  voice: {fileID: 1624065298}
 --- !u!136 &1624065300
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41520,8 +41502,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 42873903}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
@@ -46883,8 +46868,11 @@ MonoBehaviour:
   FlowerTable: {fileID: 0}
   Zorb: 0
   Zinnia: 0
+  Rami: 0
   QuestFinished: 0
   FinishedNPC: 0
+  FirstTime: 0
+  Denied: 0
   Exclamation: {fileID: 22711877}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}

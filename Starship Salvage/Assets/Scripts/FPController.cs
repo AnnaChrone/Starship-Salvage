@@ -30,6 +30,7 @@ public class FPController : MonoBehaviour
     public NPC RaLu;
     public NPC LuLu;
     public NPC MinLu;
+    public NPC Rami;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -147,7 +148,18 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Minigame.activeInHierarchy || RaLuPres.isFrozen || MinLu.isFrozen || LuLuPres.isFrozen || CoLuPres.isFrozen || Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
+        if (Minigame.activeInHierarchy ||
+    RaLuPres.isFrozen ||
+    MinLu.isFrozen ||
+    LuLuPres.isFrozen ||
+    CoLuPres.isFrozen ||
+    Zinnia.isFrozen ||
+    Zorb.isFrozen ||
+    CoLu.isFrozen ||
+    LuLu.isFrozen ||
+    RaLu.isFrozen ||
+    Rami.isFrozen || 
+    isPaused)
         {
             Freeze = true;
         }

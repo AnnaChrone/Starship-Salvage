@@ -39,7 +39,7 @@ MonoBehaviour:
   - I know about that busted ship of yours, and maybe you could make use of these
     gears I found!
   - All the best getting back home :)
-  autoProgressLines: 0101010101010101010101010101010101
+  autoProgressLines: 
   endLines: 0000000000000000010001000100000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
