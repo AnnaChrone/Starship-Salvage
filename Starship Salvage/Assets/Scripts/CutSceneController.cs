@@ -15,6 +15,7 @@ public class CutSceneController : MonoBehaviour
     [Header("Audio")]
     public AudioClip[] audioClips; // 1 audio clip per slide
     public AudioSource CutsceneAudio;
+    public AudioSource Rumbling;
 
     [Header("UI Reference")]
     public Image Cutscene; // UI Image displaying the sprites
@@ -29,7 +30,6 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator PlayCutscene()
     {
-        // Play each slide with its matching audio
         for (int i = 0; i < slides.Length; i++)
         {
             Cutscene.sprite = slides[i];
@@ -41,13 +41,14 @@ public class CutSceneController : MonoBehaviour
                 CutsceneAudio.Play();
             }
 
-            yield return new WaitForSeconds(slideDuration);
+            // Make slide 3 last 3 seconds, others 2 seconds
+            float currentDuration = (i == 2) ? 3f : 2f;  // index 2 = 3rd slide
+            yield return new WaitForSeconds(currentDuration);
         }
 
         // Fade out visuals and audio
         yield return StartCoroutine(FadeOut());
         Debug.Log("Cutscene finished");
-        // trigger Zorb or next scene here
         MinLuCollider.SetActive(true);
     }
 
@@ -71,6 +72,7 @@ public class CutSceneController : MonoBehaviour
             );
 
             // Fade audio
+            Rumbling.volume = Mathf.Lerp(originalVolume, 0f, t);
             CutsceneAudio.volume = Mathf.Lerp(originalVolume, 0f, t);
 
             yield return null;
