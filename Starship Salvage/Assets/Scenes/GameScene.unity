@@ -2867,6 +2867,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 289441141}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -10981,6 +10982,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 1941835052}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -14197,6 +14199,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 535167512}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -16989,6 +16992,7 @@ MonoBehaviour:
   bigDay: {fileID: 559335411}
   Nextday: {fileID: 654588031}
   TEMP: {fileID: 1517815065}
+  objective: {fileID: 1517862162}
   NPCZorb: {fileID: 1487406188}
   NPCChoo: {fileID: 750023843}
   NPCRakoo: {fileID: 520267401}
@@ -18608,6 +18612,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 114481947}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -18862,6 +18867,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 1521019813}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -29996,6 +30002,7 @@ MonoBehaviour:
   FirstTime: 1
   Denied: 0
   Exclamation: {fileID: 1064054062}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -33108,6 +33115,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 2269251046167241748}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -34660,6 +34668,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 177756092}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 750023846}
   LuLu: {fileID: 1731941330}
   RaLu: {fileID: 520267404}
@@ -35768,6 +35777,7 @@ MonoBehaviour:
   warningText: {fileID: 102298091}
   pickupRange: 3
   holdPoint: {fileID: 1617641979}
+  objective: {fileID: 1517862162}
   hotbarSelector: {fileID: 790370926}
   PauseMenu: {fileID: 1666157366}
   isPaused: 0
@@ -37097,6 +37107,7 @@ MonoBehaviour:
   DisableTable: {fileID: 1705035100}
   inventory: {fileID: 790370926}
   ZinniaExclamation: {fileID: 2269251046167241748}
+  objective: {fileID: 0}
 --- !u!1 &1568235779
 GameObject:
   m_ObjectHideFlags: 0
@@ -42400,6 +42411,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 42873903}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -47895,6 +47907,7 @@ MonoBehaviour:
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 22711877}
+  Objective: {fileID: 1517862162}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}

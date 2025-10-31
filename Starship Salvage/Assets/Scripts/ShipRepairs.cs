@@ -13,6 +13,7 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text bigDay;
     public AudioSource Nextday;
     public GameObject TEMP;
+    public Objectives objective;
 
     [Header("NPCs Day 1")]
     public GameObject NPCZorb;
@@ -53,6 +54,7 @@ public class ShipRepairs : MonoBehaviour
                 NPCChoo.SetActive(false);
                 NPCLucoo.SetActive(false);
                 NPCRakoo.SetActive(false);
+                objective.GetObjective("ZINNIA");
                 
             }
             else if (repairCount == 2)
@@ -64,8 +66,13 @@ public class ShipRepairs : MonoBehaviour
                 NPCCoLu.SetActive(false);
                 NPCLuLu.SetActive(false);
                 NPCRaLu.SetActive(false);
-            } 
-                dayCount.SetText("DAY " + (repairCount + 1));
+                objective.GetObjective("RAMI");
+            }
+            else if (repairCount == 3)
+            {
+                objective.GetObjective("ZORB");
+            }
+            dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
 
         }

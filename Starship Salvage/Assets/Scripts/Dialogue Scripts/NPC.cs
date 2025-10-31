@@ -44,14 +44,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool Zorb;
     public bool Zinnia;
     public bool Rami;
+    
 
     public bool QuestFinished;
     public bool FinishedNPC = false;
     public bool FirstTime = true;
     public bool Denied = false;
 
-    [Header("Exclamations")]
+    [Header("Exclamations and Objective")]
     public GameObject Exclamation;
+    public Objectives Objective;
 
     [Header("NPC Presidents")]
     public NPC CoLu;
@@ -70,17 +72,22 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         dialogueControl = DialogueController.Instance; //Create an instance
     }
-
+    private bool SetZin = false;
+    private bool SetZorb = false;
     public void Update()
     {
-        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished) && !SetZorb)
         {
             Exclamation.SetActive(true);
+            Objective.GetObjective("DELIVERED");
+            SetZorb = true;
         }
         
-        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
+        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower && !SetZin)
         {
             Exclamation.SetActive(true);
+            Objective.GetObjective("FOUND");
+            SetZin = true;
         }
             
     }
@@ -137,11 +144,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
             {
-               
                 dialogueIndex = dialogueData.FlowerTableindex;
                 if (FlowerTable != null)
                 {
                     FlowerTable.SetActive(true);
+                    Objective.GetObjective("ARRANGE");
                 }
             }
             else
@@ -153,6 +160,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
+            
             RewardItem.SetActive(true); //drops reward item for player
             
         }
@@ -197,18 +205,47 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                     hotbar.RemoveItemAt(slotIndex);
                     questState = QuestState.Completed;
                     QuestFinished = true;
+                    if (Zinnia)
+                    {
+                        Objective.GetObjective("GEARS");
+                    }
+                    if (Rami)
+                    {
+                        Objective.GetObjective("METAL");
+
+                    }
                     QuestController.Instance.CompleteQuest(questID);
+                    if (!Rami && !Zorb && !Zinnia)
+                    {
+                        Objective.GetObjective("FLYER");
+                    }
                     Debug.Log($"{name}: Quest completed during interaction.");
                 }
                 else
                 {
                     questState = QuestState.InProgress;
                     Debug.Log($"{name}: Quest in progress.");
+                    if (Zorb)
+                    {
+                        Objective.GetObjective("FLYER");
+                    } 
+                    if (Zinnia)
+                    {
+                        Objective.GetObjective("FLOWER");
+
+                    }
+
+                    if (Rami)
+                    {
+                        Objective.GetObjective("COOK");
+
+                    }
                 }
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
                 questState = QuestState.Completed;
+                Objective.GetObjective("SPANNER");
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
                 Debug.Log($"{name}: Zorb’s quest completed.");

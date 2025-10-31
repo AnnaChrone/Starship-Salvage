@@ -56,6 +56,7 @@ public class FPController : MonoBehaviour
     public float pickupRange = 3f;
     public Transform holdPoint;
     private PickUpObject heldObject;
+    public Objectives objective;
 
     [Header("Inventory")]
     public Hotbar hotbarSelector;
@@ -397,6 +398,7 @@ public class FPController : MonoBehaviour
                     return;
                 }
 
+                
                 // Create a new instance for the player to hold
                 GameObject newItem = Instantiate(pickUp.itemPrefab);
                 PickUpObject newPickUpScript = newItem.GetComponent<PickUpObject>();
@@ -412,6 +414,16 @@ public class FPController : MonoBehaviour
                 // Update hotbar selection
                 hotbarSelector.CurrentIndex = freeSlot;
                 hotbarSelector.UpdateSelection();
+
+                if (hotbarSelector.hasItem("2") ||  hotbarSelector.hasItem("3") || hotbarSelector.hasItem("4"))
+                {
+                    objective.GetObjective("FLYER");
+                }
+
+                if (hotbarSelector.hasItem("MLF") || hotbarSelector.hasItem("RLF") || hotbarSelector.hasItem("CLF") || hotbarSelector.hasItem("LLF"))
+                {
+                    objective.GetObjective("FLOWER");
+                }
             }
         }
     }
