@@ -34,7 +34,7 @@ MonoBehaviour:
   - 'I found this whilst looking for something to repair the Signal Tower you broke,
     but i guess it could work to fix your ship too... '
   - Can I help you? Go do what i asked!
-  autoProgressLines: 01010101010101010101010101010101
+  autoProgressLines: 
   endLines: 00000000000000000000000100000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -47,4 +47,5 @@ MonoBehaviour:
     givesQuest: 0100
   questInProgressIndex: 15
   questCompletedIndex: 12
+  FlowerTableindex: 0
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pickup
+  - GrowBlock
+  - RaLu
+  - MinLu
+  - LuLu
+  - CoLu
   layers:
   - Default
   - TransparentFX

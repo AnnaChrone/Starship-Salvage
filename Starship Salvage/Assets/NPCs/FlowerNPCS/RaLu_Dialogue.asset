@@ -22,7 +22,7 @@ MonoBehaviour:
   - "They like to grow in the craters at the bases of the mountains of Ra Lu, so
     your best bet would be to start looking in each of those\u2026"
   - Good luck!
-  autoProgressLines: 010101010101
+  autoProgressLines: 
   endLines: 000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05

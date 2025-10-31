@@ -43,13 +43,17 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Identity bools")]
     public bool Zorb;
     public bool Zinnia;
+    public bool Rami;
 
     public bool QuestFinished;
+    public bool FinishedNPC = false;
+    public bool FirstTime = true;
+    public bool Denied = false;
 
     [Header("Exclamations")]
     public GameObject Exclamation;
 
-    [Header("NPCs")]
+    [Header("NPC Presidents")]
     public NPC CoLu;
     public NPC LuLu;
     public NPC RaLu;
@@ -101,12 +105,18 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     void StartDialogue()
     {
 
+        if (FinishedNPC)
+        {
+            Debug.Log($"{name}'s quest is finished. No more dialogue.");
+            return;
+        }
         //check flowers are there
         RaLuFlower = hotbar.hasItem("CLF");
         MinLuFlower = hotbar.hasItem("RLF");
         LuLuFlower = hotbar.hasItem("LLF");
         CoLuFlower = hotbar.hasItem("MLF");
 
+        
         Debug.Log("dialogue has started");
         Exclamation.SetActive(false);
         isFrozen = true; //Pauses game so that player does not run away from NPC
@@ -117,6 +127,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         if (questState == QuestState.NotStarted)
         {
             dialogueIndex = 0;
+
+            if (Rami && !FirstTime)
+            {
+                dialogueIndex = dialogueData.RetryRamiindex;
+            }
         }
         else if (questState == QuestState.InProgress)
         {
@@ -139,10 +154,14 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             dialogueIndex = dialogueData.questCompletedIndex;
             RewardItem.SetActive(true); //drops reward item for player
+            
         }
 
+        if (Rami)
+        {
+            FirstTime = false;
+        }
 
-        
 
         isDialogueActive = true;
 
@@ -155,53 +174,63 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public void SyncQuestState()
     {
         if (dialogueData.quests == null)
+            return;
+
+        string questID = dialogueData.quests.QuestID;
+
+        if (QuestController.Instance.IsQuestCompleted(questID))
         {
+            questState = QuestState.Completed;
+            QuestFinished = true;
+            Debug.Log($"{name}: Quest already completed.");
             return;
         }
 
-        
-
-        string questID = dialogueData.quests.QuestID; //Quest ID to verify quest state
 
         if (QuestController.Instance.IsQuestActive(questID))
         {
             if (!Zorb)
             {
                 int slotIndex = hotbar.FindItemSlot(questID);
-                if (slotIndex != -1) // quest item found
+                if (slotIndex != -1)
                 {
-                    hotbar.RemoveItemAt(slotIndex);   // removes quest item
+                    hotbar.RemoveItemAt(slotIndex);
                     questState = QuestState.Completed;
                     QuestFinished = true;
                     QuestController.Instance.CompleteQuest(questID);
+                    Debug.Log($"{name}: Quest completed during interaction.");
                 }
-                
+                else
+                {
+                    questState = QuestState.InProgress;
+                    Debug.Log($"{name}: Quest in progress.");
+                }
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
-         
                 questState = QuestState.Completed;
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
+                Debug.Log($"{name}: Zorb’s quest completed.");
             }
             else
             {
                 questState = QuestState.InProgress;
-                Debug.Log("QUest in progress");
+                Debug.Log($"{name}: Quest in progress for Zorb.");
             }
         }
         else
         {
             questState = QuestState.NotStarted;
-            Debug.Log("Quest not started");
+            Debug.Log($"{name}: Quest not started.");
         }
-        
-
     }
 
-   public void NextLine()
+
+
+    public void NextLine()
     {
-        SyncQuestState(); 
+        SyncQuestState();    
 
         if (isTyping)
         {
@@ -315,7 +344,13 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                 flyerQuest.FlyerQuestSpeak();
             }
 
-        
+        if (questState == QuestState.Completed)
+        {
+            FinishedNPC = true;
+            Debug.Log($"{name}'s quest dialogue finished.");
+        }
+
+
         Debug.Log("has talked is true");
         isDialogueActive = false;
         dialogueControl.SetDialogue("");
@@ -324,7 +359,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     
     }
 
-    private int lastClipIndex = -1; // remember the last clip to avoid immediate repetitions
+    private int lastClipIndex = -1; 
     public void PlayRandomClip()
     {
         if (voice == null)

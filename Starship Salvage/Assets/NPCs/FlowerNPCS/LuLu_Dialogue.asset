@@ -23,7 +23,7 @@ MonoBehaviour:
   - 'Here''s the directions: enter the tunnels, turn left, then right, then right
     again, then left, then right!'
   - Don't forget! Left, Right, Right, Left, Right!
-  autoProgressLines: 010101010101
+  autoProgressLines: 
   endLines: 000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05

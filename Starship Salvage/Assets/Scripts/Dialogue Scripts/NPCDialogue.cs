@@ -14,6 +14,7 @@ public class NPCDialogue : ScriptableObject
     public int questInProgressIndex; //What does NPC say when quest is in progress
     public int questCompletedIndex; //What does NPC say when quest is completed
     public int FlowerTableindex;
+    public int RetryRamiindex;
     public Quests quests; //the actual quest
 }
 

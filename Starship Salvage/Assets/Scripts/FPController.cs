@@ -30,6 +30,7 @@ public class FPController : MonoBehaviour
     public NPC RaLu;
     public NPC LuLu;
     public NPC MinLu;
+    public NPC Rami;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -47,6 +48,8 @@ public class FPController : MonoBehaviour
     public float growSpeed = 20f;
     public AudioSource grow;
     public AudioSource shrink;
+    public bool inGrowBlock = false;
+    public TextMeshProUGUI warningText;
 
 
     [Header("PickUp")]
@@ -145,7 +148,18 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Minigame.activeInHierarchy || RaLuPres.isFrozen || MinLu.isFrozen || LuLuPres.isFrozen || CoLuPres.isFrozen || Zinnia.isFrozen || Zorb.isFrozen || CoLu.isFrozen || LuLu.isFrozen || RaLu.isFrozen || isPaused)
+        if (Minigame.activeInHierarchy ||
+    RaLuPres.isFrozen ||
+    MinLu.isFrozen ||
+    LuLuPres.isFrozen ||
+    CoLuPres.isFrozen ||
+    Zinnia.isFrozen ||
+    Zorb.isFrozen ||
+    CoLu.isFrozen ||
+    LuLu.isFrozen ||
+    RaLu.isFrozen ||
+    Rami.isFrozen || 
+    isPaused)
         {
             Freeze = true;
         }
@@ -156,16 +170,27 @@ public class FPController : MonoBehaviour
 
         if (Freeze)
         {
+            // Unlock and show cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // Immediately stop player motion
+            moveInput = Vector2.zero;
+            lookInput = Vector2.zero;
+            velocity = Vector3.zero; // reset gravity & jump velocity
+
+            // Ensure CharacterController doesn’t move at all this frame
+            if (controller != null)
+                controller.Move(Vector3.zero);
         }
         else
         {
+            // Lock and hide cursor again
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
-        // === Raycast for pickup ===
+
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
@@ -243,7 +268,7 @@ public class FPController : MonoBehaviour
     {
         if (landingParticles != null)
         {
-            Debug.Log("triggering particles");
+            //Debug.Log("triggering particles");
             landingParticles.Play();
         }
     }
@@ -372,17 +397,17 @@ public class FPController : MonoBehaviour
                     return;
                 }
 
-                // Use the actual object from the scene
-                GameObject item = pickUp.gameObject;
+                // Create a new instance for the player to hold
+                GameObject newItem = Instantiate(pickUp.itemPrefab);
+                PickUpObject newPickUpScript = newItem.GetComponent<PickUpObject>();
+                newPickUpScript.PickUp(hotbarSelector.holdPoint);
 
-                // Tell it to follow the hold point
-                pickUp.PickUp(hotbarSelector.holdPoint);
-
-                // Store the object instance in the hotbar
-                hotbarSelector.SetHeldItemInstance(freeSlot, item);
-
-                // Store prefab reference (optional, for icon)
+                // Store this instance in the hotbar
+                hotbarSelector.SetHeldItemInstance(freeSlot, newItem);
                 hotbarSelector.StoreItemInSlot(freeSlot, pickUp.itemPrefab);
+
+                // Remove the original world item
+                Destroy(pickUp.gameObject);
 
                 // Update hotbar selection
                 hotbarSelector.CurrentIndex = freeSlot;
@@ -550,6 +575,12 @@ public class FPController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("GrowBlock"))
+        {
+            inGrowBlock = true;
+            Debug.Log("growth disabled");
+        }
+
         if (other.TryGetComponent(out SpaceshipFixing ship))
         {
             spaceship = ship;
@@ -558,6 +589,12 @@ public class FPController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("GrowBlock"))
+        {
+            inGrowBlock = false;
+            Debug.Log("Exited GrowBlock – growth enabled");
+        }
+
         if (other.TryGetComponent(out Spaceship ship))
         {
             if (spaceship == ship)
@@ -566,28 +603,60 @@ public class FPController : MonoBehaviour
     }
 
     private bool grown = false;
+
+    private Coroutine warningRoutine;
+
+    private IEnumerator ShowWarning(string message, float duration)
+    {
+        // Stop any previous warning in progress
+        if (warningRoutine != null)
+        {
+            StopCoroutine(warningRoutine);
+            warningRoutine = null;
+        }
+
+        // Show message
+        warningText.text = message;
+
+        // Wait for duration
+        yield return new WaitForSeconds(duration);
+
+        // Clear message
+        warningText.text = "";
+
+        // Mark routine complete
+        warningRoutine = null;
+    }
     public void OnGrow(InputAction.CallbackContext context)
     {
         if (Freeze) return;
 
         if (context.performed)
         {
-            grown = !grown;
-
-            if (grown && fruits.GrowAquired)
+            if (fruits.GrowAquired)
             {
-                Debug.Log("Growing");
-                Player.transform.localScale = Vector3.one * growHeight;
-                grow.Play();
-                moveSpeed = growSpeed;
+                grown = !grown;
+                if (inGrowBlock)
+                {
+                    warningRoutine = StartCoroutine(ShowWarning("You can't grow in a cave", 3f));
+                    grown = false;
+                    return;
+                }else if (grown)
+                {
+                    Debug.Log("Growing");
+                    Player.transform.localScale = Vector3.one * growHeight;
+                    grow.Play();
+                    moveSpeed = growSpeed;
+                }
+                else
+                {
+                    Debug.Log("Shrinking");
+                    Player.transform.localScale = Vector3.one;
+                    shrink.Play();
+                    moveSpeed = originalMoveSpeed;
+                }
             }
-            else
-            {
-                Debug.Log("Shrinking");
-                Player.transform.localScale = Vector3.one;
-                shrink.Play();
-                moveSpeed = originalMoveSpeed;
-            }
+            
         }
     }
 
