@@ -44,8 +44,9 @@ MonoBehaviour:
     - OKAY
     - NO
     nextDialogueIndexes: 0700000006000000
-    givesQuest: 0100
+    givesQuest: 0101
   questInProgressIndex: 15
   questCompletedIndex: 12
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: f541655c117527b4a9ea25007f25fe5c, type: 2}
