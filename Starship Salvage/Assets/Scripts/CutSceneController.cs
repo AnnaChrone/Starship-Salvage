@@ -22,10 +22,13 @@ public class CutSceneController : MonoBehaviour
 
     [Header("State setting")]
     public GameObject MinLuCollider;
+    public bool Intro;
+    public NPC Zorb;
 
     private void Start()
     {
         StartCoroutine(PlayCutscene());
+        Intro = true;
     }
 
     private IEnumerator PlayCutscene()
@@ -49,7 +52,9 @@ public class CutSceneController : MonoBehaviour
         // Fade out visuals and audio
         yield return StartCoroutine(FadeOut());
         Debug.Log("Cutscene finished");
+        Intro = false;
         MinLuCollider.SetActive(true);
+        Zorb.StartDialogue();
     }
 
     private IEnumerator FadeOut()

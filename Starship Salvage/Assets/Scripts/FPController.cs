@@ -31,6 +31,7 @@ public class FPController : MonoBehaviour
     public NPC LuLu;
     public NPC MinLu;
     public NPC Rami;
+    public CutSceneController cutscene;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -160,6 +161,7 @@ public class FPController : MonoBehaviour
     LuLu.isFrozen ||
     RaLu.isFrozen ||
     Rami.isFrozen || 
+    cutscene.Intro ||
     isPaused)
         {
             Freeze = true;
@@ -173,7 +175,9 @@ public class FPController : MonoBehaviour
         {
             // Unlock and show cursor
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (!cutscene.Intro)
+            { Cursor.visible = true; }
+            
 
             // Immediately stop player motion
             moveInput = Vector2.zero;

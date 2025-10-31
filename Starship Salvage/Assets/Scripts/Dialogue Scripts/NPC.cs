@@ -109,7 +109,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
 
         if (FinishedNPC)
