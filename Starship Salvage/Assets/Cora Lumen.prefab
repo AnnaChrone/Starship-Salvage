@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2061514495380360504}
   - component: {fileID: 7067080682469167874}
   - component: {fileID: 5621941335230509038}
-  - component: {fileID: 4076040561887431275}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cora Lumen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,25 +93,3 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: dd2dcbdffa965d045bc03cc23efa6235, type: 2}
   m_EnableTreeColliders: 1
---- !u!95 &4076040561887431275
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8987017009073355290}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bc965114be28394e91476be1a8931ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
