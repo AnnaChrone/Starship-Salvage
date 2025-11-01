@@ -3650,11 +3650,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132208580}
   m_Mesh: {fileID: 3855772624838967272, guid: 7bde55881a1a2ba4ab1fe7bc08ad8dbc, type: 3}
---- !u!1 &134607595 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8987017009073355290, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
-  m_PrefabInstance: {fileID: 235887303}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151421234
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,53 +5955,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7067080682469167874, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
-      propertyPath: m_TerrainData
-      value: 
-      objectReference: {fileID: 15600000, guid: dd2dcbdffa965d045bc03cc23efa6235, type: 2}
     - target: {fileID: 8987017009073355290, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
       propertyPath: m_Name
       value: Cora Lumen
       objectReference: {fileID: 0}
-    - target: {fileID: 8987017009073355290, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8987017009073355290, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 235887307}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
 --- !u!4 &235887304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2061514495380360504, guid: 41dedd87d71046a46bdeeb4ad7739ba0, type: 3}
   m_PrefabInstance: {fileID: 235887303}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &235887307
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134607595}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bc965114be28394e91476be1a8931ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &241506948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7298,7 +7260,7 @@ GameObject:
   - component: {fileID: 284640177}
   - component: {fileID: 284640176}
   - component: {fileID: 284640175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lu Lu Co Lu Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8696,7 +8658,7 @@ GameObject:
   - component: {fileID: 294331465}
   - component: {fileID: 294331464}
   - component: {fileID: 294331463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Co Lu Ra Lu Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16053,6 +16015,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553086306}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &553543619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553543620}
+  - component: {fileID: 553543621}
+  m_Layer: 0
+  m_Name: BridgeWalking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553543620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553543619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045508518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &553543621
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553543619}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: c4f7806a2b8e28b45bcf747fbfb6ae82, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &558320789
 GameObject:
   m_ObjectHideFlags: 0
@@ -23114,12 +23205,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842228338}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.000000029802319, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 882613649}
+  m_Father: {fileID: 2045508518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858873918
 GameObject:
@@ -23716,7 +23807,7 @@ Transform:
   - {fileID: 1807812354}
   - {fileID: 255973029}
   - {fileID: 1443002820}
-  - {fileID: 842228340}
+  - {fileID: 2045508518}
   - {fileID: 1435297009}
   - {fileID: 602474861}
   - {fileID: 1175262280}
@@ -25070,7 +25161,7 @@ Transform:
   m_GameObject: {fileID: 939195378}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -302.8, y: -1.8, z: -354.9}
+  m_LocalPosition: {x: -290.2, y: 11.8, z: -359.8}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -39537,10 +39628,11 @@ MonoBehaviour:
   FloatDisplay: {fileID: 378038710}
   Floating: {fileID: 1435297008}
   Footsteps: {fileID: 842228339}
+  BridgeFootsteps: {fileID: 553543621}
   groundCheckDistance: 0.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   frame1: {fileID: 21300000, guid: f34fa0c366d32674e9b3d36bdad25ecb, type: 3}
   frame2: {fileID: 21300000, guid: 0cafd27f5b089a04b97f1ea23b9018aa, type: 3}
   frame3: {fileID: 21300000, guid: 2a1e7404aec711849b60fec7be630b78, type: 3}
@@ -42472,7 +42564,7 @@ GameObject:
   - component: {fileID: 1626683310}
   - component: {fileID: 1626683309}
   - component: {fileID: 1626683308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Min Lu Lu Lu Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44241,7 +44333,7 @@ GameObject:
   - component: {fileID: 1674499974}
   - component: {fileID: 1674499973}
   - component: {fileID: 1674499972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Min Lu Ra Lu Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55926,6 +56018,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2217534, y: 0.19339488, z: 0.010272651}
   m_Center: {x: -0.2589729, y: 0.037366606, z: 0.07732911}
+--- !u!1 &2045508517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045508518}
+  m_Layer: 0
+  m_Name: Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045508518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045508517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 842228340}
+  - {fileID: 553543620}
+  m_Father: {fileID: 882613649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046351860
 GameObject:
   m_ObjectHideFlags: 0

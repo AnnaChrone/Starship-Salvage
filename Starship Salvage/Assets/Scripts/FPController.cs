@@ -98,6 +98,7 @@ public class FPController : MonoBehaviour
 
     [Header("Footsteps")]
     public AudioSource Footsteps;
+    public AudioSource BridgeFootsteps;
 
 
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -283,18 +284,27 @@ public class FPController : MonoBehaviour
         if (grown)
         {
             controller.Move(move * growSpeed * Time.deltaTime);
-
-        } else
+        }
+        else
         {
             controller.Move(move * moveSpeed * Time.deltaTime);
         }
-
 
         bool isGrounded = IsGrounded();
 
         if (!wasGrounded && isGrounded)
             OnLand();
         wasGrounded = isGrounded;
+
+        // Detect if player is standing on Bridge layer
+        bool isOnBridge = false;
+        if (Physics.Raycast(feet.position, Vector3.down, out RaycastHit hit, groundCheckDistance + 0.3f, groundMask))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bridge"))
+            {
+                isOnBridge = true;
+            }
+        }
 
         // Gravity
         if (isGrounded && velocity.y < 0)
@@ -303,29 +313,58 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        
-        bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
+        bool isMoving = moveInput.magnitude > 0.1f;
 
-       
+        // Footstep sound handling
         if (controller.isGrounded && isMoving && velocity.y <= 0)
         {
-            if (!Footsteps.isPlaying)
+            if (isOnBridge)
             {
-                Footsteps.loop = true;
-                Footsteps.Play();
+                if (!BridgeFootsteps.isPlaying)
+                {
+                    BridgeFootsteps.loop = true;
+                    BridgeFootsteps.Play();
+                }
+                if (Footsteps.isPlaying)
+                    Footsteps.Stop();
             }
+            else
+            {
+                if (!Footsteps.isPlaying)
+                {
+                    Footsteps.loop = true;
+                    Footsteps.Play();
+                }
+                if (BridgeFootsteps.isPlaying)
+                    BridgeFootsteps.Stop();
+            }
+
+            // Adjust pitch if running
             Footsteps.pitch = moveSpeed > originalMoveSpeed ? 1.5f : 1f;
+            BridgeFootsteps.pitch = moveSpeed > originalMoveSpeed ? 1.5f : 1f;
         }
         else
         {
-            if (Footsteps.isPlaying)
-            {
-                Footsteps.Stop();
-            }
+            if (Footsteps.isPlaying) Footsteps.Stop();
+            if (BridgeFootsteps.isPlaying) BridgeFootsteps.Stop();
         }
-
     }
 
+
+    private bool isOnBridge = false; // track current surface
+
+    private bool CheckIfOnBridge()
+    {
+        if (Physics.Raycast(feet.position, Vector3.down, out RaycastHit hit, groundCheckDistance + 0.3f, groundMask))
+        {
+            // Compare layer name
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bridge"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void OnRun(InputAction.CallbackContext context)
     {
         if (Freeze) return;
