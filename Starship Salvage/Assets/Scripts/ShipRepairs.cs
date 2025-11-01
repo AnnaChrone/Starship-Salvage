@@ -15,6 +15,11 @@ public class ShipRepairs : MonoBehaviour
     public GameObject TEMP;
     public Objectives objective;
 
+    [Header("Ship Fix Materials")]
+    public Material Fix1;
+    public Material Fix2;
+    public Material Fix3;
+
     [Header("NPCs Day 1")]
     public GameObject NPCZorb;
     public GameObject NPCChoo;
@@ -55,7 +60,8 @@ public class ShipRepairs : MonoBehaviour
                 NPCLucoo.SetActive(false);
                 NPCRakoo.SetActive(false);
                 objective.GetObjective("ZINNIA");
-                
+                GetComponent<Renderer>().material = Fix1;
+
             }
             else if (repairCount == 2)
             {
@@ -67,10 +73,12 @@ public class ShipRepairs : MonoBehaviour
                 NPCLuLu.SetActive(false);
                 NPCRaLu.SetActive(false);
                 objective.GetObjective("RAMI");
+                GetComponent<Renderer>().material = Fix2;
             }
             else if (repairCount == 3)
             {
                 objective.GetObjective("ZORB");
+                GetComponent<Renderer>().material = Fix3;
             }
             dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
