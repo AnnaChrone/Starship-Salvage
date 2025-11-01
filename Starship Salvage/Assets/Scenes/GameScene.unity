@@ -18726,6 +18726,9 @@ MonoBehaviour:
   Nextday: {fileID: 654588031}
   TEMP: {fileID: 1517815065}
   objective: {fileID: 1517862162}
+  Fix1: {fileID: 2100000, guid: 17fea31aa7f590b4bb195f91eaa7aca4, type: 2}
+  Fix2: {fileID: 2100000, guid: 2c57d100f8eaacd498ca628d03ea2a8b, type: 2}
+  Fix3: {fileID: 2100000, guid: 78033aa45b245f5428a2e0d3acc4cd7b, type: 2}
   NPCZorb: {fileID: 1487406188}
   NPCChoo: {fileID: 750023843}
   NPCRakoo: {fileID: 520267401}

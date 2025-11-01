@@ -61,6 +61,10 @@ public class ShipRepairs : MonoBehaviour
                 NPCRakoo.SetActive(false);
                 objective.GetObjective("ZINNIA");
                 GetComponent<Renderer>().material = Fix1;
+                
+
+
+
 
             }
             else if (repairCount == 2)
@@ -79,6 +83,9 @@ public class ShipRepairs : MonoBehaviour
             {
                 objective.GetObjective("ZORB");
                 GetComponent<Renderer>().material = Fix3;
+                transform.SetPositionAndRotation(new Vector3(-176f, -8.75f, 68.99f), Quaternion.Euler(88.362f, -45.45f, -86.512f));
+
+
             }
             dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
