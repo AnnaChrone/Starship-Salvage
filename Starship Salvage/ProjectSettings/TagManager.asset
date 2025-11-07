@@ -10,6 +10,8 @@ TagManager:
   - MinLu
   - LuLu
   - CoLu
+  - Door
+  - Table
   layers:
   - Default
   - TransparentFX

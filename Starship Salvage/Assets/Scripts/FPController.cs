@@ -128,6 +128,10 @@ public class FPController : MonoBehaviour
     public GameObject TableGameobject;
     public GameObject Minigame;
 
+    [Header("Cook Minigame")]
+    public GameObject CookMiniGame;
+    public Table Door;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -735,6 +739,30 @@ public class FPController : MonoBehaviour
             else
             {
                 TableGameobject.SetActive(false);
+
+            }
+        }
+    }
+
+    private bool Cook = false;
+    public void OnCook(InputAction.CallbackContext context)
+    {
+        if (Freeze) return;
+        if (!context.performed) return;
+
+
+        if (Door.RangeTable)
+        {
+            Cook = !Cook;
+            if (Bouquet)
+            {
+                CookMiniGame.SetActive(true);
+
+
+            }
+            else
+            {
+                CookMiniGame.SetActive(false);
 
             }
         }
