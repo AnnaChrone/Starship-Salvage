@@ -22,7 +22,7 @@ MonoBehaviour:
   - "They like to grow in the craters at the bases of the mountains of Ra Lu, so
     your best bet would be to start looking in each of those\u2026"
   - Good luck!
-  autoProgressLines: 
+  autoProgressLines: 000001000000
   endLines: 000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -36,4 +36,5 @@ MonoBehaviour:
   questInProgressIndex: 4
   questCompletedIndex: 12
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: 4c91d8736eb4c9642bbe5b45b177c8b2, type: 2}

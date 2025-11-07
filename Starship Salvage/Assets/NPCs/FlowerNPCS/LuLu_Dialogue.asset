@@ -23,7 +23,7 @@ MonoBehaviour:
   - 'Here''s the directions: enter the tunnels, turn left, then right, then right
     again, then left, then right!'
   - Don't forget! Left, Right, Right, Left, Right!
-  autoProgressLines: 
+  autoProgressLines: 000001000000
   endLines: 000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -37,4 +37,5 @@ MonoBehaviour:
   questInProgressIndex: 4
   questCompletedIndex: 12
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: 5a95d2740b813cf4b8697ff9fbfadd27, type: 2}

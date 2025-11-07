@@ -21,7 +21,7 @@ MonoBehaviour:
   - Fair enough! I'm not one to question other regions!
   - Well, if you need to find the Drooperia Flower, I'm sure there's a few growing
     in the Min Lu forest just behind the town.
-  autoProgressLines: 
+  autoProgressLines: 000001000000
   endLines: 000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -35,4 +35,5 @@ MonoBehaviour:
   questInProgressIndex: 5
   questCompletedIndex: 12
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: 8d561f53b2f046b4eb7fdcf6f11065f3, type: 2}

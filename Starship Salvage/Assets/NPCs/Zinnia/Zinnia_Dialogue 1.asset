@@ -39,7 +39,7 @@ MonoBehaviour:
   - I know about that busted ship of yours, and maybe you could make use of these
     gears I found!
   - All the best getting back home :)
-  autoProgressLines: 
+  autoProgressLines: 0101000100000000000000000000000000
   endLines: 0000000000000000010001000100000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -65,4 +65,5 @@ MonoBehaviour:
   questInProgressIndex: 9
   questCompletedIndex: 13
   FlowerTableindex: 11
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: af6e8db5d87342941873032a351bd7cb, type: 2}

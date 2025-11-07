@@ -45191,6 +45191,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bafcf51dc1586154a92d7bbadd1ed5b7, type: 3}
   - {fileID: 21300000, guid: 6f6015fdd86a79a43b2903000ced5737, type: 3}
   - {fileID: 21300000, guid: 60af1850f50a169418c9d27702bbcdfd, type: 3}
+  - {fileID: 21300000, guid: d075338770533f547b0322ecb4cbe1eb, type: 3}
   - {fileID: 21300000, guid: a212121026f35934a81d3535d5b2e55b, type: 3}
   slideDuration: 2
   fadeDuration: 1.5
@@ -45198,6 +45199,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e979bbb3e2a7624084b81fd029057c2, type: 3}
   - {fileID: 8300000, guid: 63dfc86253daf2941a320f800b86f600, type: 3}
   - {fileID: 8300000, guid: 2a487a1ac3889254fa3a526cac2b49c3, type: 3}
+  - {fileID: 8300000, guid: 1fa47febe05bc60448b674fafec06aa3, type: 3}
   - {fileID: 8300000, guid: 9ac1a9fde71035c4ea16046adf01a6c2, type: 3}
   CutsceneAudio: {fileID: 841795934}
   Rumbling: {fileID: 201023917}

@@ -34,7 +34,7 @@ MonoBehaviour:
   - 'I found this whilst looking for something to repair the Signal Tower you broke,
     but i guess it could work to fix your ship too... '
   - Can I help you? Go do what i asked!
-  autoProgressLines: 
+  autoProgressLines: 00000000000100000000000000000000
   endLines: 00000000000000000000000100000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

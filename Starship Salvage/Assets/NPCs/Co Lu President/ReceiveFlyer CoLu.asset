@@ -50,7 +50,7 @@ MonoBehaviour:
   - Just find the glowing purple marsh crater in the middle of Co Lu.
   - 'Then go down to the bottom, where the Sizear fruit naturally grows! '
   - Good luck, and I hope to see you at the festival.
-  autoProgressLines: 
+  autoProgressLines: 01000000000001000000000000000000000000000000000000
   endLines: 00000000000000000000000000000000010000000000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -70,4 +70,5 @@ MonoBehaviour:
   questInProgressIndex: 0
   questCompletedIndex: 1
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: dc8cadc78ce3fb2438e260bbe27592eb, type: 2}
