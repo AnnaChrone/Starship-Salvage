@@ -27,6 +27,9 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public Hotbar hotbar; //Calls the hotbar
     public GameObject RewardItem;
 
+    [Header("Continue Indicator")]
+    public TextMeshProUGUI continueIndicator; 
+
     [Header("NPC activation on quest give")]
     public GameObject CoLuNPC;
     public GameObject RaLuNPC;
@@ -267,6 +270,12 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     public void NextLine()
     {
+        // Hide continue indicator as player progresses
+        if (continueIndicator != null)
+        {
+            continueIndicator.gameObject.SetActive(false);
+        }
+
         SyncQuestState();    
 
         if (isTyping)
@@ -320,7 +329,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
 
         isTyping = false;
+        // Show continue indicator if auto-progress is not enabled
+        if (continueIndicator != null)
+        {
+            if (dialogueData.autoProgressLines.Length <= dialogueIndex || !dialogueData.autoProgressLines[dialogueIndex])
+            {
+                continueIndicator.gameObject.SetActive(true);
+            }
+        }
 
+        // Auto-progress line if enabled
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
