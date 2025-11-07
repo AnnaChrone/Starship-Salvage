@@ -74337,6 +74337,10 @@ PrefabInstance:
       propertyPath: DropAudio
       value: 
       objectReference: {fileID: 2067496995}
+    - target: {fileID: 7999286813890629890, guid: b4388a5a9d43f3e49829df1a9eaa3d26, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8246399718339767305, guid: b4388a5a9d43f3e49829df1a9eaa3d26, type: 3}
       propertyPath: m_Name
       value: Ra Lu Flyer
