@@ -35,6 +35,14 @@ public class ShipRepairs : MonoBehaviour
     public GameObject NPCCook;
     public GameObject NPCChef;
 
+    [Header("Festival Scene")]
+    public GameObject Boxes;
+    public GameObject Flags;
+    public GameObject Pot;
+    public GameObject Tables;
+    public GameObject Flowers;
+    public GameObject Friends;
+
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1f;
     public float HoldDuration = 3f;
@@ -61,6 +69,7 @@ public class ShipRepairs : MonoBehaviour
                 NPCRakoo.SetActive(false);
                 objective.GetObjective("ZINNIA");
                 GetComponent<Renderer>().material = Fix1;
+                Boxes.SetActive(true);
                 
 
 
@@ -78,14 +87,18 @@ public class ShipRepairs : MonoBehaviour
                 NPCRaLu.SetActive(false);
                 objective.GetObjective("RAMI");
                 GetComponent<Renderer>().material = Fix2;
+                Flags.SetActive(true);
+                Flowers.SetActive(true);
             }
             else if (repairCount == 3)
             {
                 objective.GetObjective("ZORB");
                 GetComponent<Renderer>().material = Fix3;
                 transform.SetPositionAndRotation(new Vector3(-176f, -8.75f, 68.99f), Quaternion.Euler(88.362f, -45.45f, -86.512f));
-
-
+                Tables.SetActive(true);
+                Pot.SetActive(true);
+                Boxes.SetActive(false);
+                Friends.SetActive(true);
             }
             dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
@@ -104,8 +117,17 @@ public class ShipRepairs : MonoBehaviour
         }
         canvasGroup.alpha = 1f;
         successText.SetText("Repair " + repairCount + "/3 completed");
-        dayCount.SetText("DAY " + (repairCount + 1));
-        bigDay.SetText("DAY " + (repairCount + 1));
+        
+        if (repairCount == 3)
+        {
+            dayCount.SetText("FESTIVAL DAY");
+            bigDay.SetText("FESTIVAL DAY");
+        } else
+        {
+            dayCount.SetText("DAY " + (repairCount + 1));
+            bigDay.SetText("DAY " + (repairCount + 1));
+        }
+
         StartCoroutine(Wait());
     }
 
