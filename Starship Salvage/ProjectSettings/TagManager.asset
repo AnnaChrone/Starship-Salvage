@@ -12,6 +12,10 @@ TagManager:
   - CoLu
   - Door
   - Table
+  - Good
+  - Bad
+  - Basket
+  - KitchenFloor
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 using TMPro;
-using Unity.SharpZipLib.BZip2;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -155,7 +154,7 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Minigame.activeInHierarchy ||
+        if (CookMiniGame.activeInHierarchy || Minigame.activeInHierarchy ||
     RaLuPres.isFrozen ||
     MinLu.isFrozen ||
     LuLuPres.isFrozen ||
@@ -754,7 +753,7 @@ public class FPController : MonoBehaviour
         if (Door.RangeTable)
         {
             Cook = !Cook;
-            if (Bouquet)
+            if (Cook)
             {
                 CookMiniGame.SetActive(true);
 
