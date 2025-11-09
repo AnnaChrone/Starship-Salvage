@@ -130,6 +130,8 @@ public class FPController : MonoBehaviour
     [Header("Cook Minigame")]
     public GameObject CookMiniGame;
     public Table Door;
+    public GameObject Environment;
+    public GameObject HUD;
 
     private void Awake()
     {
@@ -756,14 +758,11 @@ public class FPController : MonoBehaviour
             if (Cook)
             {
                 CookMiniGame.SetActive(true);
-
-
-            }
-            else
-            {
-                CookMiniGame.SetActive(false);
+                Environment.SetActive(false);
+                HUD.SetActive(false);
 
             }
+
         }
     }
 }
