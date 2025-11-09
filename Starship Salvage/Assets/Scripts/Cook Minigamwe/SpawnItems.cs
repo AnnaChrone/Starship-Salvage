@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SpawnItems : MonoBehaviour
@@ -11,8 +12,18 @@ public class SpawnItems : MonoBehaviour
     public int chances = 3;
     public int collected = 0;
     public int WinCount;
+    [Header("Lose Screen")]
     public GameObject GameOverScreen;
+    public TextMeshProUGUI Reason;
+
+    [Header("Win Screen")]
     public GameObject WinScreen;
+    public TextMeshProUGUI Fruits;
+    public TextMeshProUGUI Rocks;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI stats;
+    public GameObject CounterPanel;
+   
 
     [Header("Fall Settings")]
     [Tooltip("Drag applied to Rigidbody to slow the fall (higher = slower).")]
@@ -20,10 +31,30 @@ public class SpawnItems : MonoBehaviour
 
     [Tooltip("Multiplier for gravity. 1 = normal gravity, 0.5 = half as strong, etc.")]
     public float gravityScale = 0.5f;
+
+    public float startTime = 45f; 
+    public float currentTime;
+    public float winTime;
+
+
+
+
+
+
     void Start()
     {
+        CounterPanel.SetActive(true);
+        GameOver = false;
         _timer = timer;
-    }
+        currentTime = startTime;
+        chances = 3;
+        collected = 0;
+        winTime = 0;
+        timerText.text = Mathf.CeilToInt(startTime).ToString();
+        Fruits.text = "Fruits caught: 0/15";
+        Rocks.text = "Lives left: 3/3";
+}
+
 
     void Update()
     {
@@ -34,8 +65,38 @@ public class SpawnItems : MonoBehaviour
         if (_timer <= 0f)
         {
             Spawn();
-            _timer = timer; // reset timer AFTER spawning
+            _timer = timer; // reset timer after spawning
         }
+
+        if (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+            if (currentTime < 0) currentTime = 0;
+        }
+        if (GameOver)
+        {
+            winTime = currentTime;
+        }
+        // Update the UI if assigned
+        if (timerText != null)
+        {
+            timerText.text = Mathf.CeilToInt(currentTime).ToString();
+        }
+
+        if (currentTime <= 0)
+        {
+            TimerEnded();
+        }
+    }
+    void TimerEnded()
+    {
+        // Add whatever should happen when the timer ends
+        if (!GameOver)
+        {
+            GameOver = true;
+            GameOverScreen.SetActive(true);
+        }
+        Debug.Log(" Time’s up!");
     }
 
     void Spawn()
@@ -57,5 +118,23 @@ public class SpawnItems : MonoBehaviour
             }
         }
         
+    }
+
+    public void ResetMinigame()
+    {
+        GameOver = false;
+        currentTime = startTime;
+        _timer = timer;
+        chances = 3;
+        collected = 0;
+        winTime = 0;
+
+        CounterPanel.SetActive(true);
+        GameOverScreen.SetActive(false);
+        WinScreen.SetActive(false);
+        timerText.text = Mathf.CeilToInt(startTime).ToString();
+        Fruits.text = "Fruits caught: 0/" + WinCount;
+        Rocks.text = "Lives left: 3/3";
+        stats.text = "";
     }
 }

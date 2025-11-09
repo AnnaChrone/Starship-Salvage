@@ -130,8 +130,10 @@ public class FPController : MonoBehaviour
     [Header("Cook Minigame")]
     public GameObject CookMiniGame;
     public Table Door;
-    public GameObject Environment;
     public GameObject HUD;
+    public AudioSource RaLuMusic;
+    public AudioSource Cooking;
+    public GameObject MainCamera;
 
     private void Awake()
     {
@@ -758,8 +760,10 @@ public class FPController : MonoBehaviour
             if (Cook)
             {
                 CookMiniGame.SetActive(true);
-                Environment.SetActive(false);
                 HUD.SetActive(false);
+                RaLuMusic.mute = true;
+                Cooking.Play();
+                MainCamera.SetActive(false);
 
             }
 
