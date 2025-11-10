@@ -18,10 +18,12 @@ public class PickUpObject : MonoBehaviour
 
     private Rigidbody rb;
     private bool isHeld = false;
+    private Collider col; 
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>(); // get the collider
     }
 
     public void PickUp(Transform holdPoint)
@@ -29,9 +31,10 @@ public class PickUpObject : MonoBehaviour
         isHeld = true;
         Collect.Play();
         rb.useGravity = false;
-        rb.isKinematic = true; 
-      //  rb.linearVelocity = Vector3.zero;
-      //  rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+
+        // Disable the collider while held
+        col.enabled = false;
 
         transform.SetParent(holdPoint);
         transform.localPosition = Vector3.zero;
@@ -45,6 +48,9 @@ public class PickUpObject : MonoBehaviour
         transform.SetParent(null, true);
         rb.useGravity = true;
         rb.isKinematic = false;
+
+        // Re-enable the collider when dropped
+        col.enabled = true;
     }
 
     public void MoveToHoldPoint(Vector3 targetPosition)

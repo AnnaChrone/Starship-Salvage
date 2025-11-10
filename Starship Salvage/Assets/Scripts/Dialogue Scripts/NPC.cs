@@ -27,6 +27,9 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public Hotbar hotbar; //Calls the hotbar
     public GameObject RewardItem;
 
+    [Header("Continue Indicator")]
+    public TextMeshProUGUI continueIndicator; 
+
     [Header("NPC activation on quest give")]
     public GameObject CoLuNPC;
     public GameObject RaLuNPC;
@@ -44,14 +47,23 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool Zorb;
     public bool Zinnia;
     public bool Rami;
+    public bool festivalZorb;
+    public bool HeadingHome;
+
+    
 
     public bool QuestFinished;
     public bool FinishedNPC = false;
     public bool FirstTime = true;
     public bool Denied = false;
 
-    [Header("Exclamations")]
+    [Header("Exclamations and Objective")]
     public GameObject Exclamation;
+    public Objectives Objective;
+    public GameObject FinalCutscene;
+    public GameObject HUD;
+    public GameObject Player;
+    public GameObject End;
 
     [Header("NPC Presidents")]
     public NPC CoLu;
@@ -70,17 +82,22 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     {
         dialogueControl = DialogueController.Instance; //Create an instance
     }
-
+    private bool SetZin = false;
+    private bool SetZorb = false;
     public void Update()
     {
-        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
+        if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished) && !SetZorb)
         {
             Exclamation.SetActive(true);
+            Objective.GetObjective("DELIVERED");
+            SetZorb = true;
         }
         
-        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
+        if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower && !SetZin)
         {
             Exclamation.SetActive(true);
+            Objective.GetObjective("FOUND");
+            SetZin = true;
         }
             
     }
@@ -102,7 +119,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
 
         if (FinishedNPC)
@@ -137,11 +154,11 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         {
             if (Zinnia && RaLuFlower && MinLuFlower && CoLuFlower && LuLuFlower)
             {
-               
                 dialogueIndex = dialogueData.FlowerTableindex;
                 if (FlowerTable != null)
                 {
                     FlowerTable.SetActive(true);
+                    Objective.GetObjective("ARRANGE");
                 }
             }
             else
@@ -153,6 +170,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
+            
             RewardItem.SetActive(true); //drops reward item for player
             
         }
@@ -197,18 +215,47 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                     hotbar.RemoveItemAt(slotIndex);
                     questState = QuestState.Completed;
                     QuestFinished = true;
+                    if (Zinnia)
+                    {
+                        Objective.GetObjective("GEARS");
+                    }
+                    if (Rami)
+                    {
+                        Objective.GetObjective("METAL");
+
+                    }
                     QuestController.Instance.CompleteQuest(questID);
+                    if (!Rami && !Zorb && !Zinnia)
+                    {
+                        Objective.GetObjective("FLYER");
+                    }
                     Debug.Log($"{name}: Quest completed during interaction.");
                 }
                 else
                 {
                     questState = QuestState.InProgress;
                     Debug.Log($"{name}: Quest in progress.");
+                    if (Zorb)
+                    {
+                        Objective.GetObjective("FLYER");
+                    } 
+                    if (Zinnia)
+                    {
+                        Objective.GetObjective("FLOWER");
+
+                    }
+
+                    if (Rami)
+                    {
+                        Objective.GetObjective("COOK");
+
+                    }
                 }
             }
             else if (Zorb && (CoLu.QuestFinished) && (RaLu.QuestFinished) && (LuLu.QuestFinished))
             {
                 questState = QuestState.Completed;
+                Objective.GetObjective("SPANNER");
                 QuestFinished = true;
                 QuestController.Instance.CompleteQuest(questID);
                 Debug.Log($"{name}: Zorb’s quest completed.");
@@ -230,6 +277,12 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
 
     public void NextLine()
     {
+        // Hide continue indicator as player progresses
+        if (continueIndicator != null)
+        {
+            continueIndicator.gameObject.SetActive(false);
+        }
+
         SyncQuestState();    
 
         if (isTyping)
@@ -258,11 +311,15 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                 return;
             }
         }
-
+         if (festivalZorb && dialogueIndex == 7)
+        {
+            HeadingHome = true;
+        }
 
         if (++dialogueIndex < dialogueData.Lines.Length)
         {
             DisplayCurrentLine();
+            
         }
         else
         {
@@ -283,7 +340,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         }
 
         isTyping = false;
+        // Show continue indicator if auto-progress is not enabled
+        if (continueIndicator != null)
+        {
+            if (dialogueData.autoProgressLines.Length <= dialogueIndex || !dialogueData.autoProgressLines[dialogueIndex])
+            {
+                continueIndicator.gameObject.SetActive(true);
+            }
+        }
 
+        // Auto-progress line if enabled
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
@@ -326,6 +392,8 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         StopAllCoroutines();
         hasTalked = true;
 
+
+
         if (MinLuNPC != null)
         {
             MinLuNPC.SetActive(true);
@@ -356,7 +424,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
         isFrozen = false;
-    
+
+        if (festivalZorb && HeadingHome)
+        {
+            //play heading home scene
+            Debug.Log("Heading Home!");
+            FinalCutscene.SetActive(true);
+            HUD.SetActive(false);
+            isFrozen = true;
+
+        }
     }
 
     private int lastClipIndex = -1; 

@@ -12,7 +12,13 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text dayCount;
     public TMP_Text bigDay;
     public AudioSource Nextday;
-    public GameObject TEMP;
+   
+    public Objectives objective;
+
+    [Header("Ship Fix Materials")]
+    public Material Fix1;
+    public Material Fix2;
+    public Material Fix3;
 
     [Header("NPCs Day 1")]
     public GameObject NPCZorb;
@@ -28,6 +34,14 @@ public class ShipRepairs : MonoBehaviour
     [Header("NPCs Day 3")]
     public GameObject NPCCook;
     public GameObject NPCChef;
+
+    [Header("Festival Scene")]
+    public GameObject Boxes;
+    public GameObject Flags;
+    public GameObject Pot;
+    public GameObject Tables;
+    public GameObject Flowers;
+    public GameObject FestivalNPCs;
 
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1f;
@@ -53,7 +67,14 @@ public class ShipRepairs : MonoBehaviour
                 NPCChoo.SetActive(false);
                 NPCLucoo.SetActive(false);
                 NPCRakoo.SetActive(false);
+                objective.GetObjective("ZINNIA");
+                GetComponent<Renderer>().material = Fix1;
+                Boxes.SetActive(true);
                 
+
+
+
+
             }
             else if (repairCount == 2)
             {
@@ -64,8 +85,22 @@ public class ShipRepairs : MonoBehaviour
                 NPCCoLu.SetActive(false);
                 NPCLuLu.SetActive(false);
                 NPCRaLu.SetActive(false);
-            } 
-                dayCount.SetText("DAY " + (repairCount + 1));
+                objective.GetObjective("RAMI");
+                GetComponent<Renderer>().material = Fix2;
+                Flags.SetActive(true);
+                Flowers.SetActive(true);
+            }
+            else if (repairCount == 3)
+            {
+                objective.GetObjective("ZORB");
+                GetComponent<Renderer>().material = Fix3;
+                transform.SetPositionAndRotation(new Vector3(-176f, -8.75f, 68.99f), Quaternion.Euler(88.362f, -45.45f, -86.512f));
+                Tables.SetActive(true);
+                Pot.SetActive(true);
+                Boxes.SetActive(false);
+                FestivalNPCs.SetActive(true);
+            }
+            dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
 
         }
@@ -82,8 +117,17 @@ public class ShipRepairs : MonoBehaviour
         }
         canvasGroup.alpha = 1f;
         successText.SetText("Repair " + repairCount + "/3 completed");
-        dayCount.SetText("DAY " + (repairCount + 1));
-        bigDay.SetText("DAY " + (repairCount + 1));
+        
+        if (repairCount == 3)
+        {
+            dayCount.SetText("FESTIVAL DAY");
+            bigDay.SetText("FESTIVAL DAY");
+        } else
+        {
+            dayCount.SetText("DAY " + (repairCount + 1));
+            bigDay.SetText("DAY " + (repairCount + 1));
+        }
+
         StartCoroutine(Wait());
     }
 

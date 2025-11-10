@@ -21,7 +21,7 @@ MonoBehaviour:
   - Just look for the Co Lu greenhouse on stilts and you'll find a Loopulent in there!
   - ' I hope you''ve either found the Sizear or Aprella Fruits in order to reach
     the front door!'
-  autoProgressLines: 
+  autoProgressLines: 0001000000
   endLines: 0000000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
@@ -35,4 +35,5 @@ MonoBehaviour:
   questInProgressIndex: 3
   questCompletedIndex: 10
   FlowerTableindex: 0
+  RetryRamiindex: 0
   quests: {fileID: 11400000, guid: 143c8bfe9cce1ae47884f9dd96eba572, type: 2}

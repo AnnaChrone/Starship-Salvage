@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f8a7b30cf713245bff1621424d00e4, type: 3}
+  m_Name: Zorb_Festival
+  m_EditorClassIdentifier: 
+  npcName: Zorb
+  Lines:
+  - Hey, kid! I see that ship is all fixed up
+  - 'Looks great! '
+  - What?! Leaving already? Cmon, atleast come chat to the folks at the festival
+    for a bit!
+  - I hate to say it, but you've really made an impact on our little planet!
+  - Go enjoy the festival. When you're ready to head home, come chat to me
+  - You ready to head home, kid?
+  - I can't blame you! The festival is amazing this year. Come chat to me when you're
+    ready to go!
+  - Alrighty then. I must say, I'm gonna miss you and that darn ship of yours!
+  - Even if I still have to fix the communication pole now...
+  - Cmon then kid, lets get you home.
+  autoProgressLines: 00010000000100000000
+  endLines: 00000000010001000001
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  Choices:
+  - dialogueIndex: 1
+    Choices:
+    - I SHOULD GET GOING
+    - ALL READY FOR DEPARTURE
+    nextDialogueIndexes: 0200000002000000
+    givesQuest: 0101
+  - dialogueIndex: 5
+    Choices:
+    - NOT QUITE YET...
+    - I AM
+    nextDialogueIndexes: 0600000007000000
+    givesQuest: 0000
+  questInProgressIndex: 5
+  questCompletedIndex: 0
+  FlowerTableindex: 0
+  RetryRamiindex: 0
+  quests: {fileID: 11400000, guid: b6c1947265352fb47860ae07648d0232, type: 2}

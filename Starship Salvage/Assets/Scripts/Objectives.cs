@@ -74,38 +74,57 @@ public class Objectives : MonoBehaviour
             FlyerCoLu = Inventory.hasItem("3");
             FlyerRaLu = Inventory.hasItem("2");
             FlyerLuLu = Inventory.hasItem("4");
+            bool hasflyer = false;
 
             if (FlyerCoLu && FlyerRaLu && FlyerLuLu)
             {
                 Map.sprite = FlyCoLuRaLuLuLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (0/3)";
-            } else if (FlyerCoLu && FlyerRaLu)
+                hasflyer = true;
+            } 
+            if (FlyerCoLu && FlyerRaLu && !FlyerLuLu)
             {
                 Map.sprite = FlyCoLuRaLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (1/3)";
-            } else if (FlyerCoLu && FlyerLuLu)
+                hasflyer = true;
+
+            }
+             if (FlyerCoLu && FlyerLuLu && !FlyerRaLu)
             {
                 Map.sprite = FlyCoLuLuLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (1/3)";
-            } else if (FlyerLuLu && FlyerRaLu)
+                hasflyer = true;
+
+            }
+             if (FlyerLuLu && FlyerRaLu && !FlyerCoLu)
             {
                 Map.sprite = FlyLuLuRaLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (1/3)";
+                hasflyer = true;
+
             }
-            else if (FlyerCoLu)
+             if (FlyerCoLu && !FlyerRaLu && !FlyerLuLu)
             {
                 Map.sprite = FlyCoLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (2/3)";
+                hasflyer = true;
+
             }
-            else if (FlyerRaLu)
+            if (FlyerRaLu && !FlyerCoLu && !FlyerLuLu )
             {
                 Map.sprite = FlyRaLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (2/3)";
-            } else if (FlyerLuLu)
+                hasflyer = true;
+
+            }
+           if (FlyerLuLu && !FlyerRaLu && !FlyerCoLu)
             {
                 Map.sprite = FlyLuLu;
                 ObjectiveBox.text = "Deliver Festival Flyers (2/3)";
-            } else
+                hasflyer = true;
+
+            }
+             if (!hasflyer)
             {
                 GetObjective("DELIVERED");
             }
@@ -141,90 +160,122 @@ public class Objectives : MonoBehaviour
             // Collect Flowers(0 / 4) -trigger through zinnia quest in action, cross off as flowers appear in inventory - FLOWER
             ObjectiveBox.text = "Collect Region Flowers (0/4)";
             //update map
-            FlowerCoLu = Inventory.hasItem("3");
-            FlowerRaLu = Inventory.hasItem("2");
-            FlowerLuLu = Inventory.hasItem("4");
-            FlowerMinLu = Inventory.hasItem("5");
+            FlowerCoLu = Inventory.hasItem("CLF");
+            FlowerRaLu = Inventory.hasItem("RLF");
+            FlowerLuLu = Inventory.hasItem("LLF");
+            FlowerMinLu = Inventory.hasItem("MLF");
+            bool hasFlower = false;
 
             if (FlowerCoLu && FlowerMinLu && FlowerRaLu && FlowerLuLu)
             {
                 GetObjective("FOUND");
+                hasFlower = true;
             }
-            else if (FlowerMinLu && FlowerRaLu && FlowerLuLu)
+            if (FlowerMinLu && FlowerRaLu && FlowerLuLu && !FlowerCoLu)
             {
                 Map.sprite = CoLu;
                 ObjectiveBox.text = "Find Region Flowers (3/4)";
+                hasFlower = true;
+
+
             }
-            else if (FlowerCoLu && FlowerRaLu && FlowerLuLu)
+            if (FlowerCoLu && FlowerRaLu && FlowerLuLu && !FlowerMinLu)
             {
                 Map.sprite = MinLu;
                 ObjectiveBox.text = "Find Region Flowers (3/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu && FlowerMinLu && FlowerLuLu)
+            if (FlowerCoLu && FlowerMinLu && FlowerLuLu && !FlowerRaLu)
             {
                 Map.sprite = RaLu;
                 ObjectiveBox.text = "Find Region Flowers (3/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu && FlowerMinLu && FlowerRaLu)
+            if (FlowerCoLu && FlowerMinLu && FlowerRaLu && !FlowerLuLu)
             {
                 Map.sprite = LuLu;
                 ObjectiveBox.text = "Find Region Flowers (3/4)";
+                hasFlower = true;
+
             }
-            else if ( FlowerRaLu && FlowerLuLu)
+            if ( FlowerRaLu && FlowerLuLu && !FlowerMinLu && !FlowerCoLu)
             {
                 Map.sprite = CoLuMinLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerMinLu && FlowerRaLu)
+            if (FlowerMinLu && FlowerRaLu && !FlowerCoLu && !FlowerLuLu)
             {
                 Map.sprite = CoLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu && FlowerMinLu)
+            if (FlowerCoLu && FlowerMinLu && !FlowerLuLu && !FlowerRaLu)
             {
                 Map.sprite = RaLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerMinLu &&FlowerLuLu)
+            if (FlowerMinLu &&FlowerLuLu && !FlowerCoLu && !FlowerRaLu)
             {
                 Map.sprite = CoLuRaLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu && FlowerRaLu)
+            if (FlowerCoLu && FlowerRaLu && !FlowerLuLu && !FlowerMinLu)
             {
                 Map.sprite = MinLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu && FlowerLuLu)
+            if (FlowerCoLu && FlowerLuLu &&!FlowerMinLu && !FlowerRaLu)
             {
                 Map.sprite = MinLuRaLu;
                 ObjectiveBox.text = "Find Region Flowers (2/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerCoLu)
+            if (FlowerCoLu && !FlowerMinLu && !FlowerRaLu && !FlowerLuLu)
             {
                 Map.sprite = MinLuRaLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (1/4)";
+                hasFlower = true;
+
             }
-             else if (FlowerMinLu)
+            if (FlowerMinLu && !FlowerCoLu && !FlowerRaLu && !FlowerLuLu)
             {
                 Map.sprite = CoLuRaLuLuLu;
 
                 ObjectiveBox.text = "Find Region Flowers (1/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerRaLu)
+            if (FlowerRaLu &&!FlowerCoLu && !FlowerMinLu && !FlowerLuLu)
             {
                 Map.sprite = CoLuMinLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (1/4)";
+                hasFlower = true;
+
             }
-            else if (FlowerLuLu)
+            if (FlowerLuLu && !FlowerCoLu && !FlowerRaLu && !FlowerMinLu)
             {
                 Map.sprite = CoLuRaLuMinLu;
 
                 ObjectiveBox.text = "Find Region Flowers (1/4)";
+                hasFlower = true;
+
             }
-            else
+            
+            if (!hasFlower)
             {
-                Map.sprite = FlyCoLuRaLu;
+                Map.sprite = CoLuMinLuRaLuLuLu;
                 ObjectiveBox.text = "Find Region Flowers (0/4)";
             }
      

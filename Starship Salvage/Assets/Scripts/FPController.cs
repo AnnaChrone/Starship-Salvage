@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 using TMPro;
-using Unity.SharpZipLib.BZip2;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,6 +30,13 @@ public class FPController : MonoBehaviour
     public NPC LuLu;
     public NPC MinLu;
     public NPC Rami;
+    public NPC FRami;
+    public NPC FZorb;
+    public NPC FZinnia;
+    public NPC FCL;
+    public NPC fLL;
+    public NPC FRL;
+    public CutSceneController cutscene;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -56,6 +62,7 @@ public class FPController : MonoBehaviour
     public float pickupRange = 3f;
     public Transform holdPoint;
     private PickUpObject heldObject;
+    public Objectives objective;
 
     [Header("Inventory")]
     public Hotbar hotbarSelector;
@@ -96,6 +103,7 @@ public class FPController : MonoBehaviour
 
     [Header("Footsteps")]
     public AudioSource Footsteps;
+    public AudioSource BridgeFootsteps;
 
 
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -125,6 +133,14 @@ public class FPController : MonoBehaviour
     public GameObject TableGameobject;
     public GameObject Minigame;
 
+    [Header("Cook Minigame")]
+    public GameObject CookMiniGame;
+    public Table Door;
+    public GameObject HUD;
+    public AudioSource RaLuMusic;
+    public AudioSource Cooking;
+    public GameObject MainCamera;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -148,7 +164,14 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Minigame.activeInHierarchy ||
+        if (CookMiniGame.activeInHierarchy || 
+            Minigame.activeInHierarchy ||
+            FRami.isFrozen ||
+            FZinnia.isFrozen ||
+            FZorb.isFrozen ||
+            FCL.isFrozen ||
+            fLL.isFrozen ||
+            FRL.isFrozen ||
     RaLuPres.isFrozen ||
     MinLu.isFrozen ||
     LuLuPres.isFrozen ||
@@ -159,6 +182,7 @@ public class FPController : MonoBehaviour
     LuLu.isFrozen ||
     RaLu.isFrozen ||
     Rami.isFrozen || 
+    cutscene.Intro ||
     isPaused)
         {
             Freeze = true;
@@ -172,7 +196,9 @@ public class FPController : MonoBehaviour
         {
             // Unlock and show cursor
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (!cutscene.Intro)
+            { Cursor.visible = true; }
+            
 
             // Immediately stop player motion
             moveInput = Vector2.zero;
@@ -278,18 +304,27 @@ public class FPController : MonoBehaviour
         if (grown)
         {
             controller.Move(move * growSpeed * Time.deltaTime);
-
-        } else
+        }
+        else
         {
             controller.Move(move * moveSpeed * Time.deltaTime);
         }
-
 
         bool isGrounded = IsGrounded();
 
         if (!wasGrounded && isGrounded)
             OnLand();
         wasGrounded = isGrounded;
+
+        // Detect if player is standing on Bridge layer
+        bool isOnBridge = false;
+        if (Physics.Raycast(feet.position, Vector3.down, out RaycastHit hit, groundCheckDistance + 0.3f, groundMask))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bridge"))
+            {
+                isOnBridge = true;
+            }
+        }
 
         // Gravity
         if (isGrounded && velocity.y < 0)
@@ -298,29 +333,58 @@ public class FPController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        
-        bool isMoving = moveInput.magnitude > 0.1f;  // player is pressing WASD/analog stick
+        bool isMoving = moveInput.magnitude > 0.1f;
 
-       
+        // Footstep sound handling
         if (controller.isGrounded && isMoving && velocity.y <= 0)
         {
-            if (!Footsteps.isPlaying)
+            if (isOnBridge)
             {
-                Footsteps.loop = true;
-                Footsteps.Play();
+                if (!BridgeFootsteps.isPlaying)
+                {
+                    BridgeFootsteps.loop = true;
+                    BridgeFootsteps.Play();
+                }
+                if (Footsteps.isPlaying)
+                    Footsteps.Stop();
             }
+            else
+            {
+                if (!Footsteps.isPlaying)
+                {
+                    Footsteps.loop = true;
+                    Footsteps.Play();
+                }
+                if (BridgeFootsteps.isPlaying)
+                    BridgeFootsteps.Stop();
+            }
+
+            // Adjust pitch if running
             Footsteps.pitch = moveSpeed > originalMoveSpeed ? 1.5f : 1f;
+            BridgeFootsteps.pitch = moveSpeed > originalMoveSpeed ? 1.5f : 1f;
         }
         else
         {
-            if (Footsteps.isPlaying)
-            {
-                Footsteps.Stop();
-            }
+            if (Footsteps.isPlaying) Footsteps.Stop();
+            if (BridgeFootsteps.isPlaying) BridgeFootsteps.Stop();
         }
-
     }
 
+
+    private bool isOnBridge = false; // track current surface
+
+    private bool CheckIfOnBridge()
+    {
+        if (Physics.Raycast(feet.position, Vector3.down, out RaycastHit hit, groundCheckDistance + 0.3f, groundMask))
+        {
+            // Compare layer name
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Bridge"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void OnRun(InputAction.CallbackContext context)
     {
         if (Freeze) return;
@@ -397,6 +461,7 @@ public class FPController : MonoBehaviour
                     return;
                 }
 
+                
                 // Create a new instance for the player to hold
                 GameObject newItem = Instantiate(pickUp.itemPrefab);
                 PickUpObject newPickUpScript = newItem.GetComponent<PickUpObject>();
@@ -412,6 +477,16 @@ public class FPController : MonoBehaviour
                 // Update hotbar selection
                 hotbarSelector.CurrentIndex = freeSlot;
                 hotbarSelector.UpdateSelection();
+
+                if (hotbarSelector.hasItem("2") ||  hotbarSelector.hasItem("3") || hotbarSelector.hasItem("4"))
+                {
+                    objective.GetObjective("FLYER");
+                }
+
+                if (hotbarSelector.hasItem("MLF") || hotbarSelector.hasItem("RLF") || hotbarSelector.hasItem("CLF") || hotbarSelector.hasItem("LLF"))
+                {
+                    objective.GetObjective("FLOWER");
+                }
             }
         }
     }
@@ -682,6 +757,29 @@ public class FPController : MonoBehaviour
                 TableGameobject.SetActive(false);
 
             }
+        }
+    }
+
+    private bool Cook = false;
+    public void OnCook(InputAction.CallbackContext context)
+    {
+        if (Freeze) return;
+        if (!context.performed) return;
+
+
+        if (Door.RangeTable)
+        {
+            Cook = !Cook;
+            if (Cook)
+            {
+                CookMiniGame.SetActive(true);
+                HUD.SetActive(false);
+                RaLuMusic.mute = true;
+                Cooking.Play();
+                MainCamera.SetActive(false);
+
+            }
+
         }
     }
 }

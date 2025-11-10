@@ -7,6 +7,7 @@ public class MakeBouquet : MonoBehaviour
     public GameObject DisableTable;
     public Hotbar inventory;
     public GameObject ZinniaExclamation;
+    public Objectives objective;
     public void OnMakeBouquet()
     {
         BouquetItem.SetActive(true);
@@ -18,7 +19,7 @@ public class MakeBouquet : MonoBehaviour
         inventory.RemoveItemByID("CLF");
         inventory.RemoveItemByID("LLF");
         inventory.RemoveItemByID("RLF");
-
+        objective.GetObjective("BOUQUET");
 
     }
 }

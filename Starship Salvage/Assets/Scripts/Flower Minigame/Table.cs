@@ -9,8 +9,16 @@ public class Table : MonoBehaviour
     {
         //press B
         RangeTable = true;
-        PressText.text = "Press [B]";
-        Debug.Log("In range of B");
+        if (gameObject.tag == "Table")
+        {
+            PressText.text = "Press [B]";
+            Debug.Log("In range of B");
+        } else if (gameObject.tag == "Door")
+        {
+            PressText.text = "Press [F]";
+            Debug.Log("In range of F");
+        }
+
     }
 
     private void OnTriggerExit(Collider collide)

@@ -22,22 +22,23 @@ MonoBehaviour:
     you are the chef! I bet youre from Co Lu\u2026"
   - HEY, YOU! How would you like to be a chef for the festival?
   - "You can\u2019t do any worse than this imbecile I had before."
-  - "Tell you what, if you do well, I\u2019ll give you this shiny thruster we\u2019ve
-    been saving for XXX."
+  - "Tell you what, if you do well, I\u2019ll give you this sheet metal we\u2019ve
+    got lying around."
   - So what do you say?
   - "Yes? See, replaced in three seconds! You start in five minutes, kid. We\u2019re
     on a tight schedule."
-  - Just head inside the Bistro and I'll show you the ropes
+  - Just head inside the Bistro, and go to the kitchen door behind the counter!
   - No? Whatever. I'm sure you would have sucked as a chef anyway.
   - Come back here when you change your mind!
   - What'd I tell you? head inside the bistro!
   - Ah you're back. You ready to cook?
-  - Excellent! Just head inside the Bistro and I'll show you the ropes
+  - Excellent! Just head inside the Bistro, and go to the kitchen door behind the
+    counter!
   - This is... DELICIOUS!! Wow, kid you really know how to make a mean stew!
   - This is going to be such a hit at the festival!
   - As promised, heres that repair part I told you about.
   - And hey, if you ever need a part time job as a chef, you know where to find me!
-  autoProgressLines: 
+  autoProgressLines: 00000000000000010000000000010000000000
   endLines: 00000000000000000001000101000100000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05
