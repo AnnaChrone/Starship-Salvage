@@ -13,6 +13,7 @@ public class CookButtons: MonoBehaviour
     public GameObject Camera;
     public SpawnItems Reset;
     public GameObject Spoon;
+    public Objectives objective;
     public void startCooking()
     {
         Instructions.SetActive(false);
@@ -26,6 +27,7 @@ public class CookButtons: MonoBehaviour
         Camera.SetActive(true);
         HUD.SetActive(true);
         Spoon.SetActive(true);
+        objective.GetObjective("TASTE");
 
     }
 
