@@ -5,7 +5,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
-using UnityEngine.WSA;
 using UnityEngine.XR;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
