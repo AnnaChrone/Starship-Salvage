@@ -61,6 +61,9 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public GameObject Exclamation;
     public Objectives Objective;
     public GameObject FinalCutscene;
+    public GameObject HUD;
+    public GameObject Player;
+    public GameObject End;
 
     [Header("NPC Presidents")]
     public NPC CoLu;
@@ -389,12 +392,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         StopAllCoroutines();
         hasTalked = true;
 
-        if (festivalZorb && HeadingHome)
-        {
-            //play heading home scene
-            Debug.Log("Heading Home!");
-            FinalCutscene.SetActive(true);
-        }
+
 
         if (MinLuNPC != null)
         {
@@ -426,7 +424,16 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         dialogueControl.SetDialogue("");
         dialogueControl.ShowDialoguePanel(false);
         isFrozen = false;
-    
+
+        if (festivalZorb && HeadingHome)
+        {
+            //play heading home scene
+            Debug.Log("Heading Home!");
+            FinalCutscene.SetActive(true);
+            HUD.SetActive(false);
+            isFrozen = true;
+
+        }
     }
 
     private int lastClipIndex = -1; 

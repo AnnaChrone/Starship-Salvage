@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class CutSceneController : MonoBehaviour
 
     [Header("UI Reference")]
     public Image Cutscene; // UI Image displaying the sprites
+    public GameObject End;
 
     [Header("State setting")]
     public GameObject MinLuCollider;
@@ -62,7 +64,11 @@ public class CutSceneController : MonoBehaviour
 
         Intro = false;
         MinLuCollider.SetActive(true);
-        Zorb.StartDialogue();
+        if (!Final)
+        {
+            Zorb.StartDialogue();
+        }
+
     }
 
     private IEnumerator FadeIn()
@@ -108,6 +114,10 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
+        if (Final)
+        {
+            End.SetActive(true);
+        }
         float elapsed = 0f;
         Color originalColor = Cutscene.color;
         float originalVolume = CutsceneAudio.volume;
@@ -136,5 +146,6 @@ public class CutSceneController : MonoBehaviour
         Cutscene.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
         CutsceneAudio.volume = originalVolume; // reset volume so next time plays normally
         CutsceneAudio.Stop();
+
     }
 }
