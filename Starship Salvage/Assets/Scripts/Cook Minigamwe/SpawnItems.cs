@@ -73,10 +73,7 @@ public class SpawnItems : MonoBehaviour
             currentTime -= Time.deltaTime;
             if (currentTime < 0) currentTime = 0;
         }
-        if (GameOver)
-        {
-            winTime = currentTime;
-        }
+
         // Update the UI if assigned
         if (timerText != null)
         {
