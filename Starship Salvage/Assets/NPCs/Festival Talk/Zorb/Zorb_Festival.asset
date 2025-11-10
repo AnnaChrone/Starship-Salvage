@@ -26,7 +26,7 @@ MonoBehaviour:
   - Alrighty then. I must say, I'm gonna miss you and that darn ship of yours!
   - Even if I still have to fix the communication pole now...
   - Cmon then kid, lets get you home.
-  autoProgressLines: 00010000000100000000
+  autoProgressLines: 00010000000100000001
   endLines: 00000000010001000001
   autoProgressDelay: 1.5
   typingSpeed: 0.05

@@ -42,6 +42,8 @@ public class ShipRepairs : MonoBehaviour
     public GameObject Tables;
     public GameObject Flowers;
     public GameObject FestivalNPCs;
+    public AudioSource MinLu;
+    public AudioClip FestivalSong;
 
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1f;
@@ -99,6 +101,8 @@ public class ShipRepairs : MonoBehaviour
                 Pot.SetActive(true);
                 Boxes.SetActive(false);
                 FestivalNPCs.SetActive(true);
+                MinLu.clip = FestivalSong;
+
             }
             dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
