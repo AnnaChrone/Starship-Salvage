@@ -4355,12 +4355,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 289441141}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -14608,12 +14611,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 1941835052}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -16741,12 +16747,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 616849618}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -18763,12 +18772,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 484718600}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -21813,12 +21825,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 535167512}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -24000,12 +24015,15 @@ MonoBehaviour:
   Zorb: 1
   Zinnia: 0
   Rami: 0
+  festivalZorb: 1
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 357255766}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 1333157700}
   CoLu: {fileID: 750023846}
   LuLu: {fileID: 1731941330}
   RaLu: {fileID: 520267404}
@@ -27154,7 +27172,6 @@ MonoBehaviour:
   dayCount: {fileID: 1380198583}
   bigDay: {fileID: 559335411}
   Nextday: {fileID: 654588031}
-  TEMP: {fileID: 0}
   objective: {fileID: 1517862162}
   Fix1: {fileID: 2100000, guid: 17fea31aa7f590b4bb195f91eaa7aca4, type: 2}
   Fix2: {fileID: 2100000, guid: 2c57d100f8eaacd498ca628d03ea2a8b, type: 2}
@@ -27175,7 +27192,7 @@ MonoBehaviour:
   Pot: {fileID: 4496110099564709179}
   Tables: {fileID: 1636920578}
   Flowers: {fileID: 996567232}
-  Friends: {fileID: 0}
+  FestivalNPCs: {fileID: 475379524}
   canvasGroup: {fileID: 1891945453}
   fadeDuration: 2
   HoldDuration: 1
@@ -30699,7 +30716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728801179
 Transform:
   m_ObjectHideFlags: 0
@@ -31071,12 +31088,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 114481947}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -31529,12 +31549,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 1521019813}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -41041,12 +41064,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 1
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 931001196}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -51999,12 +52025,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 1
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 1
   Denied: 0
   Exclamation: {fileID: 1064054062}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -52434,7 +52463,8 @@ MonoBehaviour:
   Cutscene: {fileID: 1265750607}
   MinLuCollider: {fileID: 333024534713518098}
   Intro: 0
-  Zorb: {fileID: 1487406193}
+  Final: 1
+  Zorb: {fileID: 0}
 --- !u!114 &1265750607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57729,6 +57759,7 @@ MonoBehaviour:
   Cutscene: {fileID: 1378651078}
   MinLuCollider: {fileID: 333024534713518098}
   Intro: 0
+  Final: 0
   Zorb: {fileID: 1487406193}
 --- !u!114 &1378651078
 MonoBehaviour:
@@ -59829,12 +59860,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 1
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 2269251046167241748}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -61803,12 +61837,15 @@ MonoBehaviour:
   Zorb: 1
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 177756092}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 750023846}
   LuLu: {fileID: 1731941330}
   RaLu: {fileID: 520267404}
@@ -62464,12 +62501,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 1
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 1
   Denied: 0
   Exclamation: {fileID: 777533844}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -63658,6 +63698,12 @@ MonoBehaviour:
   LuLu: {fileID: 757602850}
   MinLu: {fileID: 356910292}
   Rami: {fileID: 1256282897}
+  FRami: {fileID: 1501409455}
+  FZorb: {fileID: 585604253}
+  FZinnia: {fileID: 1005466179}
+  FCL: {fileID: 380539775}
+  fLL: {fileID: 434085640}
+  FRL: {fileID: 2068851481}
   cutscene: {fileID: 1378651077}
   cameraTransform: {fileID: 330585546}
   lookSensitivity: 0.1
@@ -67892,7 +67938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1636920579
 Transform:
   m_ObjectHideFlags: 0
@@ -71499,12 +71545,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 42873903}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -79758,12 +79807,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 22711877}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}
@@ -85051,12 +85103,15 @@ MonoBehaviour:
   Zorb: 0
   Zinnia: 0
   Rami: 0
+  festivalZorb: 0
+  HeadingHome: 0
   QuestFinished: 0
   FinishedNPC: 0
   FirstTime: 0
   Denied: 0
   Exclamation: {fileID: 921221035}
   Objective: {fileID: 1517862162}
+  FinalCutscene: {fileID: 0}
   CoLu: {fileID: 0}
   LuLu: {fileID: 0}
   RaLu: {fileID: 0}

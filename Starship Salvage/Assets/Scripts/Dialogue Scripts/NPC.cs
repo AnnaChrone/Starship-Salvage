@@ -47,6 +47,9 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     public bool Zorb;
     public bool Zinnia;
     public bool Rami;
+    public bool festivalZorb;
+    public bool HeadingHome;
+
     
 
     public bool QuestFinished;
@@ -57,6 +60,7 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
     [Header("Exclamations and Objective")]
     public GameObject Exclamation;
     public Objectives Objective;
+    public GameObject FinalCutscene;
 
     [Header("NPC Presidents")]
     public NPC CoLu;
@@ -304,11 +308,15 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
                 return;
             }
         }
-
+         if (festivalZorb && dialogueIndex == 7)
+        {
+            HeadingHome = true;
+        }
 
         if (++dialogueIndex < dialogueData.Lines.Length)
         {
             DisplayCurrentLine();
+            
         }
         else
         {
@@ -380,6 +388,13 @@ public class NPC : MonoBehaviour, IInteractable //NPC is an interactable
         Debug.Log("End");
         StopAllCoroutines();
         hasTalked = true;
+
+        if (festivalZorb && HeadingHome)
+        {
+            //play heading home scene
+            Debug.Log("Heading Home!");
+            FinalCutscene.SetActive(true);
+        }
 
         if (MinLuNPC != null)
         {

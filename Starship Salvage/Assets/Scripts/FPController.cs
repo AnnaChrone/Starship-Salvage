@@ -30,6 +30,12 @@ public class FPController : MonoBehaviour
     public NPC LuLu;
     public NPC MinLu;
     public NPC Rami;
+    public NPC FRami;
+    public NPC FZorb;
+    public NPC FZinnia;
+    public NPC FCL;
+    public NPC fLL;
+    public NPC FRL;
     public CutSceneController cutscene;
 
     [Header("Look Settings")]
@@ -158,7 +164,14 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (CookMiniGame.activeInHierarchy || Minigame.activeInHierarchy ||
+        if (CookMiniGame.activeInHierarchy || 
+            Minigame.activeInHierarchy ||
+            FRami.isFrozen ||
+            FZinnia.isFrozen ||
+            FZorb.isFrozen ||
+            FCL.isFrozen ||
+            fLL.isFrozen ||
+            FRL.isFrozen ||
     RaLuPres.isFrozen ||
     MinLu.isFrozen ||
     LuLuPres.isFrozen ||

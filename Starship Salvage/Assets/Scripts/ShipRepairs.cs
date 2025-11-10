@@ -12,7 +12,7 @@ public class ShipRepairs : MonoBehaviour
     public TMP_Text dayCount;
     public TMP_Text bigDay;
     public AudioSource Nextday;
-    public GameObject TEMP;
+   
     public Objectives objective;
 
     [Header("Ship Fix Materials")]
@@ -41,7 +41,7 @@ public class ShipRepairs : MonoBehaviour
     public GameObject Pot;
     public GameObject Tables;
     public GameObject Flowers;
-    public GameObject Friends;
+    public GameObject FestivalNPCs;
 
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1f;
@@ -98,7 +98,7 @@ public class ShipRepairs : MonoBehaviour
                 Tables.SetActive(true);
                 Pot.SetActive(true);
                 Boxes.SetActive(false);
-                Friends.SetActive(true);
+                FestivalNPCs.SetActive(true);
             }
             dayCount.SetText("DAY " + (repairCount + 1));
             StartCoroutine(FadeIn());
