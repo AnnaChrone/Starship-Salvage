@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: Stew
   itemPrefab: {fileID: 3164695423634741170}
-  icon: {fileID: 21300000, guid: 478e920a4bc52a04a83c004745e77596, type: 3}
+  icon: {fileID: 21300000, guid: 4f80742ecc3275e4bb83ab57682c5b2b, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}
   consumable: 0

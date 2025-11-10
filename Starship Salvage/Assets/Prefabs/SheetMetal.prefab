@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: SheetMetal
   itemPrefab: {fileID: 5416098143170611772}
-  icon: {fileID: 21300000, guid: 94ad624a2d8e48340847ed344ca54709, type: 3}
+  icon: {fileID: 21300000, guid: 06225c35d03bb9d40a2f34b7a644e295, type: 3}
   Collect: {fileID: 0}
   DropAudio: {fileID: 0}
   consumable: 0
